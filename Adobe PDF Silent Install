@@ -1,0 +1,44 @@
+# Adobe PDF Silent Install
+
+# Silent install Adobe Reader DC
+# https://get.adobe.com/nl/reader/enterprise/
+
+# VARS
+$Targets = "server01" #This line indicates the servers you want to perform the installs on. You can specify more than one if necessary. Add a comma and place the servername in double quotes
+$workdir = "C:\AutomatedInstalls\Adobe"
+$AdobeSilentInstall = @('/sAll','/rs','/msi')
+
+# Check if work directory exists if not create it
+
+  If (Test-Path -Path $workdir -PathType Container)
+  { Write-Host "$workdir already exists" -ForegroundColor Red}
+  ELSE
+  { New-Item -Path $workdir  -ItemType directory }
+
+
+
+# Start the installation
+
+#>>Installation options for Adobe PDF Reader
+    #Install Remotely, from a DC or management server. Remove the # from Invoke, copy to the DC and run.
+    #Invoke-Command -ComputerName $Targets -ScriptBlock {(Start-Process -FilePath "C:\AutomatedInstalls\Adobe\AdobePDFrdr.exe" -Wait -ArgumentList @('/sAll','/rs','/msi') -Verb runas -PassThru)}
+    
+    #working silently, local install
+    #Start-Process -FilePath "$workdir\AdobePDFrdr.exe" -Wait -ArgumentList $AdobeSilentInstall -Verb runas -PassThru
+
+
+#Display a notification to confirm a successful install
+Write-Host "Adobe PDF Reader Clients updated successfully on $Targets"
+
+$NotificationTitle = 'Adobe PDF Reader Client Installs'
+$NotificationText = 'Adobe PDF Reader Clients updated successfully on $Targets'
+
+[reflection.assembly]::LoadWithPartialName('System.Windows.Forms')
+[reflection.assembly]::LoadWithPartialName('System.Drawing')
+$notify = New-Object system.windows.forms.notifyicon
+$notify.icon = [System.Drawing.SystemIcons]::Information
+$notify.visible = $true
+$notify.showballoontip(10,$NotificationTitle,$NotificationText,[system.windows.forms.tooltipicon]::None)
+
+#Notification Text Options
+#Adobe PDF Reader Clients updated successfully on $Targets!
