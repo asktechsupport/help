@@ -1,0 +1,18 @@
+#-----------------------------------------------------------------#
+#---------------CERTIFICATES POWERSHELL TOOLKIT V1----------------#
+#----------------------VIEWING CERTIFICATES-----------------------#
+#Scenario
+#This PowerShell script will list certificates for the local machine and current user certificate stores.
+
+get-childitem -Path Cert:\ | foreach-object ({
+    $location = $_.Location
+    foreach($store in $_.StoreNames.Keys) {         
+        get-childitem -Path "Cert:\$location\$store" | foreach-object ({
+            $thumb = $($_.ThumbPrint)
+            $issuer = $($_.Issuer)          
+            write-host "$location $store $issuer"
+        })
+    }
+}) 
+
+# Source - https://www.alkanesolutions.co.uk/2019/07/18/list-certificates-for-local-machine-and-current-user/ 
