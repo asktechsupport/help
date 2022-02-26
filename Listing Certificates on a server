@@ -1,6 +1,9 @@
-#-----------------------------------------------------------------#
-#---------------CERTIFICATES POWERSHELL TOOLKIT V1----------------#
-#----------------------VIEWING CERTIFICATES-----------------------#
+#______________________________________________________________________
+#                  CERTIFICATES POWERSHELL TOOLKIT V1
+#                         Viewing Certificates
+#______________________________________________________________________
+
+
 #Scenario
 #This PowerShell script will list certificates for the local machine and current user certificate stores.
 
