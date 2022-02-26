@@ -1,0 +1,20 @@
+#______________________________________________________________________
+#                  CERTIFICATES POWERSHELL TOOLKIT V1
+#               New self-signed certificate with SAN values
+#______________________________________________________________________
+
+$trustedroot = "Cert:\LocalMachine\AuthRoot"
+$sanfqdn = "tlbdc000.domain00.local"
+$san = "tlbdc000"
+
+New-SelfSignedCertificate -Subject $sanfqdn"&"$san
+
+#Not working with extra SAN Values
+New-SelfSignedCertificate -Subject $sanfqdn"&"$san -TextExtension @("cn=$sanfqdn&cn=$san&DNS=$san&san=$sanfqdn&san=$san") 
+
+#Not working yet to install immediately into trusted root. This is easy manually though.
+#-CertStoreLocation $trustedroot
+
+#EXAMPLE
+
+#New-SelfSignedCertificate -Subject "localhost" -TextExtension @("2.5.29.17={text}DNS=localhost&IPAddress=127.0.0.1&IPAddress=::1")
