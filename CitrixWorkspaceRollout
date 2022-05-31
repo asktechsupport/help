@@ -1,0 +1,3 @@
+CitrixWorkspaceApp-2108.exe /silent /AutoUpdateCheck=auto ALLOWADDSTORE=S ALLOWSAVEPWD=N ENABLE_SSON=NO STORE0="<our storefront URL>";
+
+#https://community.spiceworks.com/people/scottn813 from Spiceworks
