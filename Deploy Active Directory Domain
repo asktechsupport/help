@@ -1,0 +1,30 @@
+#Create 'domain0' with powershell
+#Run on your new Domain Controlller
+
+ 
+#Install DNS
+Install-WindowsFeature -Name DNS -IncludeManagementTools
+
+#Install AD Forest "Domain0.local"
+Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
+Install-ADDSForest -DomainName Domain0.local
+
+Import-Module ADDSDeployment
+Install-ADDSForest `
+-CreateDnsDelegation:$false `
+-DatabasePath "C:\Windows\NTDS" `
+-DomainMode "WinThreshold" `
+-DomainName "Domain0.local" `
+-DomainNetbiosName "Domain0" `
+-ForestMode "WinThreshold" `
+-InstallDns:$true `
+-LogPath "C:\Windows\NTDS" `
+-NoRebootOnCompletion:$false `
+-SysvolPath "C:\Windows\SYSVOL" `
+-Force:$true
+
+#Check that admin password is not stored in the XML files (Sysvol mining exploit)
+#\\Domain0\SYSVOL\Domain0\Policies\
+
+#findstr /S /I cpassword \\Domain0.local\sysvol\Domain0.local\policies\*.xml
+
