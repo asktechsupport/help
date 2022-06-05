@@ -1,21 +1,21 @@
-#Create 'domain0' with powershell
+#Create 'basicvlab' with powershell
 #Run on your new Domain Controlller
 
  
 #Install DNS
 Install-WindowsFeature -Name DNS -IncludeManagementTools
 
-#Install AD Forest "Domain0.local"
+#Install AD Forest "basicvlab.local"
 Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-Install-ADDSForest -DomainName Domain0.local
+Install-ADDSForest -DomainName basicvlab.local
 
 Import-Module ADDSDeployment
 Install-ADDSForest `
 -CreateDnsDelegation:$false `
 -DatabasePath "C:\Windows\NTDS" `
 -DomainMode "WinThreshold" `
--DomainName "Domain0.local" `
--DomainNetbiosName "Domain0" `
+-DomainName "basicvlab.local" `
+-DomainNetbiosName "basicvlab" `
 -ForestMode "WinThreshold" `
 -InstallDns:$true `
 -LogPath "C:\Windows\NTDS" `
@@ -24,7 +24,7 @@ Install-ADDSForest `
 -Force:$true
 
 #Check that admin password is not stored in the XML files (Sysvol mining exploit)
-#\\Domain0\SYSVOL\Domain0\Policies\
+#\\basicvlab\SYSVOL\basicvlab\Policies\
 
-#findstr /S /I cpassword \\Domain0.local\sysvol\Domain0.local\policies\*.xml
+#findstr /S /I cpassword \\basicvlab.local\sysvol\basicvlab.local\policies\*.xml
 
