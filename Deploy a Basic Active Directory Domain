@@ -1,9 +1,14 @@
 #Create 'basicvlab' with powershell
-#Run on your new Domain Controlller
+#Run on your new Domain Controller. This script has been tested successfully in the author's lab environment.
 
  
 #Install DNS
 Install-WindowsFeature -Name DNS -IncludeManagementTools
+
+#Install DHCP
+Install-WindowsFeature DHCP -IncludeManagementTools
+  netsh dhcp add securitygroups #This adds DHCP Administrators and DHCP Users
+  Restart-Service dhcpserver
 
 #Install AD Forest "basicvlab.local"
 Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
