@@ -3,6 +3,7 @@
 <#
 .Synopsis
     Adobe PDF Silent Install
+
 .DESCRIPTION
     Run Adobe PDF Reader silently on one or more targets
 
