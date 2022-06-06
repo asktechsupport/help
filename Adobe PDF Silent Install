@@ -1,7 +1,17 @@
-# Adobe PDF Silent Install
+#requires -runasadministrator
 
-# Silent install Adobe Reader DC
-# https://get.adobe.com/nl/reader/enterprise/
+<#
+.Synopsis
+    Adobe PDF Silent Install
+.DESCRIPTION
+    Run Adobe PDF Reader silently on one or more targets
+
+.NOTE
+   Author cybersectv, cybersectv@protonmail.com  https://twitter.com/cybersec_tv
+   
+.SOURCE
+   https://get.adobe.com/nl/reader/enterprise/
+#>
 
 # VARS
 $Targets = "server01" #This line indicates the servers you want to perform the installs on. You can specify more than one if necessary. Add a comma and place the servername in double quotes
@@ -27,18 +37,15 @@ $AdobeSilentInstall = @('/sAll','/rs','/msi')
     #Start-Process -FilePath "$workdir\AdobePDFrdr.exe" -Wait -ArgumentList $AdobeSilentInstall -Verb runas -PassThru
 
 
-#Display a notification to confirm a successful install
-Write-Host "Adobe PDF Reader Clients updated successfully on $Targets"
+        #Display a notification to confirm a successful install
+            Write-Host "Adobe PDF Reader Clients updated successfully on $Targets"
 
-$NotificationTitle = 'Adobe PDF Reader Client Installs'
-$NotificationText = 'Adobe PDF Reader Clients updated successfully on $Targets'
+            $NotificationTitle = 'Adobe PDF Reader Client Installs'
+            $NotificationText = 'Adobe PDF Reader Clients updated successfully on $Targets'
 
-[reflection.assembly]::LoadWithPartialName('System.Windows.Forms')
-[reflection.assembly]::LoadWithPartialName('System.Drawing')
-$notify = New-Object system.windows.forms.notifyicon
-$notify.icon = [System.Drawing.SystemIcons]::Information
-$notify.visible = $true
-$notify.showballoontip(10,$NotificationTitle,$NotificationText,[system.windows.forms.tooltipicon]::None)
-
-#Notification Text Options
-#Adobe PDF Reader Clients updated successfully on $Targets!
+            [reflection.assembly]::LoadWithPartialName('System.Windows.Forms')
+            [reflection.assembly]::LoadWithPartialName('System.Drawing')
+            $notify = New-Object system.windows.forms.notifyicon
+            $notify.icon = [System.Drawing.SystemIcons]::Information
+            $notify.visible = $true
+            $notify.showballoontip(10,$NotificationTitle,$NotificationText,[system.windows.forms.tooltipicon]::None)
