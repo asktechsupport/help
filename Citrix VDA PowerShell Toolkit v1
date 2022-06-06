@@ -1,7 +1,23 @@
 #--------------------AUTOMATED VDA INSTALLS POWERSHELL TOOLKIT v1-------------------#
-#Any lines that start with hash {#} like this one, will not be executed within the code
-#The AutomatedInstalls folder needs to be present on the target machines, not the DC's
-#The experience is best running as an Administrator from a Domain Controller
+
+<#
+.Synopsis
+    Automated (silent) Citrix VDA Installs
+
+.DESCRIPTION
+    Install Citrix VDA's on one or more targets
+
+.GUIDANCE
+[*] The AutomatedInstalls folder needs to be present on the target machines, not the DC's
+[*] The experience is best running as an Administrator from a Domain Controller
+[*] Script also accounts for the Print Spooler CVE and checks to ensure Print Spooler is enabled as the VDA will NOT install without this enabled
+
+.NOTE
+   Author cybersectv, cybersectv@protonmail.com  https://twitter.com/cybersec_tv
+   
+.SOURCE
+   https://get.adobe.com/nl/reader/enterprise/
+#>
 
 #Perform VDA Installs on these servers
 $InstallVDAonTargets = "server01"
@@ -49,27 +65,27 @@ Invoke-Command -ComputerName $InstallVDAonTargets -ScriptBlock {
 
  #
 # To install from the DC's on Images with session hosts
-#______________________________________#
+
 #
 #Differences explained below
 # An Extra option is selected /mastermcsimage
-#______________________________________#
+
 ###---I HAVE AN EXTRA OPTION SELECTED TO CONFIGURE ME TO DEPLOY SESSION HOSTS
 ###---THAT OPTION IS: </mastermcsimage> (WITHOUT THE ARROWS)---###
 
-#Invoke-Command -ComputerName $InstallVDAonTargets -ScriptBlock { 
- #   Start-Process "C:\Citrix\Cloud VDA\VDAServerSetup_2106.exe" -ArgumentList '/virtualmachine /components vda,plugins /includeadditional "Citrix Profile Management,Citrix Profile Management WMI Plug-in" /mastermcsimage /enable_hdx_ports /enable_hdx_udp_ports /enable_real_time_transport /enable_remote_assistance /optimize /controllers "con01.fqdn.co.uk con02.fqdn.co.uk" /Exclude "Citrix Telemetry Service" /disableexperiencemetrics /logpath "C:\Citrix\VDALogs\VDA_Install.log" /quiet' -Wait
-#}
+	#Invoke-Command -ComputerName $InstallVDAonTargets -ScriptBlock { 
+	 #   Start-Process "C:\Citrix\Cloud VDA\VDAServerSetup_2106.exe" -ArgumentList '/virtualmachine /components vda,plugins /includeadditional "Citrix Profile Management,Citrix Profile Management WMI Plug-in" /mastermcsimage /enable_hdx_ports /enable_hdx_udp_ports /enable_real_time_transport /enable_remote_assistance /optimize /controllers "con01.fqdn.co.uk con02.fqdn.co.uk" /Exclude "Citrix Telemetry Service" /disableexperiencemetrics /logpath "C:\Citrix\VDALogs\VDA_Install.log" /quiet' -Wait
+	#}
 
 #_______________________________________________End Script__________________________________________________________#
 
 
 #
 # To remove (WORKING 12/09/2021)
-$RemoveVDAonTargets = "server01"
-#
-#Invoke-Command -ComputerName $RemoveVDAonTargets -ScriptBlock { 
- #   Start-Process "C:\Citrix\Cloud VDA\VDAServerSetup_2106.exe" -ArgumentList '/removeall /quiet' -Wait
-#}
+	$RemoveVDAonTargets = "server01"
+	#
+	#Invoke-Command -ComputerName $RemoveVDAonTargets -ScriptBlock { 
+	 #   Start-Process "C:\Citrix\Cloud VDA\VDAServerSetup_2106.exe" -ArgumentList '/removeall /quiet' -Wait
+	#}
 
 #_______________________________________________End Script__________________________________________________________#
