@@ -24,6 +24,8 @@ $InstallVDAonTargets = "server01"
 $CheckSpoolerbeforeinstall = "C:\Citrix\VDAPreInstallChecks\Get-SpoolerStatus_$ReportDate.htm"
 $workdir1 = "C:\Citrix\Cloud VDA\"
 $workdir2 = "C:\Citrix\VDAPreInstallChecks\"
+$InstallvdaforSharedDesktops = "Start-Process "C:\Citrix\Cloud VDA\VDAServerSetup_2106.exe" -ArgumentList '/virtualmachine /components vda,plugins /includeadditional "Citrix Profile Management,Citrix Profile Management WMI Plug-in" /enable_hdx_ports /enable_hdx_udp_ports /enable_real_time_transport /enable_remote_assistance /optimize /controllers "con01.fqdn.co.uk con02.fqdn.co.uk" /Exclude "Citrix Telemetry Service" /disableexperiencemetrics /logpath "C:\Citrix\VDALogs\VDA_Install.log" /quiet' -Wait"
+$InstallvdaforMCS = "Start-Process "C:\Citrix\Cloud VDA\VDAServerSetup_2106.exe" -ArgumentList '/virtualmachine /components vda,plugins /includeadditional "Citrix Profile Management,Citrix Profile Management WMI Plug-in" /mastermcsimage /enable_hdx_ports /enable_hdx_udp_ports /enable_real_time_transport /enable_remote_assistance /optimize /controllers "con01.fqdn.co.uk con02.fqdn.co.uk" /Exclude "Citrix Telemetry Service" /disableexperiencemetrics /logpath "C:\Citrix\VDALogs\VDA_Install.log" /quiet' -Wait"
 
 	# Check if work directory exists, and create it if not
 
@@ -58,7 +60,7 @@ start $CheckSpoolerbeforeinstall
 #
 
 Invoke-Command -ComputerName $InstallVDAonTargets -ScriptBlock { 
-    Start-Process "C:\Citrix\Cloud VDA\VDAServerSetup_2106.exe" -ArgumentList '/virtualmachine /components vda,plugins /includeadditional "Citrix Profile Management,Citrix Profile Management WMI Plug-in" /enable_hdx_ports /enable_hdx_udp_ports /enable_real_time_transport /enable_remote_assistance /optimize /controllers "con01.fqdn.co.uk con02.fqdn.co.uk" /Exclude "Citrix Telemetry Service" /disableexperiencemetrics /logpath "C:\Citrix\VDALogs\VDA_Install.log" /quiet' -Wait
+    $InstallvdaforSharedDesktops
 }
 
 #_______________________________________________End Script__________________________________________________________#
@@ -74,7 +76,7 @@ Invoke-Command -ComputerName $InstallVDAonTargets -ScriptBlock {
 ###---THAT OPTION IS: </mastermcsimage> (WITHOUT THE ARROWS)---###
 
 	#Invoke-Command -ComputerName $InstallVDAonTargets -ScriptBlock { 
-	 #   Start-Process "C:\Citrix\Cloud VDA\VDAServerSetup_2106.exe" -ArgumentList '/virtualmachine /components vda,plugins /includeadditional "Citrix Profile Management,Citrix Profile Management WMI Plug-in" /mastermcsimage /enable_hdx_ports /enable_hdx_udp_ports /enable_real_time_transport /enable_remote_assistance /optimize /controllers "con01.fqdn.co.uk con02.fqdn.co.uk" /Exclude "Citrix Telemetry Service" /disableexperiencemetrics /logpath "C:\Citrix\VDALogs\VDA_Install.log" /quiet' -Wait
+	 #	$InstallvdaforMCS
 	#}
 
 #_______________________________________________End Script__________________________________________________________#
