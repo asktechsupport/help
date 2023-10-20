@@ -1,0 +1,2 @@
+Get-ChildItem | Rename-Item -NewName {$_.name -replace " - Copy",'b'}
+#Renames any files with " - Copy" to append a b at the end
