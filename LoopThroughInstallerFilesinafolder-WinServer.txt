@@ -1,7 +1,15 @@
-#v1 - installs each .msi without prompting
+#v2 - installs each .msi without prompting and displays a progress bar for each file
 cd C:\AutomatedInstalls
 $msi = @(gci -Path C:\AutomatedInstalls | Where {$_.Name -like "*.msi"})
-
+$counter = 1
 foreach ($file in $msi) {
+    Write-Progress -Activity "Installing MSI files" -Status "$($file.Name) in progress..." -PercentComplete (($counter / $msi.Count) * 100)
     saps $file /quiet -Wait
+    $counter++
     }
+
+#Explanation
+#line3: get each item in the folder (get-child item = gci) where the files end in .msi
+#line5: for each file in the array variable ($msi)
+#line7: saps (start-process) on each of the files.
+#line6&8: display a progress bar for each of the files
