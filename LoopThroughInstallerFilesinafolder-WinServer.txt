@@ -1,0 +1,7 @@
+#v1 - installs each .msi without prompting
+cd C:\AutomatedInstalls
+$msi = @(gci -Path C:\AutomatedInstalls | Where {$_.Name -like "*.msi"})
+
+foreach ($file in $msi) {
+    saps $file /quiet -Wait
+    }
