@@ -1,0 +1,74 @@
+#credit https://www.youtube.com/watch?v=jPhznpFna7E
+Add-Type -AssemblyName System.Windows.Forms
+
+#[System.Windows.Forms.
+#Set the Form objects
+    $FormObject = [System.Windows.Forms.Form]
+    $LabelObject = [System.Windows.Forms.Label]
+    $buttonObject = [System.Windows.Forms.Button]
+    $comboboxObject = [System.Windows.Forms.ComboBox]
+    $defaultfont='Arial,11'
+
+#📋Basic Form Setup
+    $svcform=New-Object $FormObject
+    $svcform.ClientSize='500,300'
+    $svcform.Text='Service Inspector'
+    $svcform.BackColor="#ffffff"
+    $svcform.Font=$defaultfont
+
+    $lbltitle=New-Object $LabelObject
+        $lbltitle.Text='Services'
+        $lbltitle.AutoSize=$true
+        $lbltitle.Font='Arial,11,style=Bold'
+        $lbltitle.ForeColor='black'
+        $lbltitle.Location=New-Object System.Drawing.Point(20,20)
+#📋Basic Form Setup
+
+#Form Features
+    $lblsvc=New-Object $LabelObject
+        $lblsvc.Text='Services'
+        $lblsvc.AutoSize=$true        
+        $lblsvc.ForeColor='black'
+        $lblsvc.Location=New-Object System.Drawing.Point(20,20)
+    $svcdropdown=New-Object $comboboxObject
+        $svcdropdown.Text='Pick a service'
+        $svcdropdown.Width='300'        
+        $svcdropdown.Location=New-Object System.Drawing.Point(140,21)
+            Get-Service | ForEach {$svcdropdown.Items.Add($_.Name)} #Load the drop down list with services
+    $lblsvcname=New-Object $LabelObject
+        $lblsvcname.Text='Service Name'
+        $lblsvcname.AutoSize=$true        
+        $lblsvcname.ForeColor='black'
+        $lblsvcname.Location=New-Object System.Drawing.Point(20,80)
+    $showsvcname=New-Object $LabelObject
+        $showsvcname.Text=''
+        $showsvcname.AutoSize=$true        
+        $showsvcname.ForeColor='black'
+        $showsvcname.Location=New-Object System.Drawing.Point(220,80)
+    $lblsvcstatus=New-Object $LabelObject
+        $lblsvcstatus.Text='Status'
+        $lblsvcstatus.AutoSize=$true        
+        $lblsvcstatus.ForeColor='black'
+        $lblsvcstatus.Location=New-Object System.Drawing.Point(20,120)
+    $showsvcstatus=New-Object $LabelObject
+        $showsvcstatus.Text=''
+        $showsvcstatus.AutoSize=$true        
+        $showsvcstatus.ForeColor='black'
+        $showsvcstatus.Location=New-Object System.Drawing.Point(220,120)
+
+
+#Add elements to the form
+$svcform.Controls.AddRange(@($lbltitle,$lblsvc,$lblsvcstatus,$lblsvcname,$svcdropdown,$showsvcname,$showsvcstatus))
+function svcDetails{
+    $ServiceName=$svcdropdown.SelectedItem
+        $details=Get-Service -Name $ServiceName | select *
+        $showsvcname.Text=$details.name
+        $showsvcstatus.Text=$details.status
+
+}
+    $svcdropdown.Add_SelectedIndexChanged({svcDetails})
+
+
+###############################################
+$svcform.ShowDialog() #Display Form
+$svcform.Dispose() ##Clean up
