@@ -66,8 +66,14 @@ $svcform.Controls.AddRange(@($lbltitle,$lblsvc,$lblsvcstatus,$lblsvcname,$svcdro
 function svcDetails{
     $ServiceName=$svcdropdown.SelectedItem
         $details=Get-Service -Name $ServiceName | select *
-        $showsvcname.Text=$details.name
+        $showsvcname.Text=$details.displayname
         $showsvcstatus.Text=$details.status
+
+        if ($showsvcstatus.text -eq 'Running'){
+            $showsvcstatus.ForeColor='green'
+        }else{
+            $showsvcstatus.ForeColor='red'
+        }
 
 }
     $svcdropdown.Add_SelectedIndexChanged({svcDetails})
