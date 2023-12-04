@@ -28,6 +28,26 @@ $xaml.SelectNodes("//*[@Name]") | ForEach-Object {
 }
 
 Get-Variable var_*
-Get-Service | ForEach-Object {$var_svcdropdown.Items.Add($_.Name)}
+Get-Service | ForEach-Object {$var_svcdropdown.Items.Add($_.Name)} #Load services into the dropdown
+
+function svcDetails{
+    $ServiceName=$var_svcdropdown.SelectedItem
+        $details=Get-Service -Name $ServiceName | select *
+        $var_showsvcname.Content=$details.displayname
+        $var_showsvcstatus.Content=$details.status
+
+        $var_showsvcname.Foreg
+
+        if ($var_showsvcstatus.Content -eq 'Running'){
+            $var_showsvcstatus.Foreground='green'
+        }else{
+            $var_showsvcstatus.Foreground='red'
+        }
+
+}
+
+$var_svcdropdown.Add_SelectionChanged({svcDetails})
+    
+
 
 $psform.ShowDialog()
