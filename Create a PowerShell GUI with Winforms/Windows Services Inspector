@@ -55,10 +55,14 @@ Add-Type -AssemblyName System.Windows.Forms
         $showsvcstatus.AutoSize=$true        
         $showsvcstatus.ForeColor='black'
         $showsvcstatus.Location=New-Object System.Drawing.Point(220,120)
+    $cancelButton = New-Object $buttonObject
+        $cancelButton.Location = New-Object System.Drawing.Point(153,215)
+        $cancelButton.Text = '❌Cancel'
+        $cancelButton.AutoSize=$true 
 
 
 #Add elements to the form
-$svcform.Controls.AddRange(@($lbltitle,$lblsvc,$lblsvcstatus,$lblsvcname,$svcdropdown,$showsvcname,$showsvcstatus))
+$svcform.Controls.AddRange(@($lbltitle,$lblsvc,$lblsvcstatus,$lblsvcname,$svcdropdown,$showsvcname,$showsvcstatus,$cancelButton))
 function svcDetails{
     $ServiceName=$svcdropdown.SelectedItem
         $details=Get-Service -Name $ServiceName | select *
