@@ -1,4 +1,8 @@
 #credit https://www.youtube.com/watch?v=8l3Z0GYvbCE&t=23s
+#try{
+#}catch{
+#}
+#}
 Add-Type -AssemblyName PresentationFramework
 
 $xamlFile="C:\Users\maxnh\OneDrive\Max Haley OneDrive\Technical Documentation\GUI Tutorial Series-OneDrive\vs\MainWindow.xaml"
@@ -14,4 +18,16 @@ try{
     Write-Host $_.Exception
     throw
 }
+
+$xaml.SelectNodes("//*[@Name]") | ForEach-Object {
+    try{
+        Set-Variable -Name "var_$($_.Name)" -Value $psform.FindName($_.Name) -ErrorAction Stop
+    }catch{
+        throw
+    }
+}
+
+Get-Variable var_*
+Get-Service | ForEach-Object {$var_svcdropdown.Items.Add($_.Name)}
+
 $psform.ShowDialog()
