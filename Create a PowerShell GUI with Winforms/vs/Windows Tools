@@ -1,0 +1,17 @@
+#credit https://www.youtube.com/watch?v=8l3Z0GYvbCE&t=23s
+Add-Type -AssemblyName PresentationFramework
+
+$xamlFile="C:\Users\maxnh\OneDrive\Max Haley OneDrive\Technical Documentation\GUI Tutorial Series-OneDrive\vs\MainWindow.xaml"
+
+$inputXAML=Get-Content -Path $xamlFile -Raw
+$inputXAML=$inputXAML -replace 'mc:Ignorable="d"','' -replace "x:N","N" -replace '^<Win.*','<Window'
+[XML]$XAML=$inputXAML
+
+$reader = New-Object System.Xml.XmlNodeReader $XAML
+try{
+    $psform=[Windows.Markup.XamlReader]::Load($reader)
+}catch{
+    Write-Host $_.Exception
+    throw
+}
+$psform.ShowDialog()
