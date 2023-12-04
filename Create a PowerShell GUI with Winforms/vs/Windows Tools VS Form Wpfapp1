@@ -5,7 +5,7 @@
 #}
 Add-Type -AssemblyName PresentationFramework
 
-$xamlFile="C:\Users\maxnh\OneDrive\Max Haley OneDrive\Technical Documentation\GUI Tutorial Series-OneDrive\vs\MainWindow.xaml"
+$xamlFile="C:\Users\<<<Username\CloudStorageSolution\UserFolder>>>\Technical Documentation\GUI Tutorial Series-OneDrive\vs\MainWindow.xaml"
 
 $inputXAML=Get-Content -Path $xamlFile -Raw
 $inputXAML=$inputXAML -replace 'mc:Ignorable="d"','' -replace "x:N","N" -replace '^<Win.*','<Window'
