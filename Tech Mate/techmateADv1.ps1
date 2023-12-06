@@ -54,19 +54,19 @@ $sheet.Activate() | Out-Null
 #Create Intial row so you can add borders later
   $initalRow = $row
 #create Headers for your sheet
-  $sheet.Cells.Item($row,$column) = "Computer Name"
+  $sheet.Cells.Item($row,$column) = "Hostname"
   $sheet.Cells.Item($row,$column).Font.Size = 16
   $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
   $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
   $sheet.Cells.Item($row,$column).Font.Bold = $true
   $column++
-  $sheet.Cells.Item($row,$column) = "Service Display Name"
+  $sheet.Cells.Item($row,$column) = "FQDN"
   $sheet.Cells.Item($row,$column).Font.Size = 16
   $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
   $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
   $sheet.Cells.Item($row,$column).Font.Bold = $true
   $column++
-  $sheet.Cells.Item($row,$column) = "Status"
+  $sheet.Cells.Item($row,$column) = "IP Address"
   $sheet.Cells.Item($row,$column).Font.Size = 16
   $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
   $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
@@ -74,7 +74,7 @@ $sheet.Activate() | Out-Null
 #Now that the headers are done we go down a row and back to column 1
   $row++
   $column = 1
-#command you want to use to get infromation
+#Get Server Properties
   foreach($i in $servers){
   $info = Get-ADComputer -Identity $($i.name) -Properties Name, DNSHostName, ipv4address
 
