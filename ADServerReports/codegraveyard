@@ -1,6 +1,6 @@
 #🗑code graveyard
 
-#🗑Functions
+#Functions
   function svcDetails{
       $ServiceName=$var_svcdropdown.SelectedItem
           $details=Get-Service -Name $ServiceName | select *
@@ -18,3 +18,11 @@
   }
   
   $var_svcdropdown.Add_SelectionChanged({svcDetails})
+
+#Columns
+  #$column++
+       #Switch($info.Enabled){
+        #True{$Enabled = "Enabled"; $sheet.Cells.Item($row,$column).Interior.ColorIndex = 4}
+        #False{$Enabled = "Disabled"; $sheet.Cells.Item($row,$column).Interior.ColorIndex = 3}
+    #}
+  $sheet.Cells.Item($row,$column) = $Enabled
