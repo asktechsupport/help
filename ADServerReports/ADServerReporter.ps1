@@ -87,7 +87,7 @@ $sheet.Activate() | Out-Null
        #Switch($info.Enabled){
         #True{$Enabled = "Enabled"; $sheet.Cells.Item($row,$column).Interior.ColorIndex = 4}
         #False{$Enabled = "Disabled"; $sheet.Cells.Item($row,$column).Interior.ColorIndex = 3}
-    }
+    #}
     $sheet.Cells.Item($row,$column) = $Enabled
     $row++
     $column = 1
