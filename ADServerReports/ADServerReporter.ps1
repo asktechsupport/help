@@ -69,16 +69,10 @@ $sheet.Activate() | Out-Null
   $info = Get-ADComputer -Identity $($i.name) -Properties Name, DNSHostName, ipv4address
 
     $sheet.Cells.Item($row,$column) = $info.Name
-    $column++
-    $sheet.Cells.Item($row,$column) = $info.DNSHostName
-    $column++
-    $sheet.Cells.Item($row,$column) = $info.ipv4address
-    #$column++
-       #Switch($info.Enabled){
-        #True{$Enabled = "Enabled"; $sheet.Cells.Item($row,$column).Interior.ColorIndex = 4}
-        #False{$Enabled = "Disabled"; $sheet.Cells.Item($row,$column).Interior.ColorIndex = 3}
-    #}
-    $sheet.Cells.Item($row,$column) = $Enabled
+        $column++
+            $sheet.Cells.Item($row,$column) = $info.DNSHostName
+        $column++
+            $sheet.Cells.Item($row,$column) = $info.ipv4address
     $row++
     $column = 1
 }
