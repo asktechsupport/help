@@ -1,0 +1,11 @@
+AD Server Reporting Tool
+
+How to 
+add additional columns
+1) Find this line  #📁create Headers for your sheet
+2) Copy from the Copy from the $column++ variable to the end of the .Font.Bold = $true variable
+3) Rename the strings which are denoted in double quotes, e.g. "Hostname"
+
+
+1) Find this line #📁Get Server Properties to fill out the worksheet columns
+2) Copy from the $column++ variable to the end of the $info.<property> variable
