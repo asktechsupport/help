@@ -3,7 +3,7 @@
     $defaultfont='Arial,11'
     $servers = Get-ADComputer -filter * -Properties * | select Name #Server names
       $getsvc = Get-Service -Name $ServiceName | select DisplayName,Status #Services
-      $showdomainname = Get-ADDomain | select DNSRoot
+      $showdomainname = Get-ADDomain | select DNSRoot -ExpandProperty DNSRoot
     
 
 #🔧Report Features
@@ -42,37 +42,79 @@ $sheet.Activate() | Out-Null
   $row++
 #Create Intial row so you can add borders later
   $initalRow = $row
-#create Headers for your sheet
-  $sheet.Cells.Item($row,$column) = "Hostname"
-  $sheet.Cells.Item($row,$column).Font.Size = 11
-  $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
-  $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
-  $sheet.Cells.Item($row,$column).Font.Bold = $true
-  $column++
-  $sheet.Cells.Item($row,$column) = "FQDN"
-  $sheet.Cells.Item($row,$column).Font.Size = 11
-  $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
-  $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
-  $sheet.Cells.Item($row,$column).Font.Bold = $true
-  $column++
-  $sheet.Cells.Item($row,$column) = "IP Address"
-  $sheet.Cells.Item($row,$column).Font.Size = 11
-  $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
-  $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
-  $sheet.Cells.Item($row,$column).Font.Bold = $true
+
+    #create Headers for your sheet
+          $sheet.Cells.Item($row,$column) = "Hostname"
+          $sheet.Cells.Item($row,$column).Font.Size = 11
+          $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
+          $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
+          $sheet.Cells.Item($row,$column).Font.Bold = $true
+      $column++
+          $sheet.Cells.Item($row,$column) = "FQDN"
+          $sheet.Cells.Item($row,$column).Font.Size = 11
+          $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
+          $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
+          $sheet.Cells.Item($row,$column).Font.Bold = $true
+      $column++
+          $sheet.Cells.Item($row,$column) = "IP Address"
+          $sheet.Cells.Item($row,$column).Font.Size = 11
+          $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
+          $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
+          $sheet.Cells.Item($row,$column).Font.Bold = $true
+      $column++
+          $sheet.Cells.Item($row,$column) = "Description"
+          $sheet.Cells.Item($row,$column).Font.Size = 11
+          $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
+          $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
+          $sheet.Cells.Item($row,$column).Font.Bold = $true
+      $column++
+          $sheet.Cells.Item($row,$column) = "Operating System"
+          $sheet.Cells.Item($row,$column).Font.Size = 11
+          $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
+          $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
+          $sheet.Cells.Item($row,$column).Font.Bold = $true
+      $column++
+          $sheet.Cells.Item($row,$column) = "Primary Application"
+          $sheet.Cells.Item($row,$column).Font.Size = 11
+          $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
+          $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
+          $sheet.Cells.Item($row,$column).Font.Bold = $true
+      $column++
+          $sheet.Cells.Item($row,$column) = "Secondary Application"
+          $sheet.Cells.Item($row,$column).Font.Size = 11
+          $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
+          $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
+          $sheet.Cells.Item($row,$column).Font.Bold = $true
+      $column++
+          $sheet.Cells.Item($row,$column) = "Project Manager"
+          $sheet.Cells.Item($row,$column).Font.Size = 11
+          $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
+          $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
+          $sheet.Cells.Item($row,$column).Font.Bold = $true
+      $column++
+          $sheet.Cells.Item($row,$column) = "Project Name"
+          $sheet.Cells.Item($row,$column).Font.Size = 11
+          $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
+          $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
+          $sheet.Cells.Item($row,$column).Font.Bold = $true
+
 
 #Now that the headers are done we go down a row and back to column 1
   $row++
   $column = 1
 #Get Server Properties
   foreach($i in $servers){
-  $info = Get-ADComputer -Identity $($i.name) -Properties Name, DNSHostName, ipv4address
+  $info = Get-ADComputer -Identity $($i.name) -Properties Name, DNSHostName, ipv4address, Description, OperatingSystem,
 
     $sheet.Cells.Item($row,$column) = $info.Name
         $column++
             $sheet.Cells.Item($row,$column) = $info.DNSHostName
         $column++
             $sheet.Cells.Item($row,$column) = $info.ipv4address
+        $column++
+            $sheet.Cells.Item($row,$column) = $info.Description
+        $column++
+            $sheet.Cells.Item($row,$column) = $info.OperatingSystem
     $row++
     $column = 1
 }
@@ -85,4 +127,3 @@ $sheet.Activate() | Out-Null
 #Fits cells to size
   $UsedRange = $sheet.UsedRange
   $UsedRange.EntireColumn.autofit() | Out-Null
-
