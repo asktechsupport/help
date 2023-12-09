@@ -1,24 +1,12 @@
 #credit https://www.youtube.com/watch?v=XC1_dtTPxxQ&t=6s
-#Tech Mate Variables
+#📁ADServerReporter Variables
     $defaultfont='Arial,11'
     $servers = Get-ADComputer -filter * -Properties * | select Name #Server names
       $getsvc = Get-Service -Name $ServiceName | select DisplayName,Status #Services
     
 
-#🔧Tech Mate Features
-function svcDetails{
-        $details=$getsvc
-        $showsvcname.Text=$details.displayname
-        $showsvcstatus.Text=$details.status
-
-        if ($showsvcstatus.text -eq 'Running'){
-            $showsvcstatus.ForeColor='green'
-        }else{
-            $showsvcstatus.ForeColor='red'
-        }
-
-}
-    $svcdropdown.Add_SelectedIndexChanged({svcDetails})
+#🔧Report Features
+    
 
 
 #Creates Excel application
@@ -101,3 +89,4 @@ $sheet.Activate() | Out-Null
 #Fits cells to size
   $UsedRange = $sheet.UsedRange
   $UsedRange.EntireColumn.autofit() | Out-Null
+
