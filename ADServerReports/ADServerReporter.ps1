@@ -3,6 +3,7 @@
     $defaultfont='Arial,11'
     $servers = Get-ADComputer -filter * -Properties * | select Name #Server names
       $getsvc = Get-Service -Name $ServiceName | select DisplayName,Status #Services
+      $showdomainname = Get-ADDomain | select DNSRoot
     
 
 #🔧Report Features
@@ -28,7 +29,7 @@ $sheet.Activate() | Out-Null
 #Create a Column Variable and set it to column 1
   $column = 1
 #Add the title and change the Font of the word
-  $sheet.Cells.Item($row,$column) = "Computer Information"
+  $sheet.Cells.Item($row,$column) = "Server List - $showdomainname.DNSRoot"
   $sheet.Cells.Item($row,$column).Font.Name = "Arial"
   $sheet.Cells.Item($row,$column).Font.Size = 11
   $sheet.Cells.Item($row,$column).Font.ColorIndex = 16
