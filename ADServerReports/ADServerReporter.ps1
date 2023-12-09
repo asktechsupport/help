@@ -11,16 +11,16 @@
 
 #Creates Excel application
   $excel = New-Object -ComObject excel.application
-#Makes Excel Visable
-  $excel.Application.Visible = $true
-  $excel.DisplayAlerts = $false
-#Creates Excel workBook
-  $book = $excel.Workbooks.Add()
-#Adds worksheets
+        #Makes Excel Visable
+          $excel.Application.Visible = $true
+          $excel.DisplayAlerts = $false
+        #Creates Excel workBook
+          $book = $excel.Workbooks.Add()
+        #Adds worksheets
 
 #gets the work sheet and Names it
   $sheet = $book.Worksheets.Item(1)
-$sheet.name = 'Computer Information'
+        $sheet.name = 'ServerList'
   #Select a worksheet
 $sheet.Activate() | Out-Null
 #Create a row and set it to Row 1
@@ -30,7 +30,7 @@ $sheet.Activate() | Out-Null
 #Add the title and change the Font of the word
   $sheet.Cells.Item($row,$column) = "Computer Information"
   $sheet.Cells.Item($row,$column).Font.Name = "Arial"
-  $sheet.Cells.Item($row,$column).Font.Size = 18
+  $sheet.Cells.Item($row,$column).Font.Size = 11
   $sheet.Cells.Item($row,$column).Font.ColorIndex = 16
   $sheet.Cells.Item($row,$column).Interior.ColorIndex = 2
   $sheet.Cells.Item($row,$column).HorizontalAlignment = -4108
@@ -43,22 +43,23 @@ $sheet.Activate() | Out-Null
   $initalRow = $row
 #create Headers for your sheet
   $sheet.Cells.Item($row,$column) = "Hostname"
-  $sheet.Cells.Item($row,$column).Font.Size = 16
+  $sheet.Cells.Item($row,$column).Font.Size = 11
   $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
   $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
   $sheet.Cells.Item($row,$column).Font.Bold = $true
   $column++
   $sheet.Cells.Item($row,$column) = "FQDN"
-  $sheet.Cells.Item($row,$column).Font.Size = 16
+  $sheet.Cells.Item($row,$column).Font.Size = 11
   $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
   $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
   $sheet.Cells.Item($row,$column).Font.Bold = $true
   $column++
   $sheet.Cells.Item($row,$column) = "IP Address"
-  $sheet.Cells.Item($row,$column).Font.Size = 16
+  $sheet.Cells.Item($row,$column).Font.Size = 11
   $sheet.Cells.Item($row,$column).Font.ColorIndex = 1
   $sheet.Cells.Item($row,$column).Interior.ColorIndex = 48
   $sheet.Cells.Item($row,$column).Font.Bold = $true
+
 #Now that the headers are done we go down a row and back to column 1
   $row++
   $column = 1
