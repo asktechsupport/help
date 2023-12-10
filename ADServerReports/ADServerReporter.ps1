@@ -119,7 +119,7 @@ $sheet.Activate() | Out-Null
     $column = 1
 }
   $row--
-  $dataRange = $sheet.Range(("A{0}" -f $initalRow),("c{0}"  -f $row))
+  $dataRange = $sheet.Range(("A{0}" -f $initalRow),("m{0}"  -f $row))
   7..12 | ForEach {
       $dataRange.Borders.Item($_).LineStyle = 1
       $dataRange.Borders.Item($_).Weight = 2
