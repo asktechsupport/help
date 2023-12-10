@@ -104,7 +104,7 @@ $sheet.Activate() | Out-Null
   $column = 1
 #Get Server Properties
   foreach($i in $servers){
-  $info = Get-ADComputer -Identity $($i.name) -Properties Name, DNSHostName, ipv4address, Description, OperatingSystem,
+  $info = Get-ADComputer -Identity $($i.name) -Properties Name, DNSHostName, ipv4address, Description, OperatingSystem
 
     $sheet.Cells.Item($row,$column) = $info.Name
         $column++
