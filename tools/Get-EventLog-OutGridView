@@ -1,0 +1,26 @@
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------#
+# This script produces the Windows Event Viewer in Out-GridView mode 
+# This solution enables filtering with a user-friendly GUI interface, allowing you to view the events you're interested in,.
+#----------------------------------------------------------------------------------------------------------------------------------------------------------------------#
+
+#EntryTypes - Define the entry type e.g. Only view errors
+#-EntryType Error, FailureAudit, Information, SuccessAudit, Warning
+
+#Lognames - Select the log you want to view
+#-Logname Application, Security, Setup, System
+
+#Use the value following -Newest to only select recent events. A good rule of thumb is around 100-150 events for each hour.
+Get-EventLog -LogName System -Newest 150 |
+Select -Property EventID,Source,MachineName,TimeGenerated,EntryType,Message,UserName |
+
+#Output using the Out-GridView GUI
+Out-GridView
+
+#---------------------------------------------------------------------------------------------------------------------------------------------------------------------#
+# Windows Event Viewer Manual
+# SECURITY LOG EVENTS
+#----------------------------------------------------------------------------------------------------------------------------------------------------------------------#
+
+
+
+
