@@ -40,3 +40,6 @@ Set-ExecutionPolicy RemoteSigned
 
     start chrome.exe
     start firefox.exe
+
+#Google Drive
+    $Path = $env:TEMP; $Installer = "GoogleDriveSetup.exe"; Invoke-WebRequest "https://dl.google.com/drive-file-stream/GoogleDriveSetup.exe" -OutFile $Path\$Installer; Start-Process -FilePath $Path\$Installer -ArgumentList "--silent" -PassThru -Verb RunAs -Wait; Remove-Item $Path\$Installer
