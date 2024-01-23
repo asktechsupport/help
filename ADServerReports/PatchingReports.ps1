@@ -11,6 +11,8 @@
              Invoke-Command -ComputerName $ server.Name -ScriptBlock {
           (New-Object -com "Microsoft.Update.AutoUpdate"). Results}
           }
+        $gethotfix = Get-HotFix -Description Security* -ComputerName $servers | select Source,Description,HotFixID,InstalledBy,InstalledOn | Sort-Object -Property InstalledOn
+
 
 #🔧Report Features
     
@@ -135,6 +137,8 @@ $sheet.Activate() | Out-Null
             $sheet.Cells.Item($row,$column) = $info.OperatingSystem
     $row++
     $column = 1
+     foreach($i in $gethotfix){
+      $info = Get-HotFix -Identity $($i.name) -Properties Source,Description,HotFixID,InstalledBy,InstalledOn
 }
   $row--
   $dataRange = $sheet.Range(("A{0}" -f $initalRow),("m{0}"  -f $row))
