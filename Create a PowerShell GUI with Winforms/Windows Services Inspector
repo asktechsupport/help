@@ -7,7 +7,8 @@ Add-Type -AssemblyName System.Windows.Forms
     $LabelObject = [System.Windows.Forms.Label]
     $buttonObject = [System.Windows.Forms.Button]
     $comboboxObject = [System.Windows.Forms.ComboBox]
-    $defaultfont='Arial,11'
+# Set the font
+    $defaultfont="Segoe UI,10"
 
 #📋Basic Form Setup
     $svcform=New-Object $FormObject
@@ -16,24 +17,15 @@ Add-Type -AssemblyName System.Windows.Forms
     $svcform.BackColor="#ffffff"
     $svcform.Font=$defaultfont
 
-    $lbltitle=New-Object $LabelObject
-        $lbltitle.Text='Services'
-        $lbltitle.AutoSize=$true
-        $lbltitle.Font='Arial,11,style=Bold'
-        $lbltitle.ForeColor='black'
-        $lbltitle.Location=New-Object System.Drawing.Point(20,20)
+    
 #📋Basic Form Setup
 
 #Form Features
-    $lblsvc=New-Object $LabelObject
-        $lblsvc.Text='Services'
-        $lblsvc.AutoSize=$true        
-        $lblsvc.ForeColor='black'
-        $lblsvc.Location=New-Object System.Drawing.Point(20,20)
     $svcdropdown=New-Object $comboboxObject
-        $svcdropdown.Text='Pick a service'
-        $svcdropdown.Width='300'        
-        $svcdropdown.Location=New-Object System.Drawing.Point(140,21)
+        $svcdropdown.Text='services...'
+        $svcdropdown.Width='300'
+        $svcdropdown.Font="Segoe UI,16"       
+        $svcdropdown.Location=New-Object System.Drawing.Point(20,20)
             Get-Service | ForEach {$svcdropdown.Items.Add($_.Name)} #Load the drop down list with services
     $lblsvcname=New-Object $LabelObject
         $lblsvcname.Text='Service Name'
@@ -62,7 +54,7 @@ Add-Type -AssemblyName System.Windows.Forms
 
 
 #Add elements to the form
-$svcform.Controls.AddRange(@($lbltitle,$lblsvc,$lblsvcstatus,$lblsvcname,$svcdropdown,$showsvcname,$showsvcstatus,$cancelButton))
+$svcform.Controls.AddRange(@($lblsvcstatus,$lblsvcname,$svcdropdown,$showsvcname,$showsvcstatus,$cancelButton))
 function svcDetails{
     $ServiceName=$svcdropdown.SelectedItem
         $details=Get-Service -Name $ServiceName | select *
