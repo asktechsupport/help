@@ -13,10 +13,10 @@
 [*] Script also accounts for the Print Spooler CVE and checks to ensure Print Spooler is enabled as the VDA will NOT install without this enabled
 
 .NOTE
-   Author cybersectv, cybersectv@protonmail.com  https://twitter.com/cybersec_tv
+   Author simpletechgithub@pm.me
    
 .SOURCE
-   https://get.adobe.com/nl/reader/enterprise/
+   
 #>
 
 #Perform VDA Installs on these servers
