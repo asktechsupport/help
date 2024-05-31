@@ -1,8 +1,13 @@
 #v3 - silent installs, either MSI's or exe's, progress bar displayed for each file
+
+```
 cd C:\AutomatedInstalls
 #📁vars
+
 $msi = @(gci -Path C:\AutomatedInstalls | Where {$_.Name -like "*.msi"})
+
 $exe = @(gci -Path C:\AutomatedInstalls | Where {$_.Name -like "*.exe"})
+
 $msicounter = 1
 $execounter = 1
 
@@ -25,4 +30,5 @@ $execounter = 1
 #saps (start-process) on each of the files.
 #msi and exe counters allow for either msi's or exi's
 #display a progress bar for each of the files
+```
 
