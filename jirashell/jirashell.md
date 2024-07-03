@@ -27,3 +27,10 @@ Notes
 * ⚠️site-admin is required
 * set value "your-domain" to the name of your organisation or Jira instance
 * set value "MyGroup" to the group name you want to check
+
+# EG
+
+```
+
+```
+
