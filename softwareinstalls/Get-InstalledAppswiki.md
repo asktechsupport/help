@@ -1,4 +1,4 @@
-<#
+```<#
 .SYNOPSIS
 	Get-InstalledApps retrieves a list of installed software
 .DESCRIPTION
@@ -77,4 +77,5 @@ function Get-InstalledApps {
 }
 
 Get-InstalledApps | Out-GridView
+```
 
