@@ -51,7 +51,7 @@ Invoke-Command -ComputerName $InstallVDAonTargets -ScriptBlock {
 #Differences explained below
 # An Extra option is selected /mastermcsimage
 
-###---I HAVE AN EXTRA OPTION SELECTED TO CONFIGURE ME TO DEPLOY SESSION HOSTS
+###---I HAVE AN EXTRA OPTION SELECTED TO CONFIGURE ME TO DEPLOY WITH MCS
 ###---THAT OPTION IS: </mastermcsimage> (WITHOUT THE ARROWS)---###
 
 	#Invoke-Command -ComputerName $InstallVDAonTargets -ScriptBlock { 
