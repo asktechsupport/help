@@ -1,26 +1,5 @@
-#--------------------AUTOMATED VDA INSTALLS POWERSHELL TOOLKIT v1-------------------#
-
-<#
-.Synopsis
-    Automated (silent) Citrix VDA Installs
-
-.DESCRIPTION
-    Install Citrix VDA's on one or more targets
-
-.GUIDANCE
-[*] The AutomatedInstalls folder needs to be present on the target machines, not the DC's
-[*] The experience is best running as an Administrator from a Domain Controller
-[*] Script also accounts for the Print Spooler CVE and checks to ensure Print Spooler is enabled as the VDA will NOT install without this enabled
-
-.NOTE
-   Author simpletechgithub@pm.me
-   
-.SOURCE
-   
-#>
-
 #Perform VDA Installs on these servers
-$InstallVDAonTargets = "server01"
+$InstallVDAonTargets = "IMG01"
 $CheckSpoolerbeforeinstall = "C:\Citrix\VDAPreInstallChecks\Get-SpoolerStatus_$ReportDate.htm"
 $workdir1 = "C:\Citrix\Cloud VDA\"
 $workdir2 = "C:\Citrix\VDAPreInstallChecks\"
@@ -84,7 +63,7 @@ Invoke-Command -ComputerName $InstallVDAonTargets -ScriptBlock {
 
 #
 # To remove (WORKING 12/09/2021)
-	$RemoveVDAonTargets = "server01"
+	$RemoveVDAonTargets = "IMG01"
 	#
 	#Invoke-Command -ComputerName $RemoveVDAonTargets -ScriptBlock { 
 	 #   Start-Process "C:\Citrix\Cloud VDA\VDAServerSetup.exe" -ArgumentList '/removeall /quiet' -Wait
