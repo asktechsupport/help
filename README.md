@@ -22,15 +22,15 @@ You're @ the asktechsupport github.
 
 # PowerShell | Best Practices
 > [!TIP] 
-> Best practices can be found here: [PowerShell Best Practices](https://github.com/PoshCode/PowerShellPracticeAndStyle)
-
+> `Global PowerShell Profiles` | `Use dynamic or environment variables` | `External variable scripts` | [PowerShell Best Practices](https://github.com/PoshCode/PowerShellPracticeAndStyle)
 
 # WinIaac | PowerShell Profiles
 
 
 
 
-Note - I prefer to track my PowerShell code in issues and my documentation in discussions
+> [!NOTE]
+> I prefer to track my PowerShell code in issues and my documentation in discussions
 
 #Run PowerShell scripts securely under only your user
 
