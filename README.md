@@ -19,12 +19,12 @@ You're @ the asktechsupport github.
 > [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
 
-### PowerShell Best Practices
+# PowerShell Best Practices
 > [!TIP] 
-> Best practices can be found here: link to best practices
+> Best practices can be found here: [PowerShell Best Practices](https://github.com/PoshCode/PowerShellPracticeAndStyle)
 
 
-### WinIaac | PowerShell Profiles
+# WinIaac | PowerShell Profiles
 
 
 ### ⭐ Special Mention - [Paolo Frigo's PowerShell Library](https://github.com/PaoloFrigo/scriptinglibrary/tree/master/Blog/PowerShell)
