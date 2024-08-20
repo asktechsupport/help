@@ -1,4 +1,32 @@
-[Moving content to issues](https://github.com/asktechsupport/help/milestones) | [View my PowerShell code in issues](https://github.com/asktechsupport/help/milestones)
+[I track bitesize code in issues](https://github.com/asktechsupport/help/milestones) | [View my PowerShell code in issues](https://github.com/asktechsupport/help/milestones)
+
+You're @ the asktechsupport github.
+
+> Please note this documentation may contain all or some of these highlighting tools
+
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+
+### PowerShell Best Practices
+> [!TIP] 
+> Best practices can be found here: link to best practices
+
+
+### WinIaac | PowerShell Profiles
+
+
 ### ⭐ Special Mention - [Paolo Frigo's PowerShell Library](https://github.com/PaoloFrigo/scriptinglibrary/tree/master/Blog/PowerShell)
 
 Note - I prefer to track my PowerShell code in issues and my documentation in discussions
