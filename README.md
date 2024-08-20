@@ -1,4 +1,5 @@
-[I track bitesize code in issues](https://github.com/asktechsupport/help/milestones) | [View my PowerShell code in issues](https://github.com/asktechsupport/help/milestones)
+[I track bitesize code in issues](https://github.com/asktechsupport/help/milestones) | [View my PowerShell code in issues](https://github.com/asktechsupport/help/milestones) |
+⭐ Special Mention - [Paolo Frigo's PowerShell Library](https://github.com/PaoloFrigo/scriptinglibrary/tree/master/Blog/PowerShell)
 
 You're @ the asktechsupport github.
 
@@ -27,7 +28,7 @@ You're @ the asktechsupport github.
 # WinIaac | PowerShell Profiles
 
 
-### ⭐ Special Mention - [Paolo Frigo's PowerShell Library](https://github.com/PaoloFrigo/scriptinglibrary/tree/master/Blog/PowerShell)
+
 
 Note - I prefer to track my PowerShell code in issues and my documentation in discussions
 
@@ -36,7 +37,7 @@ Note - I prefer to track my PowerShell code in issues and my documentation in di
 ```powershell
 Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
 ```
-## PowerShell cheatsheet
+# PowerShell cheatsheet
 
 | **Category**            | **Description**                                                                                                                                   | **Example Cmdlets**                                                                                                                                                                  |
 |-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
