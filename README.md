@@ -19,7 +19,7 @@ You're @ the asktechsupport github.
 > [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
 
-# PowerShell Best Practices
+# PowerShell | Best Practices
 > [!TIP] 
 > Best practices can be found here: [PowerShell Best Practices](https://github.com/PoshCode/PowerShellPracticeAndStyle)
 
