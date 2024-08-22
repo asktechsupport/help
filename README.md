@@ -23,6 +23,8 @@ You're @ the asktechsupport github.
 # PowerShell | Best Practices
 > [!TIP] 
 > `Global PowerShell Profiles` | `Use dynamic or environment variables` | `External variable scripts` | [PowerShell Best Practices](https://github.com/PoshCode/PowerShellPracticeAndStyle)
+
+
 > [!TIP] 
 > Comment based help
 <details> <summary>Comment based help</summary>
