@@ -1,7 +1,12 @@
-⭐️this folder contains the favourites for sysadmins
+📁this folder contains the favourites for sysadmins
 
-#### ⭐️Install multiple files in a folder
+### ⭐️Set a safe execution policy
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope Process
 ```
+
+### ⭐️Install multiple files in a folder
+```powershell
 #v3 - silent installs, either MSI's or exe's, progress bar displayed for each file
 cd C:\AutomatedInstalls
 #📁vars
@@ -30,7 +35,7 @@ $execounter = 1
 #msi and exe counters allow for either msi's or exi's
 #display a progress bar for each of the files
 ```
-#### ⭐️new-item-installsdir
+### ⭐️new-item-installsdir
  Check if work directory exists, and create it if not
 ```
 $installsdir = "C:\Apps"
