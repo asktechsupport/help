@@ -46,10 +46,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 <!-- CONTACT -->
 ## Contact
-
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - help@asktechsupport.co.uk@help@asktechsupport.co.uk_client.com
-
-Project Link: [https://github.com/asktechsupport/help](https://github.com/asktechsupport/help)
+📧help@asktechsupport.co.uk
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -61,6 +58,19 @@ Project Link: [https://github.com/asktechsupport/help](https://github.com/asktec
 * []()
 * []()
 * []()
+
+#### Disclaimers | Use at your own risk...
+
+> [!CAUTION]
+> Do not use PowerShell with malicious intent - such cases are not condoned and can have legal implications.
+
+> [!WARNING]
+> PowerShell can be misused by threat actors to damage both enterprise and private devices. Understanding best practices is the best way to implement without putting your private or enterprise devices at risk.
+
+> [!IMPORTANT]
+> The author bears no responsibility for damage caused to private or enterprise devices where code is modified and re-used.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -100,18 +110,7 @@ Project Link: [https://github.com/asktechsupport/help](https://github.com/asktec
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## Disclaimer | Use at your own risk...
 
-> [!CAUTION]
-> Do not use PowerShell with malicious intent - such cases are not condoned and can have legal implications.
-
-> [!WARNING]
-> PowerShell can be misused by threat actors to damage both enterprise and private devices. Understanding best practices is the best way to deploy it without putting your private or enterprise devices at risk.
-
-> [!IMPORTANT]
-> The author bears no responsibility for damage caused to private or enterprise devices where code is modified and re-used.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Misc | Useful Markdown to highlight specific points
 > Please note this documentation may contain all or some of these highlighting tools
