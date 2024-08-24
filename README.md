@@ -1,7 +1,8 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a id="readme-top"></a>
 
-
+<!-- ABOUT -->
+You're @ the asktechsupport github.
 
 <!-- PROJECT SHIELDS -->
 <!--
@@ -17,39 +18,6 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 <!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
-
-
-
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-  <a href="https://github.com/asktechsupport/help">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
-
-<h3 align="center">project_title</h3>
-
-  <p align="center">
-    project_description
-    <br />
-    <a href="https://github.com/asktechsupport/help"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/asktechsupport/help">View Demo</a>
-    ·
-    <a href="https://github.com/asktechsupport/help/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
-    ·
-    <a href="https://github.com/asktechsupport/help/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
-  </p>
-</div>
-
-
-
-
-<!-- ABOUT -->
-## You're @ the asktechsupport github.
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 <!-- Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `asktechsupport`, `help`, `twitter_handle`, `linkedin_username`, `email_client`, `email`, `project_title`, `project_description`-->
 
