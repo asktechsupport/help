@@ -1,61 +1,31 @@
-#------------------------------------------------------------------------------------------------------------------------------------------------#
-# POWERSHELL (POSH) PROFILE SETUP
+#--------------POWERSHELL (POSH) PROFILE SETUP | VARIABLES
 ##  src: https://github.com/asktechsupport/help/tree/main/posh/reusablepowershell
-#------------------------------------------------------------------------------------------------------------------------------------------------#
-    # Get the profile path for All Users, All Hosts
-        $profilePath = $PROFILE.AllUsersAllHosts
+$iseProfilePath = $PROFILE.CurrentUserCurrentHost  # ISE profile for the current user
+$psProfilePath = $PROFILE.CurrentUserAllHosts  # Regular PowerShell profile for the current user
+$psStartNotification = "PowerShell is starting. Please be sure you meant to open or run PowerShell on this device."
 
-    # Check if the profile path exists
-    if (-not (Test-Path $profilePath)) {
-        # If the path does not exist, create the profile file and its directory if needed
-        New-Item -Path $profilePath -ItemType File -Force | Out-Null
-        Write-Host "Profile path created: $profilePath" -ForegroundColor Green
-    } else {
-        Write-Host "Profile path already exists: $profilePath" -ForegroundColor Yellow
-    }
+#--------------Prepare a safe execution policy
+Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process # Set the execution policy
 
-    # Now $profilePath contains the path to the All Users, All Hosts profile
-    Write-Host "Using profile path: $profilePath" -ForegroundColor Cyan
+#--------------FEEDBACK TO THE USER
+Write-Host "Your profile loaded successfully on $(Get-Date)" -ForegroundColor Green
+Write-Host "Hey, you are running as user:$env:USERNAME" -ForegroundColor White
+Write-Host "Vars are stored @ *$iseProfilePath*" -ForegroundColor White
+Write-Host "🔔PowerShell is starting. Make sure you intended to use PowerShell or PowerShell ISE." -ForegroundColor Yellow
 
-    # Replace $profilePath with the actual path of the profile
-    $profilePath = $PROFILE.AllUsersAllHosts
-    # Grant read and execute permissions to all users
-    icacls $profilePath /grant "Administrators:F"
-    icacls $profilePath /grant "Users:(RX)"
+start $iseProfilePath
 
-    $profilePathISE = $PROFILE.AllUsersCurrentHost
-    # Ensure the profile file exists before modifying permissions
-       if (-not (Test-Path $profilePathISE)) {
-           New-Item -Path $profilePathISE -ItemType File -Force
-       }
-    # Grant full control to administrators
-       icacls $profilePathISE /grant "Administrators:F"
-    # Grant read and execute access to all users, but deny write access
-       icacls $profilePathISE /grant "Users:(RX)"
-
-
-
-# Check if the ISE profile exists
-if (Test-Path $profilePathISE) {
-   # Get the content of the ISE profile
-   $content = Get-Content $profilePathISE
-   $totalLines = $content.Count
-
-   # Start the copying process with a progress bar
-   for ($i = 0; $i -lt $totalLines; $i++) {
-       # Write each line to the standard PowerShell profile
-       Add-Content -Path $ProfilePath -Value $content[$i]
-
-       # Update the progress bar
-       $percentComplete = [math]::Round(($i / $totalLines) * 100)
-       Write-Progress -Activity "Syncing ISE Profile" -Status "Copying line $($i+1) of $totalLines" -PercentComplete $percentComplete
-   }
-
-   Write-Host "PowerShell profile synced with ISE profile successfully." -ForegroundColor Green
-} else {
-   Write-Host "ISE profile does not exist. No action taken." -ForegroundColor Yellow
+#--------------SYNC THE ISE AND POWERSHELL PROFILES
+if (-not (Test-Path $psProfilePath)) {
+    New-Item -Path $psProfilePath -ItemType File -Force
 }
 
-Write-Host "All-users profile loaded successfully on $(Get-Date)" -ForegroundColor Green
-Write-Host "Hey, $env:USERNAME" -ForegroundColor White
-Write-Host "Vars are stored @ *C:\Windows\System32\WindowsPowerShell\v1.0\Microsoft.PowerShellISE_profile.ps1*" -ForegroundColor White
+if (Test-Path $iseProfilePath) {
+    Copy-Item -Path $iseProfilePath -Destination $psProfilePath -Force
+    Write-Host "PowerShell profile at $psProfilePath has been overwritten with the content from $iseProfilePath." -ForegroundColor Green
+} else {
+    Write-Host "ISE profile at $iseProfilePath does not exist. No action taken." -ForegroundColor Red
+}
+#Get-Content $psProfilePath
+
+#--------------src: https://github.com/asktechsupport/help/tree/main/posh/reusablepowershell
