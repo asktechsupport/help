@@ -1,5 +1,12 @@
 WinIaaC | 
 
+
+
+### WinIaac | PowerShell Profiles
+
+### heading 2
+
+# misc
 > Please note this documentation may contain all or some of these highlighting tools
 
 > [!NOTE]
@@ -16,8 +23,3 @@ WinIaaC |
 
 > [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
-
-### WinIaac | PowerShell Profiles
-
-### heading 2
-
