@@ -24,6 +24,11 @@ $Output = $wshell.Popup($notificationText,0,"Information",0+64)
 > [!NOTE]
 > Help: `#Popup(<Text>,<SecondsToWait>,<Title>,<Type>)`
 
+> [!NOTE]
+> Replace $notificationText with the text you would like to display.`
+
+> [!NOTE]
+> Notifications are great when used with a PowerShell Profile to load everytime you run PowerShell or ISE.`
 
 #credit @ https://woshub.com/popup-notification-powershell/
 #>
