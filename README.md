@@ -21,45 +21,17 @@ You're @ the asktechsupport github.
 
 <!-- Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `asktechsupport`, `help`, `twitter_handle`, `linkedin_username`, `help@asktechsupport.co.uk_client`, `help@asktechsupport.co.uk`, `project_title`, `project_description`-->
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 
 <!-- BEST PRACTICES AND GENERALLY ACCEPTED GOOD PRACTICE -->
 ## BEST PRACTICES AND GENERALLY ACCEPTED GOOD PRACTICE
-### `PowerShell` Summary of best practices
+### `PowerShell` | Summary of best practices
 [https://github.com/PoshCode/PowerShellPracticeAndStyle](https://github.com/PoshCode/PowerShellPracticeAndStyle)
 > [!TIP]
-> ☑️Global PowerShell Profiles, Dynamic and environment variables
+> ☑️Global PowerShell Profiles, Dynamic and environment variables, Create reusable code, "Tools" script vs "Controller" scripts
 
 > [!CAUTION]
 > 🚫Hard coded variables, plain-text passwords
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-* This README is produced and endorsed by the owner(s) and author(s) of asktechsupport.co.uk
-* The content produced is the author(s) own research which may well come from professional experience, but may be limited to the author(s) experiences and cannot be exhaustive to cover all possible scenarios.
-
-### `Disclaimers` | Use at your own risk...
-
-> [!CAUTION]
-> Do not use PowerShell with malicious intent - such cases are not condoned and can have legal implications.
-
-> [!WARNING]
-> PowerShell can be misused by threat actors to damage both enterprise and private devices. Understanding best practices is the best way to implement without putting your private or enterprise devices at risk.
-
-> [!IMPORTANT]
-> The author bears no responsibility for damage caused to private or enterprise devices where code is modified and re-used.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
@@ -98,6 +70,13 @@ You're @ the asktechsupport github.
 
 
 
+
+
+## Code Documentation
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 ## Misc | Useful Markdown to highlight specific points
 > Please note this documentation may contain all or some of these highlighting tools
 
@@ -115,8 +94,5 @@ You're @ the asktechsupport github.
 
 > [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## Code Documentation
 
 
