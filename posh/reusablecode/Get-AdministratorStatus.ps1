@@ -1,5 +1,6 @@
 #------------------------------------------------------------------------------------------------------------------------------------------------#
-#### Function to check if running as administrator
+# Function to check if running as administrator
+##   src: https://github.com/asktechsupport/help/tree/main/posh/reusablecode
 #------------------------------------------------------------------------------------------------------------------------------------------------#
 Unblock-File -Path "C:\Windows\System32\WindowsPowerShell\v1.0\Microsoft.PowerShellISE_profile.ps1"
 function Test-IsAdmin {
