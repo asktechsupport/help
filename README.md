@@ -3,23 +3,6 @@
 
 You're @ the asktechsupport github.
 
-> Please note this documentation may contain all or some of these highlighting tools
-
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
-
-> [!TIP]
-> Posh = PowerShell
-
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
-
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
-
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
-
 # PowerShell | Best Practices
 > [!TIP] 
 > `Global PowerShell Profiles` | `Use dynamic or environment variables` | `External variable scripts` | [PowerShell Best Practices](https://github.com/PoshCode/PowerShellPracticeAndStyle)
