@@ -1,3 +1,6 @@
+### Heading 1
+### Heading 2
+```powershell
 #--------------POWERSHELL (POSH) PROFILE SETUP | VARIABLES
 ##  src: https://github.com/asktechsupport/help/tree/main/posh/reusablepowershell
 $iseProfilePath = $PROFILE.CurrentUserCurrentHost  # ISE profile for the current user
@@ -29,3 +32,4 @@ if (Test-Path $iseProfilePath) {
 #Get-Content $psProfilePath
 
 #--------------src: https://github.com/asktechsupport/help/tree/main/posh/reusablepowershell
+```
