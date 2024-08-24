@@ -5,7 +5,7 @@ You're @ the asktechsupport github.
 
 > Please note this documentation may contain all or some of these highlighting tools
 
-> [!NOTE]
+> [!TERM]
 > Useful information that users should know, even when skimming content.
 
 > [!TIP]
