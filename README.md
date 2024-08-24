@@ -4,6 +4,8 @@
 <!-- ABOUT -->
 You're @ the asktechsupport github.
 
+`PowerShell` `Windows VM Sysadmin` `AWS Cloud Engineering` `CRTP` `Windows Hardening`
+
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
@@ -13,10 +15,8 @@ You're @ the asktechsupport github.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 [![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
 <!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 <!-- Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `asktechsupport`, `help`, `twitter_handle`, `linkedin_username`, `help@asktechsupport.co.uk_client`, `help@asktechsupport.co.uk`, `project_title`, `project_description`-->
@@ -25,41 +25,30 @@ You're @ the asktechsupport github.
 
 
 
-<!-- GETTING STARTED -->
-## `PowerShell` | Summary of best practices
+<!-- BEST PRACTICES AND GENERALLY ACCEPTED GOOD PRACTICE -->
+## BEST PRACTICES AND GENERALLY ACCEPTED GOOD PRACTICE
+### `PowerShell` Summary of best practices
+[https://github.com/PoshCode/PowerShellPracticeAndStyle](https://github.com/PoshCode/PowerShellPracticeAndStyle)
+> [!TIP]
+> ☑️Global PowerShell Profiles, Dynamic and environment variables
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
+> [!CAUTION]
+> 🚫Hard coded variables, plain-text passwords
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
-<!-- CONTACT -->
-## Contact
-📧help@asktechsupport.co.uk
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* []()
-* []()
-* []()
+* This README is produced and endorsed by the owner(s) and author(s) of asktechsupport.co.uk
+* The content produced is the author(s) own research which may well come from professional experience, but may be limited to the author(s) experiences and cannot be exhaustive to cover all possible scenarios.
 
-#### Disclaimers | Use at your own risk...
+### `Disclaimers` | Use at your own risk...
 
 > [!CAUTION]
 > Do not use PowerShell with malicious intent - such cases are not condoned and can have legal implications.
@@ -127,3 +116,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 > [!CAUTION]
 > Advises about risks or negative outcomes of certain actions.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Code Documentation
+
+
