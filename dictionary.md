@@ -1,10 +1,13 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a id="readme-top"></a>
 
+# Table of Contents
+
 - [Penetration Testing Dictionary](#penetration-testing-dictionary)
 - [Infrastructure](#infrastructure)
 - [Networking](#networking)
 - [Cloud Engineering](#cloud-engineering)
+- [Backlog](#backlog)
 
 
 # Penetration Testing Dictionary
@@ -1038,3 +1041,6 @@ Here is the formatted list with the top 100 terms for Infrastructure, Networking
 > [!NOTE]
 > A security approach designed specifically for securing cloud-native applications, which are built to leverage the cloud’s scalability and flexibility.
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
+
+# Backlog
+
