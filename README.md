@@ -20,7 +20,14 @@ You're @ the asktechsupport github.
 <!-- [![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 <!-- Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `asktechsupport`, `help`, `twitter_handle`, `linkedin_username`, `help@asktechsupport.co.uk_client`, `help@asktechsupport.co.uk`, `project_title`, `project_description`-->
+## TOP TIPS
+> [!TIP]
+> Change ".com" to ".dev" to open in Visual Studio Editor. credit to "Ike Ellis" - https://www.youtube.com/watch?v=zRkHk2WZwjc
 
+> [!TIP]
+> Use "Markdown All in One - Web to create TOC's (https://marketplace.visualstudio.com/items?itemName=fantasy.markdown-all-in-one-for-web&ssr=false#review-details)
+![image](https://github.com/user-attachments/assets/063e5aeb-81d0-4176-8f49-6208771d87c5)
+> Just open Command Palette (`Ctrl-Shift-P`) -> `Markdown: Create Table of Contents`. Credit [Niko Fohr, Stack OverFlow](https://stackoverflow.com/users/3015186/niko-fohr)
 
 
 <!-- BEST PRACTICES AND GENERALLY ACCEPTED GOOD PRACTICE -->
