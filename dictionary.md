@@ -4,9 +4,9 @@
 # Table of Contents
 
 - [Penetration Testing Dictionary](#penetration-testing-dictionary)
-- [Infrastructure](#infrastructure)
-- [Networking](#networking)
-- [Cloud Engineering](#cloud-engineering)
+- [Infrastructure Dictionary](#infrastructure-dictionary)
+- [Networking Dictionary](#networking-dictionary)
+- [Cloud Engineering Dictionary](#cloud-engineering-dictionary)
 - [Backlog](#backlog)
 
 
@@ -415,7 +415,7 @@
 
 Here is the formatted list with the top 100 terms for Infrastructure, Networking, and Cloud Engineering:
 
-# Infrastructure
+# Infrastructure Dictionary
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 ## Infrastructure as Code (IaC)
 > [!NOTE]
@@ -625,7 +625,7 @@ Here is the formatted list with the top 100 terms for Infrastructure, Networking
 > [!NOTE]
 > A discipline that applies aspects of software engineering to infrastructure and operations problems to create scalable and highly reliable software systems.
 
-# Networking
+# Networking Dictionary
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 ## IP Address
 > [!NOTE]
@@ -837,7 +837,7 @@ Here is the formatted list with the top 100 terms for Infrastructure, Networking
 > [!NOTE]
 > A device or software that distributes network or application traffic across multiple servers to ensure availability and reliability.
 
-# Cloud Engineering
+# Cloud Engineering Dictionary
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 ## Cloud Architecture
 > [!NOTE]
