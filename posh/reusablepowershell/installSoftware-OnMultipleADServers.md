@@ -5,7 +5,7 @@
 ```powershell
 
 
-#Get-ADComputer -Filter {OperatingSystem -like '*Windows Server 2012*'} | ForEach-Object {Invoke-Command -ComputerName $_.DNSHostName -ScriptBlock {if (-Not (Test-Path -Path 'C:\Temp')) {New-Item -Path 'C:\Temp' -ItemType Directory}}; Copy-Item -Path "C:\Temp\AzureConnectedMachineAgent.msi" -Destination "\\$($_.DNSHostName)\C$\Temp\" -Force}
+Get-ADComputer -Filter {OperatingSystem -like '*Windows Server 2012*'} | ForEach-Object {Invoke-Command -ComputerName $_.DNSHostName -ScriptBlock {if (-Not (Test-Path -Path 'C:\Temp')) {New-Item -Path 'C:\Temp' -ItemType Directory}}; Copy-Item -Path "C:\Temp\AzureConnectedMachineAgent.msi" -Destination "\\$($_.DNSHostName)\C$\Temp\" -Force}
 #Get-ADComputer -Filter {OperatingSystem -like '*Windows Server 2012*'} | ForEach-Object {Invoke-Command -ComputerName $_.DNSHostName -ScriptBlock {Start-Process msiexec.exe -ArgumentList '/I C:\Temp\AzureConnectedMachineAgent.msi /quiet /qn /norestart' -Wait}}
 
 $servers = Get-ADComputer -Filter {OperatingSystem -like '*Windows Server 2012*'} | Select-Object -ExpandProperty DNSHostName
