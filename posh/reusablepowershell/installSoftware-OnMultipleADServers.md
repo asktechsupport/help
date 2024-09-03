@@ -2,6 +2,9 @@
 >[!NOTE]
 > Execute this as a Domain Admin user.
 
+>[!TIP]
+> In an internetless environment, move your installer to C:\Temp on the device you are running the PSRemote command from
+
 ```powershell
 
 
