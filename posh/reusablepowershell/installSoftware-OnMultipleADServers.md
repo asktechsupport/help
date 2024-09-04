@@ -1,9 +1,15 @@
-### Copy Files to Windows 2012 Servers
+### Copy and run installers on Windows 2012 Servers
 >[!NOTE]
 > Execute this as a Domain Admin user.
 
 >[!TIP]
 > In an internetless environment, move your installer to C:\Temp on the device you are running the PSRemote command from
+
+### Enable PS Remoting if not already done
+```powershell
+Get-ADComputer -Filter {OperatingSystem -like '*Windows Server 2012*'} | ForEach-Object {Invoke-Command -ComputerName $_.Name -ScriptBlock {Enable-PSRemoting -Force -SkipNetworkProfileCheck}}
+
+```
 
 ```powershell
 
