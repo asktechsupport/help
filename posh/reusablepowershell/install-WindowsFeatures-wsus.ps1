@@ -2,6 +2,8 @@
 Install-WindowsFeature -Name UpdateServices, UpdateServices-UI, UpdateServices-Services -IncludeManagementTools
     takeown /f "C:\Program Files\Update Services\Database\VersionCheck.sql" /A
     icacls "C:\Program Files\Update Services\Database\VersionCheck.sql" /grant administrators:F
+        (Get-Content "C:\Program Files\Update Services\Database\VersionCheck.sql") | ForEach-Object {$_ -replace '\(11\)', '(51)'} | Set-Content "C:\Program Files\Update Services\Database\VersionCheck.sql"
+
 
 
 # Specify the content directory for WSUS
