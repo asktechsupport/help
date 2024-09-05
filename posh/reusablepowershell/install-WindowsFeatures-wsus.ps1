@@ -51,17 +51,31 @@ $Products = @(
 $WSUS | Get-WsusProduct | Where-Object { $_.Product.Title -In $Products } | Set-WsusProduct -Enable
 
 # Perform initial synchronization
-$WSUS.GetSubscription().StartSynchronization()
+$wsus = Get-WsusServer
+$subscription = $wsus.GetSubscription()
+$subscription.StartSynchronization()
+
 Write-Host "Synchronization started. This may take a while depending on the size of updates."
 
 # Wait for the synchronization to complete (polling)
 do {
-    $syncStatus = $WSUS.GetSubscription().GetSynchronizationStatus()
-    Write-Host "Current synchronization state: $($syncStatus.State)"
-    Start-Sleep -Seconds 30  # Wait for 30 seconds before checking again
+    $syncStatus = $subscription.GetSynchronizationStatus()
+    $updatesInProgress = $syncStatus.CurrentPhaseProgressPercent
+    $currentUpdate = $syncStatus.CurrentUpdateTitle
+    $totalUpdates = $syncStatus.UpdatesTotal
+    $downloadedUpdates = $syncStatus.UpdatesDownloaded
+
+    # Show progress bar
+    Write-Progress -Activity "WSUS Synchronization" `
+                   -Status "Downloading update $downloadedUpdates of $totalUpdates" `
+                   -PercentComplete $updatesInProgress `
+                   -CurrentOperation $currentUpdate
+
+    Start-Sleep -Seconds 5  # Wait for 5 seconds before checking again
 } while ($syncStatus.State -ne "Idle")
 
 Write-Host "Synchronization completed."
+
 
 # Decline 32-bit and ARM64 Windows 10 updates
 ($WSUS.SearchUpdates("x86-based Systems")).Decline()
