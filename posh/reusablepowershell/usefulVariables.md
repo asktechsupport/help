@@ -5,7 +5,7 @@
 ```powershell
 $domain = Get-ADDomain | select DNSRoot
 $rootOU = Get-ADDomain | select DistinguishedName
-$svc_account1 = Get-ADUser -Filter { samAccountName -like '*-QRM' } -Properties samAccountName | Select-Object samAccountName
+$svc_account1 = Get-ADUser -Filter { samAccountName -like '*-svc' } -Properties samAccountName | Select-Object samAccountName
     $svc_account2 = Get-ADUser -Filter { samAccountName -like '*-SQL' } -Properties samAccountName | Select-Object samAccountName
 $allhosts = get-ADComputer -Filter * | select DNSHostName
     $currentHost = get-ADComputer $env:COMPUTERNAME | select -ExpandProperty DNSHostName
