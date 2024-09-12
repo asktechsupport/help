@@ -1,4 +1,6 @@
 ### Copy and run installers on Windows 2012 Servers
+[Download | Azure Arc Agent](https://www.google.co.uk/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwi8hJKs5qaIAxUoVkEAHQt6A2AQFnoECAoQAQ&url=https%3A%2F%2Faka.ms%2FAzureConnectedMachineAgent&usg=AOvVaw3e6kX3rlnWVZIPExAsulsI&opi=89978449)
+
 >[!NOTE]
 > Execute this as a Domain Admin user.
 
