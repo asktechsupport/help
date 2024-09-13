@@ -273,7 +273,7 @@ try {
       $UpdatesToDownload=$WSUS.GetContentDownloadProgress().TotalBytesToDownload
       $UpdatesDownloaded=$WSUS.GetContentDownloadProgress().DownloadedBytes
       $percentComplete = ($UpdatesDownloaded / $UpdatesToDownload) * 100
-      Log-Message "Download progress: $($percentComplete.ToString("0.00"))%" -Level "INFO"
+      Log-Message "Download progress: $($percentComplete.ToString("00.00"))%" -Level "INFO"
       Start-Sleep 30
       $count++
     }
