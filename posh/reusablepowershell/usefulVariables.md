@@ -4,6 +4,7 @@
 
 ```powershell
 $domain = Get-ADDomain | select DNSRoot
+$defaultDomainPolicy = Get-GPO -Name "Default Domain Policy"
 $rootOU = Get-ADDomain | select DistinguishedName
 $svc_account1 = Get-ADUser -Filter { samAccountName -like '*-svc' } -Properties samAccountName | Select-Object samAccountName
     $svc_account2 = Get-ADUser -Filter { samAccountName -like '*-SQL' } -Properties samAccountName | Select-Object samAccountName
