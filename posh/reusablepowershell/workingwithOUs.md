@@ -14,15 +14,12 @@ $domain = (Get-ADDomain).DNSRoot
 $parentOU = "OU=Resources,$domain"
 $childOUs = @("Controls", "UsersandGroups", "Servers", "ServiceAccounts")
 
-# Create the Top-Level Parent OU (domain root)
-$domainDN = (Get-ADDomain).DistinguishedName
-
-# Create Sub-parent OU 'Resources'
-if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'Resources'" -SearchBase $domainDN -ErrorAction SilentlyContinue)) {
-    New-ADOrganizationalUnit -Name "Resources" -Path $domainDN
-    Write-Host "Sub-parent OU 'Resources' created."
+# Create the Top-Level Parent OU (Resources) under the root domain
+if (-not (Get-ADOrganizationalUnit -Filter "Name -eq 'Resources'" -SearchBase $domain -ErrorAction SilentlyContinue)) {
+    New-ADOrganizationalUnit -Name "Resources" -Path $domain
+    Write-Host "Top-level OU 'Resources' created under domain root."
 } else {
-    Write-Host "Sub-parent OU 'Resources' already exists."
+    Write-Host "Top-level OU 'Resources' already exists under domain root."
 }
 
 # Create Children OUs under 'Resources'
@@ -37,5 +34,4 @@ foreach ($childOU in $childOUs) {
 }
 
 Write-Host "OU creation script completed."
-
 ```
