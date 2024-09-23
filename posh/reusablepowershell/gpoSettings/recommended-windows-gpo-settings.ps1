@@ -52,5 +52,5 @@ Set-GPRegistryValue -Name $GPOName -Key $GPOAuditPath -ValueName "GPOAuditEnable
 Write-Host "GPO Auditing has been enabled to monitor changes."
 
 # Enable Advanced Audit Policy for GPO changes
-Invoke-Expression $auditCommand
+Invoke-Expression '$auditCommand'
 Write-Host "Advanced Audit Policy enabled for 'Audit Policy Change'"
