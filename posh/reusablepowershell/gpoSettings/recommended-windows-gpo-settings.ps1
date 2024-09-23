@@ -3,13 +3,14 @@ Import-Module GroupPolicy
 
 # Define variables
 $GPOName = "recommended-windows-gpoSettings"
-  $AppLockerPath = "HKLM\SOFTWARE\Policies\Microsoft\Windows\SrpV2"
-  $ApplockerExecutableKey = "$AppLockerPath\ExecutableRules"
-  $GPOAuditPath = "HKLM\SOFTWARE\Policies\Microsoft\Windows\System"
-  $auditCategory = "Audit Policy Change"
-  $auditSubcategory = "Audit Audit Policy Change"
-  $auditCommand = "auditpol /set /subcategory:`"$auditSubcategory`" /success:enable /failure:enable"
+$AppLockerPath = "HKLM\SOFTWARE\Policies\Microsoft\Windows\SrpV2"
+$ApplockerExecutableKey = "$AppLockerPath\ExecutableRules"
+$GPOAuditPath = "HKLM\SOFTWARE\Policies\Microsoft\Windows\System"
+$auditCategory = "Audit Policy Change"
+$auditSubcategory = "Audit Audit Policy Change"
+$auditCommand = "auditpol /set /subcategory:'$auditSubcategory' /success:enable /failure:enable"
 $domain = (Get-ADDomain).DNSRoot
+$EdgeKey = "HKLM\SOFTWARE\Policies\Microsoft\Edge"
 
 # Create a new GPO if it doesn't already exist
 if (-not (Get-GPO -Name $GPOName -ErrorAction SilentlyContinue)) {
@@ -52,5 +53,10 @@ Set-GPRegistryValue -Name $GPOName -Key $GPOAuditPath -ValueName "GPOAuditEnable
 Write-Host "GPO Auditing has been enabled to monitor changes."
 
 # Enable Advanced Audit Policy for GPO changes
-Invoke-Expression '$auditCommand'
+Invoke-Expression $auditCommand
 Write-Host "Advanced Audit Policy enabled for 'Audit Policy Change'"
+
+# Disable Microsoft Edge First Run and Startup Screens
+Set-GPRegistryValue -Name $GPOName -Key $EdgeKey -ValueName "HideFirstRunExperience" -Type Dword -Value 1
+Set-GPRegistryValue -Name $GPOName -Key $EdgeKey -ValueName "ImportStartupSettings" -Type Dword -Value 0
+Write-Host "Microsoft Edge First Run experience and startup screens have been disabled."
