@@ -6,14 +6,13 @@ Write-Host -ForegroundColor Green "Organizational Unit has been successfully cre
 ### Create child OUs
 
 ```powershell
-# Import the Active Directory module
 Import-Module ActiveDirectory
-
-# Define variables
 $domain = (Get-ADDomain).DNSRoot  # The domain's DNSRoot value
 $dnsRootOU = "OU=$domain,$((Get-ADDomain).DistinguishedName)"  # Top-level OU matching the DNSRoot
 $parentOU = "OU=Resources,$dnsRootOU"  # Sub-parent OU (Resources) under the DNSRoot OU
-$childOUs = @("Controls", "UsersandGroups", "Servers", "ServiceAccounts")  # List of child OUs
+$serversOU = "OU=Servers,$parentOU"  # Servers OU path under Resources
+$childOUs = @("Controls", "UsersandGroups", "Servers", "ServiceAccounts")  # List of child OUs under Resources
+$serverChildOUs = @("ApplicationServers", "DatabaseServers", "CoreInfrastructure", "JumpStations", "Testing")  # List of OUs under Servers
 
 # Create the Top-Level OU matching DNSRoot if it doesn't exist
 if (-not (Get-ADOrganizationalUnit -Filter "Name -eq '$domain'" -SearchBase (Get-ADDomain).DistinguishedName -ErrorAction SilentlyContinue)) {
@@ -42,6 +41,18 @@ foreach ($childOU in $childOUs) {
     }
 }
 
+# Create further Children OUs under 'Servers'
+foreach ($serverChildOU in $serverChildOUs) {
+    $serverChildOUPath = "OU=$serverChildOU,$serversOU"
+    if (-not (Get-ADOrganizationalUnit -Filter "Name -eq '$serverChildOU'" -SearchBase $serversOU -ErrorAction SilentlyContinue)) {
+        New-ADOrganizationalUnit -Name $serverChildOU -Path $serversOU
+        Write-Host "Server Child OU '$serverChildOU' created under 'Servers'."
+    } else {
+        Write-Host "Server Child OU '$serverChildOU' already exists under 'Servers'."
+    }
+}
+
 Write-Host "OU creation script completed."
+
 
 ```
