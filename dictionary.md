@@ -43,8 +43,22 @@
 ### github
 [hmaverickadams | breach-parse | github.com](https://github.com/hmaverickadams/breach-parse)
 
+## Nmap
+[Kioptrix Download](https://tcm-sec.com/kioptrix)
 
-# Appendix
+Nmap
+```
+arp-scan
+```
+SYN SYNACK ACK nmap
+Stealth scanning
+SYN SYNACK ACK nmap -sS
+SYN SYNACK RST nmap -sS
+
+```
+nmap -T4 -P- -A
+```
+
 ## other courses
 * OSINT Fundamentals
 
