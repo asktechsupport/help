@@ -14,6 +14,43 @@
 
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 
+## PenTesting | Tools
+
+### Recon Resources | Google Fu
+* Google, lmgtfy,
+* site:<domain>
+* site:tesla.com -www
+* filetype:csv
+
+### Recon Resources | email addresses
+* hunter.io
+* Phonebook.cz
+* Clearbit
+* email-checker.net
+* emailhippo.com
+
+### Recon Resources | hashes
+* hashes.org
+
+### Recon Resources | hunting subdomains and website technologies
+* sublist3r
+* owasp amass
+  
+* wappalyzer (Firefox)
+* burpsuite [https://burp](https://burp) - Kali
+* 
+
+### github
+[hmaverickadams | breach-parse | github.com](https://github.com/hmaverickadams/breach-parse)
+
+
+# Appendix
+## other courses
+* OSINT Fundamentals
+
+## 5 stages of ethical hacking - diagram
+![image](https://github.com/user-attachments/assets/1d12b895-29e8-475c-bce1-2ce10e282ff1)
+
 ## Penetration Testing (Pentesting)
 
 > [!NOTE]
