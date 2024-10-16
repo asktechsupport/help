@@ -14,3 +14,8 @@ $allhosts = get-ADComputer -Filter * | select DNSHostName
     $sqlserver1 = get-ADComputer -Filter {Name -like "*SQL01*"} | select DNSHostName
     $sqlserver2 = get-ADComputer -Filter {Name -like "*SQL02*"} | select DNSHostName
 ```
+### Useful AD Setup Variables
+```powershell
+$wsusTargetGroups = Get-ADGroup -Filter 'Name -like "wsusTargetGroup*"'
+
+```
