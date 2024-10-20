@@ -32,15 +32,23 @@ AD Components
 
 #### AD Objects:
 User Objects: enable network resource access for a user
+
 InetOrgPerson: Simlar to a user account, used for compatibility with other directory services
+
 Contacts: Used primarily to assign e-mail addresses to external users, Does not enable network access
+
 Groups: Used to simplify the administration of access control
+
 Computers: Enables auth and auditing of computer access to resources
+
 Printers: Used to simplify the process of locating an connecting to printers
+
 Shared folders: Enables users to search for shared folders based on properties
+
 Certificates: A certificate on a server is like an ID card for a website. It shows that the website is legitimate and helps ensure that your information is safe when you visit it.
 When you go to a website, this certificate lets your browser know that it’s talking to the real site and not an imposter. It also helps to encrypt any data you share, like passwords or credit card numbers, so that only the website can read it. In short, it’s a way to build trust and keep your online activities secure.
 ![image](https://github.com/user-attachments/assets/395a225c-48a7-4bc1-b659-5f2b8a6efc9e)
+
 credit: (https://www.beyondtrust.com/blog/entry/esc1-attacks)[https://www.beyondtrust.com/blog/entry/esc1-attacks]
 
 
