@@ -61,6 +61,7 @@ Verification by CA Server: The Enterprise CA server verifies the client’s perm
 * Certificate Generation: If the client’s request is permitted, the CA generates a certificate based on the template settings. The certificate is signed with the CA’s private key.
 * Certificate Issuance: The signed certificate is returned to the client, who can now use the certificate for secure communications, authentication, and other cryptographic operations.
 * object identifiers (OIDs) [PKI Solutions provides a comprehensive list of the EKU OIDs offered by Microsoft](https://www.pkisolutions.com/object-identifiers-oid-in-pki/).
+* ESC1 attacks: and [Read on ESC1 attacks](https://www.beyondtrust.com/blog/entry/esc1-attacks) and Certipy: [certipy tool](https://github.com/ly4k/Certipy)
 
 #### Build a lab in Azure
 [Build a lab in Azure](https://kamran-bilgrami.medium.com/ethical-hacking-lessons-building-free-active-directory-lab-in-azure-6c67a7eddd7f)
