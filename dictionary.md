@@ -49,11 +49,21 @@ Certificates: A certificate on a server is like an ID card for a website. It sho
 When you go to a website, this certificate lets your browser know that it’s talking to the real site and not an imposter. It also helps to encrypt any data you share, like passwords or credit card numbers, so that only the website can read it. In short, it’s a way to build trust and keep your online activities secure.
 ![image](https://github.com/user-attachments/assets/395a225c-48a7-4bc1-b659-5f2b8a6efc9e)
 
-credit: (https://www.beyondtrust.com/blog/entry/esc1-attacks)[https://www.beyondtrust.com/blog/entry/esc1-attacks]
+credit: [https://www.beyondtrust.com/blog/entry/esc1-attacks](https://www.beyondtrust.com/blog/entry/esc1-attacks)
 
+#### AD CS (Active Directory Certificate Services
+Key functions of AD CS
+* Integration with Active Directory: AD CS integrates with Microsoft’s PKI implementation within Active Directory to facilitate the issuance of certificates for X.509-formatted documents, encryption, message signing, and authentication.
+* Certificate Authority (CA): Certificates are issued by Certificate Authority (CA). CAs bind an identity to a public/private key pair, which is then utilized by applications to verify user identity.
+* Private/Public Key Generation: The client generates a private key pair. The public key is included in a Certificate Signing Request (CSR) along with details like subject and template name.
+* Certificate Signing Request (CSR): The CSR, which includes the public key and other details necessary for certificate generation, is sent to the Enterprise CA server.
+Verification by CA Server: The Enterprise CA server verifies the client’s permissions and template settings. It ensures the client is permitted to request the certificate based on the provided template settings.
+* Certificate Generation: If the client’s request is permitted, the CA generates a certificate based on the template settings. The certificate is signed with the CA’s private key.
+* Certificate Issuance: The signed certificate is returned to the client, who can now use the certificate for secure communications, authentication, and other cryptographic operations.
+* object identifiers (OIDs) [PKI Solutions provides a comprehensive list of the EKU OIDs offered by Microsoft](https://www.pkisolutions.com/object-identifiers-oid-in-pki/).
 
 #### Build a lab in Azure
-(Build a lab in Azure)[https://kamran-bilgrami.medium.com/ethical-hacking-lessons-building-free-active-directory-lab-in-azure-6c67a7eddd7f]
+[Build a lab in Azure](https://kamran-bilgrami.medium.com/ethical-hacking-lessons-building-free-active-directory-lab-in-azure-6c67a7eddd7f)
 
 
 ### Recon Resources | Google Fu
