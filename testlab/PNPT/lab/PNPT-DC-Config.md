@@ -1,3 +1,5 @@
+## Run Script 001
+```powershell
 #Create the PNPT lab with powershell
 #Run on your new Domain Controller. This script has been tested successfully in the author's lab environment.
 
@@ -18,5 +20,5 @@ Disable-NetAdapterBinding -Name $netAdapterName -ComponentID ms_tcpip6
 Install-WindowsFeature -Name Telnet-Client
 Rename-Computer $dcHostname
 Restart-Computer 
-
+```
 
