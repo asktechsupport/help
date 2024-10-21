@@ -15,3 +15,8 @@ New-NetIPAddress 10.0.0.1 -InterfaceAlias $netAdapterName -PrefixLength 24
 Set-DnsClientServerAddress -InterfaceAlias $netAdapterName -ServerAddresses 127.0.0.1
 Disable-NetAdapterBinding -Name $netAdapterName -ComponentID ms_tcpip6
 
+Install-WindowsFeature -Name Telnet-Client
+Rename-Computer $dcHostname
+Restart-Computer 
+
+
