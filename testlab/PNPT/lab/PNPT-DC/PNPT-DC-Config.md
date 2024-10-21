@@ -55,7 +55,7 @@ Install-ADDSForest `
 -Force:$true
 
 #Check that admin password is not stored in the XML files (Sysvol mining exploit)
-#\\basicvlab\SYSVOL\basicvlab\Policies\
+#\\pnpt\SYSVOL\basicvlab\Policies\
 
 #findstr /S /I cpassword \\basicvlab.local\sysvol\basicvlab.local\policies\*.xml
 # ⚠️Reboot Required⚠️
