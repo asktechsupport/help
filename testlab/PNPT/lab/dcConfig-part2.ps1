@@ -1,7 +1,4 @@
-Install-WindowsFeature -Name Telnet-Client
-Rename-Computer $dcHostname
-Restart-Computer 
- 
+
 #Install DNS
 Install-WindowsFeature -Name DNS -IncludeManagementTools
 
