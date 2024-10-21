@@ -4,11 +4,12 @@ Import-Module GroupPolicy
 
 
 # Define variables
+$domain = Get-ADDomain | select DNSRoot
 $connectToWsus = [Microsoft.UpdateServices.Administration.AdminProxy]::GetUpdateServer("wsus", $False, 8531) # Connect to your wsus server
 $GPOName = "Production WSUS Settings"
-$WUServer = "https://WSUS:8531"
+$WUServer = "https://WSUS.$domain:8531"
   # Create the initial target groups
-  $newWsusTargetGroups = @("wsusTargetGroup_AppName1", "wsusTargetGroup_AppName2") | ForEach-Object { New-ADGroup -Name $_ -GroupScope Global -GroupCategory Security -Path Get-ADOrganizationalUnit -Filter 'Name -like "Security Groups*"'
+  $newWsusTargetGroups = @("wsusTargetGroup_OWS", "wsusTargetGroup_QRM") | ForEach-Object { New-ADGroup -Name $_ -GroupScope Global -GroupCategory Security -Path Get-ADOrganizationalUnit -Filter 'Name -like "Security Groups*"'
  } 
     $wsusTargetGroups = Get-ADGroup -Filter 'Name -like "wsusTargetGroup*"'
     $existingGroup = $connectToWsus.GetComputerTargetGroups() | Where-Object { $_.Name -eq $wsusTargetGroups }  
