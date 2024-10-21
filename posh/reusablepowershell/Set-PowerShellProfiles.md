@@ -2,6 +2,7 @@
 #### For Servers
 - [x] w/ Write-Log function
 - [x] Covers Redirected Profiles
+- [x] See [Useful vars](https://github.com/asktechsupport/help/blob/main/posh/reusablepowershell/usefulVariables.md) to add to the Global vars section
 ```powershell
 
 #------------------------------------------------------------------------------------------------------------------------------------------------#
@@ -43,14 +44,19 @@ $psStartNotification = "PowerShell is starting. Please be sure you meant to open
 #------------------------------------------------------------------------------------------------------------------------------------------------#
 #### GLOBAL VARS
 #------------------------------------------------------------------------------------------------------------------------------------------------#
+# DOMAIN INFO
     $domain = Get-ADDomain | select DNSRoot
-    $rootOU = Get-ADDomain | select DistinguishedName    
-    $svc_account2 = Get-ADUser -Filter { samAccountName -like '*-SQL' } -Properties samAccountName | Select-Object samAccountName   
-    $allhosts = get-ADComputer -Filter * | select DNSHostName
-        $currentHost = get-ADComputer $env:COMPUTERNAME | select -ExpandProperty DNSHostName   
-        $allsqlservers = get-ADComputer -Filter {Name -like "*SQL*"} | select DNSHostName
-        $sqlserver1 = get-ADComputer -Filter {Name -like "*SQL01*"} | select DNSHostName
-        $sqlserver2 = get-ADComputer -Filter {Name -like "*SQL02*"} | select DNSHostName
+    $defaultDomainPolicy = Get-GPO -Name "Default Domain Policy"
+    $rootOU = Get-ADDomain | select DistinguishedName
+
+# ACCOUNTS
+    $svc_account1 = Get-ADUser -Filter { samAccountName -like '*-svc' } -Properties samAccountName | Select-Object samAccountName
+    $svc_account2 = Get-ADUser -Filter { samAccountName -like '*-SQL' } -Properties samAccountName | Select-Object samAccountName
+$allhosts = get-ADComputer -Filter * | select DNSHostName
+    $currentHost = get-ADComputer $env:COMPUTERNAME | select -ExpandProperty DNSHostName
+    $allsqlservers = get-ADComputer -Filter {Name -like "*SQL*"} | select DNSHostName
+    $sqlserver1 = get-ADComputer -Filter {Name -like "*SQL01*"} | select DNSHostName
+    $sqlserver2 = get-ADComputer -Filter {Name -like "*SQL02*"} | select DNSHostName
 
 
 
