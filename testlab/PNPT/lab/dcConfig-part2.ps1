@@ -7,7 +7,7 @@ Install-WindowsFeature DHCP -IncludeManagementTools
   netsh dhcp add securitygroups #This adds DHCP Administrators and DHCP Users
   Restart-Service dhcpserver
 
-#Install AD Forest "basicvlab.local"
+#Install Active Directory
 Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
 Install-ADDSForest -DomainName pnpt.local
 
