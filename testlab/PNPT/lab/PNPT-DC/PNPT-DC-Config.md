@@ -1,3 +1,5 @@
+> [!WARNING]
+> Run the scripts in order, errors occur when you run as a single script without reboots.
 ## Run Script 001
 ```powershell
 #Create the PNPT lab with powershell
@@ -21,6 +23,8 @@ Install-WindowsFeature -Name Telnet-Client
 Rename-Computer $dcHostname
 Restart-Computer # ⚠️Reboot Required⚠️
 ```
+> [!WARNING]
+> Reboot Required
 ## Run Script 002
 ```powershell
 
@@ -56,6 +60,8 @@ Install-ADDSForest `
 #findstr /S /I cpassword \\basicvlab.local\sysvol\basicvlab.local\policies\*.xml
 # ⚠️Reboot Required⚠️
 ```
+> [!WARNING]
+> Reboot Required
 ## Run Script 003
 ```powershell
 Add-Computer -DomainName pnpt.local
@@ -65,4 +71,6 @@ Add-Computer -DomainName pnpt.local
 # Restart-Computer -Force ⚠️Reboot Required⚠️
 #
 ```
+> [!WARNING]
+> Reboot Required
 
