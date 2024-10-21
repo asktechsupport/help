@@ -12,15 +12,15 @@ Install-WindowsFeature DHCP -IncludeManagementTools
 
 #Install AD Forest "basicvlab.local"
 Install-WindowsFeature AD-Domain-Services -IncludeManagementTools
-Install-ADDSForest -DomainName MARVEL.local
+Install-ADDSForest -DomainName pnpt.local
 
 Import-Module ADDSDeployment
 Install-ADDSForest `
 -CreateDnsDelegation:$false `
 -DatabasePath "C:\Windows\NTDS" `
 -DomainMode "WinThreshold" `
--DomainName "MARVEL.local" `
--DomainNetbiosName "MARVEL" `
+-DomainName "pnpt.local" `
+-DomainNetbiosName "pnpt" `
 -ForestMode "WinThreshold" `
 -InstallDns:$true `
 -LogPath "C:\Windows\NTDS" `
