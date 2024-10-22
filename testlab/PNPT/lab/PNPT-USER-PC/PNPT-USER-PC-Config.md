@@ -25,7 +25,7 @@ Disable-NetAdapterBinding -Name $netAdapterName -ComponentID ms_tcpip6
 
 Install-WindowsFeature -Name Telnet-Client
 Rename-Computer $renameHost
-Restart-Computer # ⚠️Reboot Required⚠️
+Restart-Computer -Force # ⚠️Reboot Required⚠️
 #
 ```
 > [!WARNING]
