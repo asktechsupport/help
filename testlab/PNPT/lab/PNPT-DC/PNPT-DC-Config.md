@@ -23,9 +23,10 @@ Disable-NetAdapterBinding -Name $netAdapterName -ComponentID ms_tcpip6
 Install-WindowsFeature -Name Telnet-Client
 Rename-Computer $dcHostname
 Restart-Computer # ⚠️Reboot Required⚠️
+#
 ```
 > [!WARNING]
-> Reboot Required
+> The script will reboot the machine for you.
 ## Run Script 002
 Create the domain "pnpt.local
 ```powershell
@@ -63,7 +64,7 @@ Install-ADDSForest `
 # ⚠️Reboot Required⚠️
 ```
 > [!WARNING]
-> Reboot Required
+> The script will reboot the machine for you.
 ## Run Script 003
 Join the domain
 ```powershell
@@ -75,17 +76,13 @@ Add-Computer -DomainName pnpt.local
 #
 ```
 > [!WARNING]
-> Reboot Required
+> The script will reboot the machine for you.
 ## Run Script 004
 Install the Certificate Authority Server Role
 ```powershell
-Add-Computer -DomainName pnpt.local
-# when prompted for creds enter
-# Administrator
-# Password456!
-# Restart-Computer -Force ⚠️Reboot Required⚠️
+Install-WindowsFeature ADCS-Cert-Authority -IncludeManagementTools
+Install-AdcsCertificationAuthority -CAType EnterpriseRootCA -Force
 #
 ```
-> [!WARNING]
-> Reboot Required
+*Reboot not required to install the Certificate Authority (AC DS) Role
 
