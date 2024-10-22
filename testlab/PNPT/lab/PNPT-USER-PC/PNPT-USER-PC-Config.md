@@ -20,7 +20,7 @@ New-Item -Path 'C:\Apps' -ItemType $folder
 
 Rename-NetAdapter -Name “Ethernet0" -NewName $netAdapterName
 New-NetIPAddress 10.0.0.2 -InterfaceAlias $netAdapterName -PrefixLength 24
-Set-DnsClientServerAddress -InterfaceAlias $netAdapterName -ServerAddresses 127.0.0.1
+Set-DnsClientServerAddress -InterfaceAlias $netAdapterName -ServerAddresses 10.0.0.1
 Disable-NetAdapterBinding -Name $netAdapterName -ComponentID ms_tcpip6
 
 Install-WindowsFeature -Name Telnet-Client
