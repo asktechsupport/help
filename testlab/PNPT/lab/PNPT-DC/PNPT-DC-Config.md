@@ -1,6 +1,6 @@
 > [!WARNING]
 > Run the scripts in order, errors occur when you run as a single script without reboots.
-## Run Script 001
+## Run Script 001: Configure IP and rename machine
 Configure a static IP, install DNS, disable ipv6 & rename the machine
 ```powershell
 #Create the PNPT lab with powershell
@@ -27,8 +27,8 @@ Restart-Computer # ⚠️Reboot Required⚠️
 ```
 > [!WARNING]
 > The script will reboot the machine for you.
-## Run Script 002
-Create the domain "pnpt.local
+## Run Script 002: Create the domain "pnpt.local"
+Create the domain "pnpt.local"
 ```powershell
 
 #Install DNS
@@ -65,7 +65,7 @@ Install-ADDSForest `
 ```
 > [!WARNING]
 > The script will reboot the machine for you.
-## Run Script 003
+## Run Script 003: Join the domain
 Join the domain
 ```powershell
 Add-Computer -DomainName pnpt.local
@@ -77,7 +77,7 @@ Add-Computer -DomainName pnpt.local
 ```
 > [!WARNING]
 > The script will reboot the machine for you.
-## Run Script 004
+## Run Script 004: Install the Certificate Authority Server Role
 Install the Certificate Authority Server Role
 ```powershell
 Install-WindowsFeature ADCS-Cert-Authority -IncludeManagementTools
