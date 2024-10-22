@@ -107,12 +107,9 @@ foreach ($serverChildOU in $serverChildOUs) {
 }
 
 Write-Host "OU creation script completed."
-cmd
-    Write-Host "Command line set to cmd..."
 gpupdate /force
     Write-Host "Your Group Policy should have taken effect from gpupdate /force."
-powershell
-    Write-Host "Command line set back to PowerShell..."
+
 ###### ➕USERS ######
 # Add manually for now
 
@@ -153,11 +150,7 @@ if ($share) {
     Write-Host "Failed to create SMB share 'hackme'."
 }
 ###### ➕SETSPN (SERVICE PRINCIPAL NAMES) ######
-cmd
-    Write-Host "Command line set to cmd..."
 setspn -a pnpt/sql.pnpt.local:60111 PNPT\SQLService
-powershell
-    Write-Host "Command line set back to PowerShell..."
 
 
 
