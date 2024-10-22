@@ -2,7 +2,7 @@
 Import-Module GroupPolicy
 
 # Define variables
-$GPOName = "recommended-windows-gpoSettings"
+$GPOName = "pnptLab-gpoSettings"
 $AppLockerPath = "HKLM\SOFTWARE\Policies\Microsoft\Windows\SrpV2"
 $ApplockerExecutableKey = "$AppLockerPath\ExecutableRules"
 $GPOAuditPath = "HKLM\SOFTWARE\Policies\Microsoft\Windows\System"
@@ -21,6 +21,8 @@ if (-not (Get-GPO -Name $GPOName -ErrorAction SilentlyContinue)) {
     Write-Host "GPO '$GPOName' already exists."
 }
 
+# Disable Windows Defender for lab purposes
+Set-GPRegistryValue -Name "Disable Windows Defender" -Key "HKLM\Software\Policies\Microsoft\Windows Defender" -ValueName "DisableAntiSpyware" -Type Dword -Value 1
 
 
 # Guest Account Status Reinforcement
