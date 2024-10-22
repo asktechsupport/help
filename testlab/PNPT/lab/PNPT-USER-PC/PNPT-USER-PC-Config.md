@@ -4,7 +4,7 @@
 ## Run Script 001: Configure IP and rename machine(s)
 Configure a static IP, install DNS, disable ipv6 & rename the machine
 > [!NOTE]
-> You may need to pay attention to the hostname variable and change the script accordingly.
+> You may need to pay attention to the hostname variable and IP address variable and change the script accordingly.
 ```powershell
 #Create the PNPT lab with powershell
 #Run on your new Domain Controller. This script has been tested successfully in the author's lab environment.
