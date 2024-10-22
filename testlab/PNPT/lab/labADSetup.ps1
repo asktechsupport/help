@@ -150,7 +150,7 @@ if ($share) {
     Write-Host "Failed to create SMB share 'hackme'."
 }
 ###### ➕SETSPN (SERVICE PRINCIPAL NAMES) ######
-setspn -a pnpt/sql.pnpt.local:60111 PNPT\SQLService
+setspn -a pnpt/sql.pnpt.local:60111 PNPT\sql
 
 
 
