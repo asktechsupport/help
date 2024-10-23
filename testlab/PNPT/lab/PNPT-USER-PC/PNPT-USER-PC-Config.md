@@ -3,6 +3,7 @@
 - [x] Tested and working in the authors lab environment.
 > [!WARNING]
 > Run the scripts in order, errors occur when you run as a single script without reboots.
+
 ## Run Script 001: Configure IP and rename machine(s)
 Configure a static IP, install DNS, disable ipv6 & rename the machine
 > [!NOTE]
@@ -45,4 +46,17 @@ Add-Computer -DomainName pnpt.local
 ```
 > [!WARNING]
 > The script will reboot the machine for you.
+
+## Create local user accounts
+> [!NOTE]
+> You need to pay attention to the $newUser variable and change the script accordingly.
+```powershell
+# Step 1: Create the local user
+$newUser = "PC-Local-Admin01"
+New-LocalUser -Name $newUser -Password (ConvertTo-SecureString "Password456!" -AsPlainText -Force) -FullName $newUser -Description "Description of the user"
+
+# Step 2: Add the user to the Administrators group
+Add-LocalGroupMember -Group "Administrators" -Member $newUser
+```
+
 
