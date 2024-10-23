@@ -1,4 +1,5 @@
 [Find useful AD variables here](https://github.com/asktechsupport/help/blob/main/posh/reusablepowershell/usefulVariables.md)
+[x] Tested and working in the authors lab environment.
 > [!WARNING]
 > Run the scripts in order, errors occur when you run as a single script without reboots.
 ## Run Script 001: Configure IP and rename machine(s)
