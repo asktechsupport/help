@@ -1,6 +1,6 @@
 ### Useful ADComputer Variables
 >[!NOTE]
->
+> These variables should work in any AD environment
 
 ```powershell
 $domain = Get-ADDomain | select DNSRoot
@@ -17,5 +17,10 @@ $allhosts = get-ADComputer -Filter * | select DNSHostName
 ### Useful AD Setup Variables
 ```powershell
 $wsusTargetGroups = Get-ADGroup -Filter 'Name -like "wsusTargetGroup*"'
+
+```
+### Useful Application Patching Variables
+```powershell
+$azuredatastudioPatching = "https://aka.ms/azuredatastudio-windows"
 
 ```
