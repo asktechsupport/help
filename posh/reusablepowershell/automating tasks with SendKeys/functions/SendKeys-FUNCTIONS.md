@@ -83,3 +83,30 @@ function pressKeys {
 Start-Process "notepad"
 Start-Sleep -Seconds 1  # Wait for Notepad to open
 pressKeys "{ENTER}"
+
+#### Navigate with tab
+
+```powershell
+function Press-Tab {
+    param(
+        [int]$Count = 1,  # Number of times to press Tab
+        [int]$DelaySeconds = 1  # Delay in seconds between each Tab press
+    )
+
+    for ($i = 1; $i -le $Count; $i++) {
+        # Simulate pressing the Tab key
+        [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
+        Start-Sleep -Seconds $DelaySeconds
+    }
+}
+
+
+    Start-Process "ms-settings:windowsupdate"
+        
+
+    Add-SendKeys
+
+
+    # Press Tab 4 times to navigate to a specific menu
+    Press-Tab -Count 4 -DelaySeconds 1
+```
