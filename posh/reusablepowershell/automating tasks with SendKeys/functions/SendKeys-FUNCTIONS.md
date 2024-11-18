@@ -83,7 +83,7 @@ function pressKeys {
 Start-Process "notepad"
 Start-Sleep -Seconds 1  # Wait for Notepad to open
 pressKeys "{ENTER}"
-
+```
 #### Navigate with tab
 
 ```powershell
