@@ -1,58 +1,58 @@
-Start-Process "ms-settings:windowsupdate"
-Start-Sleep -Seconds 5  # Wait for the window to open
+### FUNCTIONS
 
-# Add the .NET assembly for SendKeys
-Add-Type -AssemblyName Microsoft.VisualBasic
-Add-Type -AssemblyName System.Windows.Forms
-
-# Bring the Settings window to the foreground
-$windowTitle = "Windows Update"  # Replace with exact title if localized
-(Get-Process | Where-Object { $_.MainWindowTitle -like "*$windowTitle*" }).MainWindowHandle |
-    ForEach-Object {
-        [System.Windows.Forms.SendKeys]::SendWait("%{TAB}")  # Alt + Tab (optional, to focus on window)
-        Start-Sleep -Seconds 1
+function Add-SendKeys {
+    # Check if the required types are already loaded
+    if (-not ([System.Windows.Forms.SendKeys] -as [type])) {
+        try {
+            Add-Type -AssemblyName Microsoft.VisualBasic
+            Add-Type -AssemblyName System.Windows.Forms
+            Write-Output "SendKeys support added successfully."
+        } catch {
+            Write-Error "Failed to add SendKeys support: $_"
+        }
+    } else {
+        Write-Output "SendKeys support is already loaded."
     }
+}
 
-# Simulate pressing Tab to navigate the menu
-[System.Windows.Forms.SendKeys]::SendWait("{TAB}") 
-Start-Sleep -Seconds 1
 
-# Bring the Settings window to the foreground
-$windowTitle = "Windows Update"  # Replace with exact title if localized
-(Get-Process | Where-Object { $_.MainWindowTitle -like "*$windowTitle*" }).MainWindowHandle |
-    ForEach-Object {
-        [System.Windows.Forms.SendKeys]::SendWait("%{TAB}")  # Alt + Tab (optional, to focus on window)
-        Start-Sleep -Seconds 1
+function FocusWindow {
+    param([string]$title)
+    (Get-Process | Where-Object { $_.MainWindowTitle -like "*$title*" }).MainWindowHandle |
+        ForEach-Object {
+            [System.Windows.Forms.SendKeys]::SendWait("%{TAB}")
+            Start-Sleep -Seconds 1
+        }
+}
+
+# Example Usage:
+# FocusWindow "Windows Update"
+
+function Press-Tab {
+    param(
+        [int]$Count = 1,  # Number of times to press Tab
+        [int]$DelaySeconds = 1  # Delay in seconds between each Tab press
+    )
+
+    for ($i = 1; $i -le $Count; $i++) {
+        # Simulate pressing the Tab key
+        [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
+        Start-Sleep -Seconds $DelaySeconds
     }
+}
 
 
-# Simulate pressing Tab to navigate the menu
-[System.Windows.Forms.SendKeys]::SendWait("{TAB}") 
-Start-Sleep -Seconds 1
+    Start-Process "ms-settings:windowsupdate"
+        
 
-# Bring the Settings window to the foreground
-$windowTitle = "Windows Update"  # Replace with exact title if localized
-(Get-Process | Where-Object { $_.MainWindowTitle -like "*$windowTitle*" }).MainWindowHandle |
-    ForEach-Object {
-        [System.Windows.Forms.SendKeys]::SendWait("%{TAB}")  # Alt + Tab (optional, to focus on window)
-        Start-Sleep -Seconds 1
-    }
-
-# Simulate pressing Enter to select "Check for updates"
-[System.Windows.Forms.SendKeys]::SendWait("{ENTER}") 
-Start-Sleep -Seconds 10  # Wait for updates to be checked
-
-# Bring the Settings window to the foreground
-$windowTitle = "Windows Update"  # Replace with exact title if localized
-(Get-Process | Where-Object { $_.MainWindowTitle -like "*$windowTitle*" }).MainWindowHandle |
-    ForEach-Object {
-        [System.Windows.Forms.SendKeys]::SendWait("%{TAB}")  # Alt + Tab (optional, to focus on window)
-        Start-Sleep -Seconds 1
-    }
+    Add-SendKeys
 
 
-# Simulate pressing Space or Enter to install updates
-[System.Windows.Forms.SendKeys]::SendWait(" ")
-Start-Sleep -Seconds 10
+    # Press Tab 4 times to navigate to a specific menu
+    Press-Tab -Count 4 -DelaySeconds 1
+
+    # Simulate pressing Enter to select the focused item
+    [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
+    Start-Sleep -Seconds 2
 
 
