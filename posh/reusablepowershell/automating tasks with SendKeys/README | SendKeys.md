@@ -2,6 +2,51 @@
 
 ## Examples
 Complete Windows OS Patching
+```powershell
+### FUNCTIONS
+
+function FocusWindow {
+    param([string]$title)
+    (Get-Process | Where-Object { $_.MainWindowTitle -like "*$title*" }).MainWindowHandle |
+        ForEach-Object {
+            [System.Windows.Forms.SendKeys]::SendWait("%{TAB}")
+            Start-Sleep -Seconds 1
+        }
+}
+
+# Example Usage:
+# FocusWindow "Windows Update"
+
+function Press-Tab {
+    param(
+        [int]$Count = 1,  # Number of times to press Tab
+        [int]$DelaySeconds = 1  # Delay in seconds between each Tab press
+    )
+
+    for ($i = 1; $i -le $Count; $i++) {
+        # Simulate pressing the Tab key
+        [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
+        Start-Sleep -Seconds $DelaySeconds
+    }
+}
+
+
+    Start-Process "ms-settings:windowsupdate"
+        
+
+    # Add the .NET assembly for SendKeys
+    Add-Type -AssemblyName Microsoft.VisualBasic
+    Add-Type -AssemblyName System.Windows.Forms
+
+
+    # Press Tab 3 times to navigate to a specific menu
+    Press-Tab -Count 4 -DelaySeconds 1
+
+    # Simulate pressing Enter to select the focused item
+    [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
+    Start-Sleep -Seconds 2
+
+```
 ![image](https://github.com/user-attachments/assets/19c1cb22-a792-4be0-9841-7cd8f192fb80)
 
 Write 'hi' in Notepad
@@ -53,6 +98,8 @@ $windowTitle = "Windows Update"  # Replace with exact title if localized
         Start-Sleep -Seconds 1
     }
 ```
+
+>>>
 ```powershell
 ### FUNCTIONS
 
@@ -67,34 +114,5 @@ function FocusWindow {
 
 # Example Usage:
 # FocusWindow "Windows Update"
-
-function Press-Tab {
-    param(
-        [int]$Count = 1,  # Number of times to press Tab
-        [int]$DelaySeconds = 1  # Delay in seconds between each Tab press
-    )
-
-    for ($i = 1; $i -le $Count; $i++) {
-        # Simulate pressing the Tab key
-        [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-        Start-Sleep -Seconds $DelaySeconds
-    }
-}
-
-
-    Start-Process "ms-settings:windowsupdate"
-        
-
-    # Add the .NET assembly for SendKeys
-    Add-Type -AssemblyName Microsoft.VisualBasic
-    Add-Type -AssemblyName System.Windows.Forms
-
-
-    # Press Tab 3 times to navigate to a specific menu
-    Press-Tab -Count 4 -DelaySeconds 1
-
-    # Simulate pressing Enter to select the focused item
-    [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")
-    Start-Sleep -Seconds 2
-
 ```
+
