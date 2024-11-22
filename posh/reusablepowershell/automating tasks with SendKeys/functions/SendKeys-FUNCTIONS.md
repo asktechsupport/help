@@ -73,7 +73,7 @@ function pressKeys {
     try {
         [System.Windows.Forms.SendKeys]::SendWait($key)
         Start-Sleep -Seconds $DelaySeconds
-        Write-Output "Message or keys '$Message' typed successfully."
+        Write-Output "Message or keys '$key' typed successfully."
     } catch {
         Write-Error "Failed to send message: $_"
     }
@@ -107,6 +107,46 @@ function Press-Tab {
     Add-SendKeys
 
 
-    # Press Tab 4 times to navigate to a specific menu
+    # Press Tab x times to navigate to a specific menu
     Press-Tab -Count 4 -DelaySeconds 1
 ```
+
+#### Open the Start Menu
+```powershell
+function pressKeys {
+    param(
+        [string]$key,
+        [int]$DelaySeconds = 1
+    )
+
+    # Ensure the required assemblies for SendKeys are loaded
+    if (-not ([System.Windows.Forms.SendKeys] -as [type])) {
+        try {
+            Add-Type -AssemblyName Microsoft.VisualBasic
+            Add-Type -AssemblyName System.Windows.Forms
+        } catch {
+            Write-Error "Failed to add SendKeys support: $_"
+            return
+        }
+    }
+
+    # Send the message or key sequence
+    try {
+        [System.Windows.Forms.SendKeys]::SendWait($key)
+        Start-Sleep -Seconds $DelaySeconds
+        Write-Output "Message or keys '$key' typed successfully."
+    } catch {
+        Write-Error "Failed to send message: $_"
+    }
+}
+
+function Open-StartMenu {
+    # Minimize all windows and focus on the desktop
+    pressKeys "^{ESC}" 1 # Win + D
+}
+
+# Example Usage:
+Open-StartMenu
+```
+
+
