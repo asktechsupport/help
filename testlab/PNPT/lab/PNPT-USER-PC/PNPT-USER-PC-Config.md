@@ -157,7 +157,15 @@ New-Item -Path 'C:\Temp' -ItemType $folder
 New-Item -Path 'C:\Apps' -ItemType $folder
 
 Rename-NetAdapter -Name “Ethernet0" -NewName $netAdapterName
-New-NetIPAddress 10.0.0.2 -InterfaceAlias $netAdapterName -PrefixLength 24
+# Call the Set-IP function and store the result in $setIPAddress
+$setIPAddress = Set-IP
+
+    if ($setIPAddress) {
+        Write-Host "The entered IP address is: $setIPAddress" -ForegroundColor Green
+    } else {
+        Write-Host "Operation cancelled or no IP address entered." -ForegroundColor Red
+    }
+New-NetIPAddress -IPAddress $setIPAddress -InterfaceAlias $netAdapterName -PrefixLength 24
 Set-DnsClientServerAddress -InterfaceAlias $netAdapterName -ServerAddresses 10.0.0.1
 Disable-NetAdapterBinding -Name $netAdapterName -ComponentID ms_tcpip6
 
