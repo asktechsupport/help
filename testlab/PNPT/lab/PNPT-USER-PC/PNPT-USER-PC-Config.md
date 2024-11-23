@@ -168,8 +168,6 @@ $setIPAddress = Set-IP
 New-NetIPAddress -IPAddress $setIPAddress -InterfaceAlias $netAdapterName -PrefixLength 24
 Set-DnsClientServerAddress -InterfaceAlias $netAdapterName -ServerAddresses 10.0.0.1
 Disable-NetAdapterBinding -Name $netAdapterName -ComponentID ms_tcpip6
-
-Install-WindowsFeature -Name Telnet-Client
 Rename-Computer $renameHost
 #
 ```
@@ -201,4 +199,8 @@ New-LocalUser -Name $newUser -Password (ConvertTo-SecureString "Password456!" -A
 Add-LocalGroupMember -Group "Administrators" -Member $newUser
 ```
 
+## Optional
+```powershell
+Install-WindowsFeature -Name Telnet-Client
+```
 
