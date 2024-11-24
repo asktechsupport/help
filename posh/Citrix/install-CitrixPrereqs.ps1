@@ -5,6 +5,8 @@ if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 }
 
 Write-Host "Starting installation for Citrix Prerequisites..." -ForegroundColor Cyan
+Install-WindowsFeature -Name RSAT-ADCS-Mgmt -IncludeManagementTools
+
 
 # Install Edge WebView2 Runtime
 Write-Host "Searching for Microsoft Edge WebView2 Runtime Installer..." -ForegroundColor Yellow
