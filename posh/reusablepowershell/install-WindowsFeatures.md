@@ -1,3 +1,7 @@
+### RSAT Tools
+Install-WindowsFeature -Name RSAT-ADCS-Mgmt -IncludeManagementTools
+
+
 ### WSUS
 
 ```powershell
