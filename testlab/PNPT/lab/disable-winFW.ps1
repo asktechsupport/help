@@ -5,17 +5,10 @@ if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 }
 
 Write-Host "Disabling all Windows Firewall profiles..." -ForegroundColor Yellow
+Set-NetFirewallProfile -Profile Domain,Private,Public -Enabled False
 
-# Disable Domain Profile
-Set-NetFirewallProfile -Profile Domain -Enabled False
-Write-Host "Domain firewall profile disabled." -ForegroundColor Green
+Write-Host "Domain firewall profile disabled." -ForegroundColor Cyan
+Write-Host "Private firewall profile disabled." -ForegroundColor Cyan
+Write-Host "Public firewall profile disabled." -ForegroundColor Cyan
 
-# Disable Private Profile
-Set-NetFirewallProfile -Profile Private -Enabled False
-Write-Host "Private firewall profile disabled." -ForegroundColor Green
-
-# Disable Public Profile
-Set-NetFirewallProfile -Profile Public -Enabled False
-Write-Host "Public firewall profile disabled." -ForegroundColor Green
-
-Write-Host "All firewall profiles have been disabled." -ForegroundColor Cyan
+Write-Host "All firewall profiles have been disabled." -ForegroundColor Green
