@@ -1,129 +1,112 @@
-function Add-SendKeys {
-    # Ensure the required assemblies are loaded for SendKeys support
-    if (-not ([System.Windows.Forms.SendKeys] -as [type])) {
-        try {
-            Add-Type -AssemblyName Microsoft.VisualBasic
-            Add-Type -AssemblyName System.Windows.Forms
-            Write-Output "SendKeys support added successfully."
-        } catch {
-            Write-Error "Failed to add SendKeys support: $_"
-            exit
-        }
-    } else {
-        Write-Output "SendKeys support is already loaded."
-    }
+# Ensure the script is run as Administrator
+if (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole] "Administrator")) {
+    Write-Host "This script must be run as an Administrator!" -ForegroundColor Red
+    exit
 }
 
-# Load SendKeys
-Add-SendKeys
+Write-Host "Starting certificate request process..." -ForegroundColor Cyan
 
-# Open the Certificate Templates MMC
-Write-Output "Opening Certificate Templates MMC..."
-Start-Process "certtmpl.msc"
-Start-Sleep -Seconds 1 # Wait for MMC to fully load
+# Step 1: Retrieve CA Configuration
+function RetrieveCAConfig {
+    Write-Host "Retrieving Certificate Authority configuration..." -ForegroundColor Yellow
+    $global:caConfig = certutil.exe -dump | Select-String -Pattern "Config" | ForEach-Object {
+        ($_ -split "Config:")[1].Trim().Trim('"')
+    }
 
-# Navigate and duplicate the Web Server template
-Write-Output "Navigating and duplicating the Web Server template..."
-[System.Windows.Forms.SendKeys]::SendWait("{TAB}")        # Navigate to the template name field
-[System.Windows.Forms.SendKeys]::SendWait("{W}")          # Navigate to the first template (e.g., Web Server)
-Start-Sleep -Milliseconds 500
-[System.Windows.Forms.SendKeys]::SendWait("+{F10}")       # Open context menu (Shift + F10)
-Start-Sleep -Milliseconds 500
-[System.Windows.Forms.SendKeys]::SendWait("{DOWN}")       # Hover "Duplicate Template"
-Start-Sleep -Milliseconds 500
-[System.Windows.Forms.SendKeys]::SendWait("{ENTER}")      # Select "Duplicate Template"
-Start-Sleep -Milliseconds 500                             # Wait for the Duplicate Template dialog
-
-# Rename the new template
-Write-Output "Renaming the new template to 'StoreFrontTemplate'..."
-# Press TAB 5 times to navigate to the General tab
-for ($i = 1; $i -le 5; $i++) {
-    [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-    Start-Sleep -Milliseconds 500
+    if (-not $caConfig) {
+        Write-Host "Failed to retrieve CA configuration. Ensure certutil is accessible and CA is operational." -ForegroundColor Red
+        exit
+    }
+    Write-Host "CA Configuration Retrieved: $caConfig" -ForegroundColor Green
 }
 
-    [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}") # Press RIGHT ARROW key once
-    Start-Sleep -Milliseconds 500
+# Step 2: Create Certificate Request File
+function CreateCertRequest {
+    Write-Host "Creating certificate request file..." -ForegroundColor Yellow
 
-# Rename the template in the general tab...
-    [System.Windows.Forms.SendKeys]::SendWait("{TAB}") # Press TAB key once
-    Start-Sleep -Milliseconds 500
-    [System.Windows.Forms.SendKeys]::SendWait("^a")           # Select all text (Ctrl + A)
-    Start-Sleep -Milliseconds 500
-    [System.Windows.Forms.SendKeys]::SendWait("StoreFrontTemplate") # Type the new template name
-    Start-Sleep -Milliseconds 500
+    $certReq = @"
+[Version]
+Signature = "$Windows NT$"
 
-    [System.Windows.Forms.SendKeys]::SendWait("{TAB}") # Press TAB key once
-    Start-Sleep -Milliseconds 500
-    [System.Windows.Forms.SendKeys]::SendWait("^a")           # Select all text (Ctrl + A)
-    Start-Sleep -Milliseconds 500
-    [System.Windows.Forms.SendKeys]::SendWait("StoreFrontTemplate") # Type the new template name
-    Start-Sleep -Milliseconds 500
-# Skip the validity period, leaving it at 2 years. Press TAB 4 times
-    for ($i = 1; $i -le 4; $i++) {
-        [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-        Start-Sleep -Milliseconds 500
-    }
-# Renewal period = maximum allowed, 547 days
-[System.Windows.Forms.SendKeys]::SendWait("{UP}") # Set "days" as the metric
-    Start-Sleep -Milliseconds 500
-    [System.Windows.Forms.SendKeys]::SendWait("+{TAB}")       # Open context menu (Shift + TAB)
-        Start-Sleep -Seconds 1
-        [System.Windows.Forms.SendKeys]::SendWait("547") # Set this to 547 days
-            Start-Sleep -Milliseconds 500
-# Now tab to the Subject Name tab. Press TAB a number of times
-    for ($i = 1; $i -le 7; $i++) {
-        [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-        Start-Sleep -Milliseconds 500
-    }
-    # Now RIGHT ARROW 4x
-    for ($i = 1; $i -le 4; $i++) {
-        [System.Windows.Forms.SendKeys]::SendWait("{RIGHT}")
-        Start-Sleep -Milliseconds 500
-    }
-        # Now TAB 1 x
-        for ($i = 1; $i -le 1; $i++) {
-            [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-            Start-Sleep -Milliseconds 500
-        }
-            # Now down 1 x
-            for ($i = 1; $i -le 1; $i++) {
-                [System.Windows.Forms.SendKeys]::SendWait("{DOWN}")
-                Start-Sleep -Milliseconds 500
-            }
-                # Now TAB 1 x
-                for ($i = 1; $i -le 1; $i++) {
-                    [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-                    Start-Sleep -Milliseconds 500
-                }
-                    # Now UP 2 x. Sets format as DNS Name
-                    for ($i = 1; $i -le 2; $i++) {
-                        [System.Windows.Forms.SendKeys]::SendWait("{UP}")
-                        Start-Sleep -Milliseconds 500
-                    }
-                        # Now TAB 3 x and space
-                        for ($i = 1; $i -le 3; $i++) {
-                            [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-                            Start-Sleep -Milliseconds 500
-                        }
-                            #Now space
-                            [System.Windows.Forms.SendKeys]::SendWait(" ")
-                            Start-Sleep -Milliseconds 500
-                # Now TAB 6 x
-                for ($i = 1; $i -le 6; $i++) {
-                    [System.Windows.Forms.SendKeys]::SendWait("{TAB}")
-                    Start-Sleep -Milliseconds 500
-                }
-                    # Enter to Apply
-                    [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")      # Select "Duplicate Template"
-                    Start-Sleep -Milliseconds 500                             
-                        # Shift-tab back to ok
-                            for ($i = 1; $i -le 4; $i++) {
-                            [System.Windows.Forms.SendKeys]::SendWait("+{TAB}")
-                            Start-Sleep -Milliseconds 500
-                        }
-                    # Enter to Finish creating the template
-                    [System.Windows.Forms.SendKeys]::SendWait("{ENTER}")      # Select "Duplicate Template"
-                        Start-Sleep -Milliseconds 500 
+[NewRequest]
+Subject = "CN=$($env:COMPUTERNAME).$((Get-WmiObject Win32_ComputerSystem).Domain)"
+KeySpec = 1
+KeyLength = 2048
+Exportable = TRUE
+MachineKeySet = TRUE
+RequestType = Cert
+ProviderName = "Microsoft RSA SChannel Cryptographic Provider"
+ProviderType = 12
+HashAlgorithm = sha256
 
-#Write-Output "Template duplication completed successfully. Verify in the Certification Authority MMC."
+[RequestAttributes]
+CertificateTemplate = StoreFrontTemplate
+"@
+    $global:requestFilePath = "$env:Temp\StoreFrontCert.req"
+    Set-Content -Path $requestFilePath -Value $certReq
+    Write-Host "Certificate request file created at: $requestFilePath" -ForegroundColor Green
+}
+
+# Step 3: Validate the Certificate Request File
+function Validate-CertRequestFile {
+    param (
+        [string]$FilePath
+    )
+
+    Write-Host "Validating the certificate request file at: $FilePath" -ForegroundColor Yellow
+
+    # Check if the file exists
+    if (-not (Test-Path -Path $FilePath)) {
+        Write-Host "The certificate request file does not exist: $FilePath" -ForegroundColor Red
+        exit
+    }
+
+    # Display the contents of the file
+    Write-Host "Contents of the certificate request file:" -ForegroundColor Cyan
+    Get-Content -Path $FilePath | ForEach-Object { Write-Host $_ }
+
+    # Perform basic validation checks
+    $fileContent = Get-Content -Path $FilePath
+    if (-not ($fileContent -match "Signature =")) {
+        Write-Host "Validation failed: Missing 'Signature' field in the certificate request file." -ForegroundColor Red
+        exit
+    }
+    if (-not ($fileContent -match "CertificateTemplate = StoreFrontTemplate")) {
+        Write-Host "Validation failed: Missing or incorrect 'CertificateTemplate' in the certificate request file." -ForegroundColor Red
+        exit
+    }
+
+    Write-Host "Certificate request file validation passed." -ForegroundColor Green
+}
+
+# Step 4: Submit Certificate Request
+function SubmitCertRequest {
+    Write-Host "Submitting certificate request to CA: $caConfig..." -ForegroundColor Yellow
+    $global:responseFilePath = "$env:Temp\StoreFrontCert.cer"
+    $submitCommand = "certreq.exe -submit -config `"$caConfig`" `"$requestFilePath`" `"$responseFilePath`""
+    Write-Host "Executing: $submitCommand" -ForegroundColor Yellow
+    Invoke-Expression $submitCommand
+
+    if (-not (Test-Path $responseFilePath)) {
+        Write-Host "Certificate response not received. Check CA logs and configuration." -ForegroundColor Red
+        exit
+    }
+    Write-Host "Certificate response received: $responseFilePath" -ForegroundColor Green
+}
+
+# Step 5: Accept and Install the Certificate
+function AcceptAndInstallCert {
+    Write-Host "Accepting and installing the certificate..." -ForegroundColor Yellow
+    $acceptCommand = "certreq.exe -accept -machine `"$responseFilePath`""
+    Invoke-Expression $acceptCommand
+    Write-Host "Certificate successfully installed." -ForegroundColor Green
+}
+
+# Main Script Execution
+RetrieveCAConfig
+CreateCertRequest
+Validate-CertRequestFile -FilePath $requestFilePath
+SubmitCertRequest
+AcceptAndInstallCert
+
+Write-Host "Certificate request process completed successfully!" -ForegroundColor Cyan
