@@ -1,3 +1,19 @@
+#### Load the SendKeys module
+function Add-SendKeys {
+    # Check if the required types are already loaded
+    if (-not ([System.Windows.Forms.SendKeys] -as [type])) {
+        try {
+            Add-Type -AssemblyName Microsoft.VisualBasic
+            Add-Type -AssemblyName System.Windows.Forms
+            Write-Output "SendKeys support added successfully."
+        } catch {
+            Write-Error "Failed to add SendKeys support: $_"
+        }
+    } else {
+        Write-Output "SendKeys support is already loaded."
+    }
+}
+
 #### focusWindow
 ```powershell
 function focusWindow {
@@ -11,7 +27,28 @@ function focusWindow {
 
 # Example Usage:
 # focusWindow "Windows Update"
+
 ```
+##### Better way
+function focusWindow {
+    param (
+        [string]$WindowTitle # The title of the window to activate
+    )
+    try {
+        Add-Type -AssemblyName Microsoft.VisualBasic # Load VisualBasic namespace
+        if ([Microsoft.VisualBasic.Interaction]::AppActivate($WindowTitle)) {
+            Write-Output "Window with title '$WindowTitle' is now focused."
+            Start-Sleep -Seconds 1 # Allow time for the window to gain focus
+            return $true
+        } else {
+            Write-Warning "Window with title '$WindowTitle' could not be focused."
+            return $false
+        }
+    } catch {
+        Write-Error "Failed to activate the window: $_"
+        return $false
+    }
+}
 
 #### typeMsg
 ```powershell
