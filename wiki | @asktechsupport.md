@@ -1,7 +1,5 @@
 # Wiki Home
 
----
-
 ## Windows Active Directory Overview
 
 Key concepts and architecture of Active Directory.
