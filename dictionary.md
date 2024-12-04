@@ -121,117 +121,153 @@ nmap -T4 -P- -A
 > [!NOTE]
 > A simulated cyberattack against a system to identify vulnerabilities.
 
-## Vulnerability
-> [!NOTE]
-> A weakness in a system that can be exploited by a threat actor.
+Here is the content with the headings (`##`) alphabetized, while keeping the original format:
 
-## Exploit
-> [!NOTE]
-> A code or software that takes advantage of a vulnerability.
+---
 
-## Payload
+## Advanced Persistent Threat (APT)
 > [!NOTE]
-> The part of an exploit that performs the intended malicious action.
+> A prolonged and targeted cyberattack in which an intruder gains access to a network and remains undetected.
 
-## Social Engineering
+## Aircrack-ng
 > [!NOTE]
-> Manipulating people into divulging confidential information.
+> A suite of tools for assessing Wi-Fi network security.
 
-## Reconnaissance
+## ARP Spoofing
 > [!NOTE]
-> The process of gathering information about a target.
+> A technique where an attacker sends falsified ARP messages over a local network.
 
-## Footprinting
+## Attack Surface
 > [!NOTE]
-> Collecting data on a target system or network to map out its structure.
-
-## Enumeration
-> [!NOTE]
-> Extracting user names, machine names, network resources, and other services.
-
-## Scanning
-> [!NOTE]
-> Actively probing a target to gather information about its network and systems.
-
-## Brute Force Attack
-> [!NOTE]
-> Attempting to gain access by trying all possible combinations of credentials.
-
-## Dictionary Attack
-> [!NOTE]
-> A type of brute force attack that uses a list of common passwords or words.
-
-## Credential Stuffing
-> [!NOTE]
-> Using leaked username/password pairs from one breach to access other sites.
-
-## Phishing
-> [!NOTE]
-> A method of tricking individuals into providing sensitive information by pretending to be a trustworthy entity.
-
-## SQL Injection (SQLi)
-> [!NOTE]
-> An attack that allows execution of malicious SQL statements on a database.
-
-## Cross-Site Scripting (XSS)
-> [!NOTE]
-> Injecting malicious scripts into web pages viewed by other users.
-
-## Man-in-the-Middle (MitM) Attack
-> [!NOTE]
-> Intercepting and possibly altering communication between two parties.
-
-## Buffer Overflow
-> [!NOTE]
-> Overwriting a program's memory, leading to arbitrary code execution.
-
-## Privilege Escalation
-> [!NOTE]
-> Gaining higher-level permissions on a system.
-
-## Zero-Day
-> [!NOTE]
-> A vulnerability that is unknown to the software vendor and for which no patch exists.
+> The total sum of the vulnerabilities that can be exploited in a system.
 
 ## Backdoor
 > [!NOTE]
 > A secret method of bypassing normal authentication to gain access to a system.
 
-## Rootkit
+## Blue Team
 > [!NOTE]
-> A set of software tools that enable unauthorized access to a computer, often remaining hidden.
+> The defenders who protect the organization's assets and respond to attacks.
 
-## Malware
+## Botnet
 > [!NOTE]
-> Malicious software designed to disrupt, damage, or gain unauthorized access to a system.
+> A network of compromised devices controlled by an attacker.
 
-## Trojan Horse
+## Brute Force Attack
 > [!NOTE]
-> Malicious software disguised as legitimate software.
+> Attempting to gain access by trying all possible combinations of credentials.
 
-## Virus
+## Buffer Overflow
 > [!NOTE]
-> A type of malware that replicates by modifying other programs and inserting its code.
+> Overwriting a program's memory, leading to arbitrary code execution.
 
-## Worm
+## Bug Bounty Program
 > [!NOTE]
-> A type of malware that replicates itself in order to spread to other computers.
+> A program that rewards individuals for finding and reporting vulnerabilities.
 
-## Ransomware
+## Burp Suite
 > [!NOTE]
-> Malware that encrypts files on a device, demanding a ransom for decryption.
+> A popular tool for web application security testing.
+
+## Clickjacking
+> [!NOTE]
+> A technique used to trick users into clicking on something different from what they perceive.
+
+## Command and Control (C2)
+> [!NOTE]
+> Servers that attackers use to communicate with compromised systems.
+
+## Credential Harvesting
+> [!NOTE]
+> Collecting credentials from users by tricking them into entering them into a fake website or form.
+
+## Credential Stuffing
+> [!NOTE]
+> Using leaked username/password pairs from one breach to access other sites.
+
+## Cross-Site Request Forgery (CSRF)
+> [!NOTE]
+> An attack that tricks a user into performing actions on a web application without their consent.
+
+## Cross-Site Scripting (XSS)
+> [!NOTE]
+> Injecting malicious scripts into web pages viewed by other users.
+
+## Data Exfiltration
+> [!NOTE]
+> The unauthorized transfer of data from a computer or other device.
 
 ## Denial of Service (DoS) Attack
 > [!NOTE]
 > An attack designed to make a system unavailable by overwhelming it with traffic.
 
+## Dictionary Attack
+> [!NOTE]
+> A type of brute force attack that uses a list of common passwords or words.
+
 ## Distributed Denial of Service (DDoS) Attack
 > [!NOTE]
 > A DoS attack using multiple systems to flood the target.
 
+## DNS Spoofing
+> [!NOTE]
+> An attack where false DNS information is inserted into a DNS resolver's cache.
+
+## Drive-by Download
+> [!NOTE]
+> The unintentional download of malicious software to a user’s device.
+
+## Eavesdropping
+> [!NOTE]
+> Secretly listening to private communications.
+
+## Enumeration
+> [!NOTE]
+> Extracting user names, machine names, network resources, and other services.
+
+## Exploit
+> [!NOTE]
+> A code or software that takes advantage of a vulnerability.
+
 ## Firewall
 > [!NOTE]
 > A network security device that monitors and filters incoming and outgoing network traffic.
+
+## Footprinting
+> [!NOTE]
+> Collecting data on a target system or network to map out its structure.
+
+## Forensics
+> [!NOTE]
+> The process of collecting, analyzing, and preserving digital evidence.
+
+## Full Disk Encryption (FDE)
+> [!NOTE]
+> Encryption that covers all the data on a disk.
+
+## Fuzzing
+> [!NOTE]
+> A testing technique that involves inputting random data to find vulnerabilities.
+
+## Honey Net
+> [!NOTE]
+> A network of honeypots that simulate a network to lure attackers.
+
+## Honey Pot
+> [!NOTE]
+> A decoy system set up to attract and detect attackers.
+
+## Hydra
+> [!NOTE]
+> A fast and flexible password-cracking tool.
+
+## Incident Response
+> [!NOTE]
+> The approach taken by an organization to handle a security breach or attack.
+
+## Insider Threat
+> [!NOTE]
+> A security risk that comes from within the organization, typically from employees or contractors.
 
 ## Intrusion Detection System (IDS)
 > [!NOTE]
@@ -241,65 +277,49 @@ nmap -T4 -P- -A
 > [!NOTE]
 > Similar to IDS but actively prevents detected threats.
 
-## Port Scanning
+## John the Ripper
 > [!NOTE]
-> A technique used to identify open ports and services on a networked device.
+> A password-cracking tool.
+
+## Keylogging
+> [!NOTE]
+> Recording the keystrokes of a user to capture sensitive information.
+
+## Kill Chain
+> [!NOTE]
+> A model used to describe the stages of a cyberattack, from reconnaissance to exfiltration.
+
+## Malware
+> [!NOTE]
+> Malicious software designed to disrupt, damage, or gain unauthorized access to a system.
+
+## Malvertising
+> [!NOTE]
+> The use of online advertising to spread malware.
+
+## Man-in-the-Middle (MitM) Attack
+> [!NOTE]
+> Intercepting and possibly altering communication between two parties.
+
+## Metasploit
+> [!NOTE]
+> A popular penetration testing framework used to develop and execute exploit code.
 
 ## Network Sniffing
 > [!NOTE]
 > Capturing and analyzing network packets to detect and troubleshoot issues.
 
-## SSL/TLS
+## Nikto
 > [!NOTE]
-> Protocols for encrypting data transmitted over a network.
+> A web server scanner that tests for vulnerabilities.
 
-## VPN (Virtual Private Network)
+## Nmap
 > [!NOTE]
-> A secure connection over a less-secure network, like the internet.
-
-## Shell
-> [!NOTE]
-> A command-line interface that allows users to interact with the operating system.
-
-## Reverse Shell
-> [!NOTE]
-> A shell session initiated by the target machine to the attacker’s machine.
-
-## Command and Control (C2)
-> [!NOTE]
-> Servers that attackers use to communicate with compromised systems.
-
-## Pivoting
-> [!NOTE]
-> Using a compromised system as a launch point to attack other systems on the same network.
-
-## Steganography
-> [!NOTE]
-> The practice of hiding data within other non-secret data.
+> A network scanning tool used to discover hosts and services on a network.
 
 ## Obfuscation
 > [!NOTE]
 > The act of making something unclear or unintelligible to obscure its meaning.
-
-## Sandboxing
-> [!NOTE]
-> Running programs in isolated environments to prevent them from affecting the main system.
-
-## Red Team
-> [!NOTE]
-> A group of ethical hackers who simulate attacks to test the security of an organization.
-
-## Blue Team
-> [!NOTE]
-> The defenders who protect the organization's assets and respond to attacks.
-
-## Purple Team
-> [!NOTE]
-> A combination of Red and Blue Teams that collaborate to improve overall security.
-
-## Patch Management
-> [!NOTE]
-> The process of regularly updating software to fix vulnerabilities.
 
 ## Open Web Application Security Project (OWASP)
 > [!NOTE]
@@ -309,211 +329,197 @@ nmap -T4 -P- -A
 > [!NOTE]
 > A list of the most critical security risks to web applications.
 
-## Threat Modeling
-> [!NOTE]
-> The process of identifying and prioritizing potential threats to a system.
-
-## Attack Surface
-> [!NOTE]
-> The total sum of the vulnerabilities that can be exploited in a system.
-
-## Risk Assessment
-> [!NOTE]
-> The process of identifying, analyzing, and evaluating risks.
-
-## Security Posture
-> [!NOTE]
-> The overall security status of an organization's systems, networks, and information.
-
-## Incident Response
-> [!NOTE]
-> The approach taken by an organization to handle a security breach or attack.
-
-## Security Operations Center (SOC)
-> [!NOTE]
-> A centralized unit that deals with security issues at the organizational level.
-
-## Forensics
-> [!NOTE]
-> The process of collecting, analyzing, and preserving digital evidence.
-
-## Threat Intelligence
-> [!NOTE]
-> Information that helps organizations understand and mitigate cyber threats.
-
-## Red Teaming
-> [!NOTE]
-> A more comprehensive testing strategy that involves simulating real-world attacks over an extended period.
-
-## Bug Bounty Program
-> [!NOTE]
-> A program that rewards individuals for finding and reporting vulnerabilities.
-
-## Penetration Testing Execution Standard (PTES)
-> [!NOTE]
-> A standard framework for conducting penetration tests.
-
-## Metasploit
-> [!NOTE]
-> A popular penetration testing framework used to develop and execute exploit code.
-
-## Nmap
-> [!NOTE]
-> A network scanning tool used to discover hosts and services on a network.
-
-## Burp Suite
-> [!NOTE]
-> A popular tool for web application security testing.
-
-## Wireshark
-> [!NOTE]
-> A network protocol analyzer used to capture and analyze network traffic.
-
-## John the Ripper
-> [!NOTE]
-> A password-cracking tool.
-
-## Aircrack-ng
-> [!NOTE]
-> A suite of tools for assessing Wi-Fi network security.
-
-## Nikto
-> [!NOTE]
-> A web server scanner that tests for vulnerabilities.
-
-## Hydra
-> [!NOTE]
-> A fast and flexible password-cracking tool.
-
-## SQLmap
-> [!NOTE]
-> An automated tool for detecting and exploiting SQL injection flaws.
-
 ## OWASP ZAP (Zed Attack Proxy)
 > [!NOTE]
 > An open-source web application security scanner.
 
-## Fuzzing
+## Patch Management
 > [!NOTE]
-> A testing technique that involves inputting random data to find vulnerabilities.
-
-## Cross-Site Request Forgery (CSRF)
-> [!NOTE]
-> An attack that tricks a user into performing actions on a web application without their consent.
-
-## Session Hijacking
-> [!NOTE]
-> An attack that involves taking over a user session to gain unauthorized access.
-
-## Clickjacking
-> [!NOTE]
-> A technique used to trick users into clicking on something different from what they perceive.
-
-## DNS Spoofing
-> [!NOTE]
-> An attack where false DNS information is inserted into a DNS resolver's cache.
-
-## ARP Spoofing
-> [!NOTE]
-> A technique where an attacker sends falsified ARP messages over a local network.
-
-## Eavesdropping
-> [!NOTE]
-> Secretly listening to private communications.
-
-## Keylogging
-> [!NOTE]
-> Recording the keystrokes of a user to capture sensitive information.
-
-## Credential Harvesting
-> [!NOTE]
-> Collecting credentials from users by tricking them into entering them into a fake website or form.
-
-## Spear Phishing
-> [!NOTE]
-> A targeted phishing attack aimed at a specific individual or organization.
-
-## Watering Hole Attack
-> [!NOTE]
-> An attack strategy where the attacker infects websites likely to be visited by a specific group of individuals.
-
-## Rogue Access Point
-> [!NOTE]
-> A wireless access point that has been installed on a network without authorization.
-
-## Botnet
-> [!NOTE]
-> A network of compromised devices controlled by an attacker.
-
-## Malvertising
-> [!NOTE]
-> The use of online advertising to spread malware.
-
-## Drive-by Download
-> [!NOTE]
-> The unintentional download of malicious software to a
-
- user’s device.
-
-## Honey Pot
-> [!NOTE]
-> A decoy system set up to attract and detect attackers.
-
-## Honey Net
-> [!NOTE]
-> A network of honeypots that simulate a network to lure attackers.
-
-## Time-based One-Time Password (TOTP)
-> [!NOTE]
-> A temporary passcode generated by an algorithm that uses the current time as one of its factors.
-
-## Two-Factor Authentication (2FA)
-> [!NOTE]
-> A security process that requires two separate forms of identification.
-
-## Full Disk Encryption (FDE)
-> [!NOTE]
-> Encryption that covers all the data on a disk.
-
-## Advanced Persistent Threat (APT)
-> [!NOTE]
-> A prolonged and targeted cyberattack in which an intruder gains access to a network and remains undetected.
-
-## Supply Chain Attack
-> [!NOTE]
-> Attacking an organization by targeting less-secure elements in its supply chain.
-
-## Insider Threat
-> [!NOTE]
-> A security risk that comes from within the organization, typically from employees or contractors.
-
-## Virtual Machine Escape
-> [!NOTE]
-> An attack that allows an attacker to escape the confines of a virtual machine and interact with the host operating system.
+> The process of regularly updating software to fix vulnerabilities.
 
 ## Patch Tuesday
 > [!NOTE]
 > The second Tuesday of each month when Microsoft releases security updates.
 
-## Kill Chain
+## Payload
 > [!NOTE]
-> A model used to describe the stages of a cyberattack, from reconnaissance to exfiltration.
+> The part of an exploit that performs the intended malicious action.
 
-## Data Exfiltration
+## Penetration Testing Execution Standard (PTES)
 > [!NOTE]
-> The unauthorized transfer of data from a computer or other device.
+> A standard framework for conducting penetration tests.
+
+## Phishing
+> [!NOTE]
+> A method of tricking individuals into providing sensitive information by pretending to be a trustworthy entity.
+
+## Pivoting
+> [!NOTE]
+> Using a compromised system as a launch point to attack other systems on the same network.
+
+## Port Scanning
+> [!NOTE]
+> A technique used to identify open ports and services on a networked device.
+
+## Privilege Escalation
+> [!NOTE]
+> Gaining higher-level permissions on a system.
+
+## Purple Team
+> [!NOTE]
+> A combination of Red and Blue Teams that collaborate to improve overall security.
+
+## Ransomware
+> [!NOTE]
+> Malware that encrypts files on a device, demanding a ransom for decryption.
+
+## Reconnaissance
+> [!NOTE]
+> The process of gathering information about a target.
+
+## Red Team
+> [!NOTE]
+> A group of ethical hackers who simulate attacks to test the security of an organization.
+
+## Red Teaming
+> [!NOTE]
+> A more comprehensive testing strategy that involves simulating real-world attacks over an extended period.
+
+## Reverse Shell
+> [!NOTE]
+> A shell session initiated by the target machine to the attacker’s machine.
+
+## Risk Assessment
+> [!NOTE]
+> The process of identifying, analyzing, and evaluating risks.
+
+## Rogue Access Point
+> [!NOTE]
+> A wireless access point that has been installed on a network without authorization.
+
+## Rootkit
+> [!NOTE]
+> A set of software tools that enable unauthorized access to a computer, often remaining hidden.
+
+## Sandboxing
+> [!NOTE]
+> Running programs in isolated environments to prevent them from affecting the main system.
+
+## Scanning
+> [!NOTE]
+> Actively probing a target to gather information about its network and systems.
 
 ## Security Information and Event Management (SIEM)
 > [!NOTE]
 > A solution that provides real-time analysis of security alerts generated by network hardware and applications.
 
+## Security Operations Center (SOC)
+> [!NOTE]
+> A centralized unit that deals with security issues at the organizational level.
+
 ## Security Orchestration, Automation, and Response (SOAR)
 > [!NOTE]
 > Tools that automate the response to security incidents.
 
+## Security Posture
+> [!NOTE]
+> The overall security status of an organization's systems, networks, and information.
+
+## Session Hijacking
+> [!NOTE]
+> An attack that involves taking over a user session to gain unauthorized access.
+
+## Shell
+> [!NOTE]
+> A command-line interface that allows users to interact with the operating system.
+
+## Spear Phishing
+> [!NOTE]
+> A targeted phishing attack aimed at a specific individual or organization.
+
+## SQL Injection (SQLi)
+> [!NOTE]
+> An attack that allows execution of malicious SQL statements on a database.
+
+## SQLmap
+> [!NOTE]
+> An automated tool for detecting and exploiting SQL injection flaws.
+
+## SSL/TLS
+> [!NOTE]
+> Protocols for encrypting data transmitted over a network.
+
+## Steganography
+> [!NOTE]
+> The practice of hiding data within other non-secret data.
+
+## Supply Chain Attack
+> [!NOTE]
+> Attacking an organization by targeting less-secure elements in its supply chain.
+
 ## Threat Hunting
 > [!NOTE]
 > The process of proactively searching for cyber threats that are lurking undetected in a network.
+
+## Threat Intelligence
+> [!NOTE]
+> Information that helps organizations understand and mitigate cyber threats.
+
+## Threat Modeling
+> [!NOTE]
+> The process of identifying and prioritizing potential threats to a system.
+
+## Time-based One-Time Password (TOTP)
+> [!NOTE]
+> A temporary passcode generated by an algorithm that uses the current time as one of its factors.
+
+## Trojan Horse
+> [!NOTE]
+> Malicious software disguised as legitimate software.
+
+## Two-Factor Authentication (2FA)
+> [!NOTE]
+> A security process that requires two separate forms of identification.
+
+## Virus
+> [!NOTE]
+> A type of malware that replicates by modifying other programs and inserting its code.
+
+## Virtual Machine Escape
+> [!NOTE]
+> An attack that allows an attacker to escape the confines of a virtual machine and interact with the host operating system.
+
+## VPN (Virtual Private Network)
+> [!NOTE]
+> A secure connection over a less-secure network, like the internet.
+
+## Vulnerability
+> [!NOTE]
+> A weakness in a system that can be exploited by a threat actor.
+
+## Watering Hole Attack
+> [!NOTE]
+> An attack strategy where the attacker infects websites likely to be visited by a specific group of individuals.
+
+## Windows Privilege Escalation  
+> [!NOTE]  
+> The process of exploiting vulnerabilities or misconfigurations in a Windows system to gain higher levels of access or permissions.  
+
+## Wireshark
+> [!NOTE]
+> A network protocol analyzer used to capture and analyze network traffic.
+
+## Worm
+> [!NOTE]
+> A type of malware that replicates itself in order to spread to other computers.
+
+## Zero-Day
+> [!NOTE]
+> A vulnerability that is unknown to the software vendor and for which no patch exists.
+
+---
+
+Let me know if further changes are needed!
 
 Here is the formatted list with the top 100 terms for Infrastructure, Networking, and Cloud Engineering:
 
