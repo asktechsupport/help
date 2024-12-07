@@ -257,6 +257,13 @@ netsh firewall show config
   - Best Practices for Hardening
 
 ---
+## **Vulnerabilities & Exploits**
+- Windows Subsystem for Linux (WSL)
+  - PayloadsAllTheThings
+
+### Hackthebox machines
+- [ ] Chatterbox
+- [ ] SecNotes
 
 ## **Tools Cheat Sheet**
 - Reconnaissance Tools
