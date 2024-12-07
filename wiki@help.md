@@ -318,10 +318,10 @@ Links to further reading and tools.
 - [Useful Tools for IT Admins](resources#useful-tools)
 
 ---
-
+# Dictionary Home
 ---
 > [!NOTE]
-> Dictionary / list of terms starts here.
+> Dictionaries / lists of terms starts here.
 # Penetration Testing Dictionary
 
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
