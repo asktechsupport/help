@@ -1,13 +1,7 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a id="readme-top"></a>
 
-# Table of Contents
 
-- [Penetration Testing Dictionary](#penetration-testing-dictionary)
-- [Infrastructure Dictionary](#infrastructure-dictionary)
-- [Networking Dictionary](#networking-dictionary)
-- [Cloud Engineering Dictionary](#cloud-engineering-dictionary)
-- [Backlog](#backlog)
 ---
 # Wiki Home
 > [!NOTE]
