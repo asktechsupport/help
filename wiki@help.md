@@ -5,7 +5,7 @@
 ---
 # Wiki Home
 > [!NOTE]
-> Moving to gitbook: https://app.gitbook.com/o/RMK0BSt8mZaPuqrzEaVb/s/Aj6dDw45fJsrd0Z4qjXe/wiki/wiki-help#wiki-home
+> Welcome to my wiki
 
 ## Windows Active Directory Wiki
 
@@ -17,7 +17,7 @@ Key concepts and architecture of Active Directory.
 
 ---
 
-## Group Policy Management
+### Active Directory - Group Policy Management
 
 How to configure and manage Group Policies.
 
@@ -27,7 +27,7 @@ How to configure and manage Group Policies.
 
 ---
 
-## Troubleshooting Common Issues
+### Active Directory - Common Issues
 
 Guide to resolving frequently encountered problems.
 
@@ -37,7 +37,7 @@ Guide to resolving frequently encountered problems.
 
 ---
 
-## User Management in Active Directory
+### Active Directory - User Management in Active Directory
 
 Best practices for managing users and groups.
 
@@ -47,7 +47,7 @@ Best practices for managing users and groups.
 
 ---
 
-## Security and Permissions
+### Active Directory - Security and Permissions
 
 Securing your environment and managing permissions.
 
@@ -57,7 +57,7 @@ Securing your environment and managing permissions.
 
 ---
 
-## Backup and Recovery
+### Active Directory - Backup and Recovery
 
 Preparing for and recovering from disasters.
 
@@ -67,23 +67,13 @@ Preparing for and recovering from disasters.
 
 ---
 
-## PowerShell for IT Admins
+### Active Directory - Active Directory Federation Services (ADFS)
 
-Automating tasks with PowerShell.
 
-- [Basic Commands](powershell#basic-commands)
-- [Managing AD with PowerShell](powershell#managing-ad-with-powershell)
-- [Scripts for Common Admin Tasks](powershell#common-admin-scripts)
+### Active Directory - Active Directory Certificate Services (ADCS)
 
----
 
-## Advanced Topics
-
-For experienced admins and advanced configurations.
-
-- [Active Directory Federation Services (ADFS)](advanced-topics#adfs)
-- [Active Directory Certificate Services (ADCS)](advanced-topics#adcs)
-- [Azure AD Integration](advanced-topics#azure-ad-integration)
+### Active Directory - Azure AD Integration
 
 ---
 
@@ -331,24 +321,28 @@ SYN SYNACK RST nmap -sS
 ```
 nmap -T4 -P- -A
 ```
+### OSINT & Recon Resources | Intelligence Lifecycle
+![image](https://github.com/user-attachments/assets/f3dcb343-e338-470e-ae98-d0b64fb11196)
+https://blog.reknowledge.tech/blog/osnt-analyst-replaced-by-automation
+PLANNING & DIRECTION >> COLLECTION >> PROCESSING AND EXPLOITATION >> ANALYSIS AND PRODUCTION >> DISSEMINATON AND INTEGRATION
 
-### Recon Resources | Google Fu
+### OSINT & Recon Resources | Google Fu
 * Google, lmgtfy,
 * site:<domain>
 * site:tesla.com -www
 * filetype:csv
 
-### Recon Resources | email addresses
+### OSINT & Recon Resources | email addresses
 * hunter.io
 * Phonebook.cz
 * Clearbit
 * email-checker.net
 * emailhippo.com
 
-### Recon Resources | hashes
+### OSINT & Recon Resources | hashes
 * hashes.org
 
-### Recon Resources | hunting subdomains and website technologies
+### OSINT & Recon Resources | hunting subdomains and website technologies
 * sublist3r
 * owasp amass
   
@@ -779,6 +773,10 @@ Here is the content with the headings (`##`) alphabetized, while keeping the ori
 ## Shell
 > [!NOTE]
 > A command-line interface that allows users to interact with the operating system.
+
+## Sock Puppets
+> [!NOTE]
+> Online identities that are not a representation of who someone is - e.g. a fake identity, fake accounts. These are used to avoid someone noticing you are investigating them
 
 ## Spear Phishing
 > [!NOTE]
