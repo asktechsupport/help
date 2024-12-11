@@ -63,20 +63,39 @@ python /usr/share/responder/Responder.py -I tun0 -rdw -v
 ```
 sudo -I responder -| tun0 -dwP
 ```
-Step2️⃣
+<details>
+<summary>Step 2️⃣</summary>
+
 ![image](https://github.com/user-attachments/assets/03f0db35-7e69-4550-9475-c26ea73d9220)
-Step3️⃣
-A hash will come through, like the screenshot:
+
+</details>
+
+<details>
+<summary>Step 3️⃣A hash will come through, like the screenshot:  </summary>
+
+
 ![image](https://github.com/user-attachments/assets/c3d1f545-3fa3-4e1a-a8ef-d58ff393fd11)
-Step4️⃣
-Using hashcat, if the password is weak enough we can crack it:
+
+</details>
+
+<details>
+<summary>Step 4️⃣ Using hashcat, if the password is weak enough we can crack it:  </summary>
+
+
 ![image](https://github.com/user-attachments/assets/4994fc78-8e58-41dc-a8e3-ba13ae48e118)
+
 ```
 hashcat -m 5600 hashes.txt rockyou.txt
 ```
+</details>
+
+
 #### LLMNR Poisoning - Mitigation
 ---
 To mitigate the LLMNR (Link-Local Multicast Name Resolution) poisoning vulnerability in an Active Directory environment, you can use PowerShell to disable LLMNR across your network. Here's how:
+
+<details>
+<summary>Steps to Mitigate LLMNR Poisoning</summary>
 
 ### Steps:
 
@@ -116,14 +135,13 @@ To mitigate the LLMNR (Link-Local Multicast Name Resolution) poisoning vulnerabi
    - Enable the setting **"Turn off multicast name resolution"**.
    ![image](https://github.com/user-attachments/assets/17d6b00b-70d9-4f66-a31a-dccd0553b127)
 
-
    Alternatively, use PowerShell to deploy a Group Policy Object (GPO) across your domain:
-
+> [!NOTE]
+> Add the link to the powershell document.
    ```powershell
    # Create a new GPO
    New-GPO -Name "Disable LLMNR"
    
-
    # Configure the GPO to disable LLMNR
    Set-GPRegistryValue -Name "Disable LLMNR" -Key "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\DNSClient" -ValueName "EnableMulticast" -Type DWord -Value 0
 
@@ -133,6 +151,14 @@ To mitigate the LLMNR (Link-Local Multicast Name Resolution) poisoning vulnerabi
 
 5. **Test and Validate**  
    After applying the changes, test to ensure that LLMNR is disabled and that no LLMNR traffic is observed. You can use a network monitoring tool like Wireshark to confirm that LLMNR queries (port 5355) are no longer broadcasted.
+
+   **Deploy via Group Policy** (Optional for multiple machines)  
+   - Open the Group Policy Management Console (GPMC).
+   - Navigate to `Computer Configuration > Administrative Templates > Network > DNS Client`.
+   - Enable the setting **"Turn off multicast name resolution"**.
+   ![image](https://github.com/user-attachments/assets/17d6b00b-70d9-4f66-a31a-dccd0553b127)
+
+</details>
 
 By disabling LLMNR, you effectively reduce the risk of exploitation via LLMNR poisoning attacks in your Active Directory environment.
 > [!TIP]
