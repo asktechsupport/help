@@ -503,8 +503,29 @@ Answers to commonly asked questions.
 
 ## Active Directory Vulnerability Dictionary
 > [!NOTE]
-> **LLMNR (Link-Local Multicast Name Resolution)**: A protocol for resolving hostnames to IP addresses within a local network without requiring a DNS server.
+> **LLMNR (Link-Local Multicast Name Resolution)**
+>
+> A protocol for resolving hostnames to IP addresses within a local network without requiring a DNS server.
 
+> [!NOTE]
+> **SMB Relay**
+>
+>  Instead of cracking passwords, we can intercept the hashes and send those on (relay them) to other machines and potentially gain access
+
+> [!NOTE]
+> **Gaining Shell Access**
+>
+>  Exploiting features in order to control the victim machine remotely, with a command line tool
+
+> [!NOTE]
+> **IPv6 Attacks**
+>
+>  Attacks against the IPv6 network protocol which is enabled by default on Windows server devices.
+
+> [!NOTE]
+> **Passback Attacks**
+>
+>  TBC
 
 ## PenTesting | Tools
 
