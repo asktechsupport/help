@@ -142,6 +142,45 @@ By disabling LLMNR, you effectively reduce the risk of exploitation via LLMNR po
 > 
 > 2️⃣Require Strong user passwords (greater than 14 characters)
 
+### SMB Relay Vulnerabilities
+
+### Gaining Shell Access Vulnerabilities
+
+### IPv6 Vulnerabilities
+
+### Passback Attacks
+
+### Pass Attacks
+
+### Kerberoasting
+
+### Token Impersonation
+
+### LNK File Attacks
+
+### GPP/cPassword Attacks
+
+### Mimikatz
+
+### Golden Ticket Attacks
+
+### ZeroLogon Attacks
+
+### PrintNightmare (CVE-2021-1675)
+
+### Active Directory Case Studies
+
+### Domain Enumeration Tools
+> [!NOTE]
+> ldapdomaindump
+>
+> Bloodhound
+> 
+> Plumhound
+>
+> PingCastle
+
+
 # **Penetration Testing Wiki**
 
 ## **Introduction to Penetration Testing**
