@@ -11,19 +11,11 @@
 
 Key concepts and architecture of Active Directory.
 
-- [What is Active Directory?](ad-overview#what-is-active-directory)
-- [AD DS (Active Directory Domain Services)](ad-overview#ad-ds-overview)
-- [Domain Controllers](ad-overview#domain-controllers)
-
 ---
 
 ### Active Directory - Group Policy Management
 
 How to configure and manage Group Policies.
-
-- [Introduction to Group Policy](group-policy#introduction-to-group-policy)
-- [Creating and Linking GPOs](group-policy#creating-and-linking-gpos)
-- [Common GPO Settings](group-policy#common-gpo-settings)
 
 ---
 
@@ -31,9 +23,6 @@ How to configure and manage Group Policies.
 
 Guide to resolving frequently encountered problems.
 
-- [Account Lockouts](troubleshooting#account-lockouts)
-- [DNS and Name Resolution Issues](troubleshooting#dns-and-name-resolution)
-- [Replication Problems](troubleshooting#replication-problems)
 
 ---
 
@@ -41,29 +30,18 @@ Guide to resolving frequently encountered problems.
 
 Best practices for managing users and groups.
 
-- [Creating and Managing Users](user-management#creating-and-managing-users)
-- [Group Management](user-management#group-management)
-- [User Profiles and Home Directories](user-management#user-profiles-and-home-directories)
-
 ---
 
 ### Active Directory - Security and Permissions
 
 Securing your environment and managing permissions.
 
-- [NTFS Permissions](security-and-permissions#ntfs-permissions)
-- [Delegation of Control](security-and-permissions#delegation-of-control)
-- [Auditing and Security Logs](security-and-permissions#auditing-and-security-logs)
 
 ---
 
 ### Active Directory - Backup and Recovery
 
 Preparing for and recovering from disasters.
-
-- [Active Directory Backup](backup-and-recovery#ad-backup)
-- [Restore Options](backup-and-recovery#restore-options)
-- [Disaster Recovery Best Practices](backup-and-recovery#disaster-recovery)
 
 ---
 
@@ -74,6 +52,9 @@ Preparing for and recovering from disasters.
 
 
 ### Active Directory - Azure AD Integration
+
+### Active Directory Vulnerabilities
+- LLMNR Poisoning
 
 ---
 
@@ -396,6 +377,11 @@ Answers to commonly asked questions.
 # Penetration Testing Dictionary
 
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
+
+## Active Directory Vulnerability Dictionary
+> [!NOTE]
+> **LLMNR (Link-Local Multicast Name Resolution)**: A protocol for resolving hostnames to IP addresses within a local network without requiring a DNS server.
+
 
 ## PenTesting | Tools
 
