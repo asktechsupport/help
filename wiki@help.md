@@ -17,6 +17,12 @@ Key concepts and architecture of Active Directory.
 
 How to configure and manage Group Policies.
 
+## Reg key locations
+**Hosts file**
+```
+c:\Windows\System32\Drivers\etc\hosts
+```
+
 ---
 
 ### Active Directory - Common Issues
