@@ -4,12 +4,6 @@
 
 ## Active Directory Vulnerability Dictionary
 
-# Penetration Testing Dictionary
-
-<p align="left">(<a href="#readme-top">back to top</a>)</p>
-
-## Active Directory Vulnerability Dictionary
-
 ### LLMNR (Link-Local Multicast Name Resolution)  
 `A protocol for resolving hostnames to IP addresses within a local network without requiring a DNS server.`
 
