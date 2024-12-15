@@ -6,6 +6,9 @@
 
 # Penetration Testing Dictionary
 
+## Penetration Testing (Pentesting)  
+A simulated cyberattack against a system to identify vulnerabilities.
+
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 
 ## Active Directory Vulnerability Dictionary
@@ -27,8 +30,7 @@ Attacks against the IPv6 network protocol which is enabled by default on Windows
 >
 > Not yet added.
 
-### Penetration Testing (Pentesting)  
-A simulated cyberattack against a system to identify vulnerabilities.
+
 
 ---
 
