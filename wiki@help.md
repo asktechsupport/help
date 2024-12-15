@@ -470,7 +470,14 @@ Answers to commonly asked questions.
 
 ---
 
+# Group Policy & Windows Registry Wiki
+How to configure and manage Group Policies.
 
+## Reg key locations
+**Hosts file**
+```
+c:\Windows\System32\Drivers\etc\hosts
+```
 
 ---
 # Dictionary Home
@@ -562,18 +569,6 @@ Verification by CA Server: The Enterprise CA server verifies the client’s perm
 ## Windows Active Directory Wiki
 
 Key concepts and architecture of Active Directory.
-
----
-
-### Active Directory - Group Policy Management
-
-How to configure and manage Group Policies.
-
-## Reg key locations
-**Hosts file**
-```
-c:\Windows\System32\Drivers\etc\hosts
-```
 
 ---
 
