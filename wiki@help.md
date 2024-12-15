@@ -1,6 +1,8 @@
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a id="readme-top"></a>
-
+**please note**
+> [!NOTE]
+> This page is moving to the wiki section: https://github.com/asktechsupport/help/wiki
 
 ---
 # Wiki Home
