@@ -50,7 +50,7 @@ The total sum of the vulnerabilities that can be exploited in a system.
 A secret method of bypassing normal authentication to gain access to a system.
 
 ## Blue Team  
-The defenders who protect the organization's assets and respond to attacks.
+A Blue Team is a group of cybersecurity professionals responsible for defending an organization's systems, detecting threats, and responding to attacks to ensure security and resilience.
 
 ## Botnet  
 A network of compromised devices controlled by an attacker.
