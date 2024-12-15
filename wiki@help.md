@@ -7,58 +7,6 @@
 > [!NOTE]
 > Welcome to my wiki
 
-## Windows Active Directory Wiki
-
-Key concepts and architecture of Active Directory.
-
----
-
-### Active Directory - Group Policy Management
-
-How to configure and manage Group Policies.
-
-## Reg key locations
-**Hosts file**
-```
-c:\Windows\System32\Drivers\etc\hosts
-```
-
----
-
-### Active Directory - Common Issues
-
-Guide to resolving frequently encountered problems.
-
-
----
-
-### Active Directory - User Management in Active Directory
-
-Best practices for managing users and groups.
-
----
-
-### Active Directory - Security and Permissions
-
-Securing your environment and managing permissions.
-
-
----
-
-### Active Directory - Backup and Recovery
-
-Preparing for and recovering from disasters.
-
----
-
-### Active Directory - Active Directory Federation Services (ADFS)
-
-
-### Active Directory - Active Directory Certificate Services (ADCS)
-
-
-### Active Directory - Azure AD Integration
-
 ### Active Directory Vulnerabilities
 #### LLMNR Poisoning - How to attack
 
@@ -611,7 +559,57 @@ Verification by CA Server: The Enterprise CA server verifies the client’s perm
 #### Build a lab in Azure
 [Build a lab in Azure](https://kamran-bilgrami.medium.com/ethical-hacking-lessons-building-free-active-directory-lab-in-azure-6c67a7eddd7f)
 
+## Windows Active Directory Wiki
 
+Key concepts and architecture of Active Directory.
+
+---
+
+### Active Directory - Group Policy Management
+
+How to configure and manage Group Policies.
+
+## Reg key locations
+**Hosts file**
+```
+c:\Windows\System32\Drivers\etc\hosts
+```
+
+---
+
+### Active Directory - Common Issues
+
+Guide to resolving frequently encountered problems.
+
+
+---
+
+### Active Directory - User Management in Active Directory
+
+Best practices for managing users and groups.
+
+---
+
+### Active Directory - Security and Permissions
+
+Securing your environment and managing permissions.
+
+
+---
+
+### Active Directory - Backup and Recovery
+
+Preparing for and recovering from disasters.
+
+---
+
+### Active Directory - Active Directory Federation Services (ADFS)
+
+
+### Active Directory - Active Directory Certificate Services (ADCS)
+
+
+### Active Directory - Azure AD Integration
 
 ## other courses
 * OSINT Fundamentals
