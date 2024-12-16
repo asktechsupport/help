@@ -166,18 +166,6 @@ By disabling LLMNR, you effectively reduce the risk of exploitation via LLMNR po
 >
 > PingCastle
 
-
-# **Penetration Testing Wiki**
-
-## **Introduction to Penetration Testing**
-- Overview of Penetration Testing
-  - Definition and Goals
-  - Types of Penetration Tests (Black Box, White Box, Gray Box)
-- Legal and Ethical Considerations
-  - Laws and Compliance (e.g., GDPR, HIPAA, PCI-DSS)
-  - Rules of Engagement (ROE)
-  - Obtaining Permission (Authorization)
-
 ---
 
 ## **The Penetration Testing Lifecycle**
