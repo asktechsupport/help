@@ -6,6 +6,14 @@ You're @ the asktechsupport github.
 
 `PowerShell` `Windows VM Sysadmin` `AWS Cloud Engineering` `CRTP` `Windows Hardening`
 
+> [!NOTE]
+>
+> Please note I am reorganising this github into:
+>
+> - Scripts (contains any code)
+> - Wiki (contains my wiki pages, dictionary and documents)
+> - Notes
+
 <!-- PROJECT SHIELDS -->
 <!--
 *** I'm using markdown "reference style" links for readability.
