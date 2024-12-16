@@ -1,13 +1,37 @@
+**Please note**
+> [!IMPORTANT]
+> This is a public wiki.
+---
+
+> [!NOTE]
+> Useful information that users should know, even when skimming content.
+
+> [!TIP]
+> Helpful advice for doing things better or more easily.
+
+> [!IMPORTANT]
+> Key information users need to know to achieve their goal.
+
+> [!WARNING]
+> Urgent info that needs immediate user attention to avoid problems.
+
+> [!CAUTION]
+> Advises about risks or negative outcomes of certain actions.
+
 <!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a id="readme-top"></a>
-**please note**
-> [!NOTE]
-> This page is moving to the wiki section: https://github.com/asktechsupport/help/wiki
+
+<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+<a id="readme-top"></a>
 
 ---
 # Wiki Home
 > [!NOTE]
-> Welcome to my wiki
+> This Wiki covers a range of technical topics
+>
+> `Penetration Testing` `Windows Active Directory` `PowerShell`
+>
+> Code is available from the code repo https://github.com/asktechsupport/help
 
 # Penetration Testing Wiki
 ## 5 stages of ethical hacking - diagram
