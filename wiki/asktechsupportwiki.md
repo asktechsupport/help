@@ -3,33 +3,9 @@
 > This is a public wiki.
 ---
 
-> [!NOTE]
-> Useful information that users should know, even when skimming content.
-
-> [!TIP]
-> Helpful advice for doing things better or more easily.
-
-> [!IMPORTANT]
-> Key information users need to know to achieve their goal.
-
-> [!WARNING]
-> Urgent info that needs immediate user attention to avoid problems.
-
-> [!CAUTION]
-> Advises about risks or negative outcomes of certain actions.
-
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-<a id="readme-top"></a>
-
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
-<a id="readme-top"></a>
-
----
 # Wiki Home
 > [!NOTE]
-> This Wiki covers a range of technical topics
->
-> `Penetration Testing` `Windows Active Directory` `PowerShell`
+> This Wiki covers a range of technical topics that you can check in the `README.md` page: https://github.com/asktechsupport/help/edit/main/wiki/
 >
 > Code is available from the code repo https://github.com/asktechsupport/help
 
