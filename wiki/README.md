@@ -2,7 +2,7 @@
 > [!IMPORTANT]
 > This is a public wiki.
 >
-> Sources and references will be available in the `sources.md` page
+> Sources and references will be available in the `sources.md` page: https://github.com/asktechsupport/help/blob/main/wiki/sources.md
 >
 > **About the Author:**
 >
