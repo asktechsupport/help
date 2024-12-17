@@ -10,6 +10,7 @@
   - TryHackMe
   - Hack The Box
   - VulnHub
+  - Windows PrivEsc Lab - https://tryhackme.com/room/windowsprivescarena
 - Books
   - "The Hacker Playbook"
   - "Red Team Field Manual"
