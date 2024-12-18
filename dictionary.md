@@ -548,6 +548,13 @@ A discipline that applies aspects of software engineering to infrastructure and 
 
 # Networking Dictionary
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
+
+## CIDR Notation
+
+CIDR notation is a shorthand way to represent a range of IP addresses by specifying the starting address and the size of the group using a suffix (like `/24`).
+
+source: ChatGPT
+
 ## IP Address
 
 A unique string of numbers separated by periods or colons that identifies each computer using the Internet Protocol to communicate over a network.
