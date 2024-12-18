@@ -11,27 +11,6 @@ A simulated cyberattack against a system to identify vulnerabilities.
 
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
 
-## Active Directory Vulnerability Dictionary
-
-### LLMNR (Link-Local Multicast Name Resolution)  
-A protocol for resolving hostnames to IP addresses within a local network without requiring a DNS server.
-
-### SMB Relay  
-Instead of cracking passwords, we can intercept the hashes and send those on (relay them) to other machines and potentially gain access.
-
-### Gaining Shell Access  
-Exploiting features in order to control the victim machine remotely, with a command-line tool.
-
-### IPv6 Attacks  
-Attacks against the IPv6 network protocol which is enabled by default on Windows server devices.
-
-### Passback Attacks  
-> [!NOTE]
->
-> Not yet added.
-
-
-
 ---
 
 ## Advanced Persistent Threat (APT)  
@@ -39,6 +18,24 @@ A prolonged and targeted cyberattack in which an intruder gains access to a netw
 
 ## Aircrack-ng  
 A suite of tools for assessing Wi-Fi network security.
+
+## ++Alternate Data Streams
+source: https://blog.malwarebytes.com/101/2015/07/introduction-to-alternate-data-streams/
+> *"Alternate Data Streams (ADS) are a file attribute only found on the NTFS file system"*
+
+Files are built from a couple of core attributes - one being $Data. You have a "Primary" Data Stream, and a secondary or "Alternate" Data Stream
+
+> [!NOTE]
+> 
+> Please Note: you can essentially hide data in the secondary data stream.
+
+> [!TIP]
+> 
+>  You can use `dir /R` to check for the alternate data stream, and then `more < <pastetheresult>` to see what is hidden in $DATA.
+
+```
+dir /R
+```
 
 ## ARP Spoofing  
 A technique where an attacker sends falsified ARP messages over a local network.
@@ -346,6 +343,24 @@ A vulnerability that is unknown to the software vendor and for which no patch ex
 
 ---
 
+## Active Directory Vulnerability Dictionary
+
+### LLMNR (Link-Local Multicast Name Resolution)  
+A protocol for resolving hostnames to IP addresses within a local network without requiring a DNS server.
+
+### SMB Relay  
+Instead of cracking passwords, we can intercept the hashes and send those on (relay them) to other machines and potentially gain access.
+
+### Gaining Shell Access  
+Exploiting features in order to control the victim machine remotely, with a command-line tool.
+
+### IPv6 Attacks  
+Attacks against the IPv6 network protocol which is enabled by default on Windows server devices.
+
+### Passback Attacks  
+> [!NOTE]
+>
+> Not yet added.
 
 # Infrastructure Dictionary
 <p align="left">(<a href="#readme-top">back to top</a>)</p>
