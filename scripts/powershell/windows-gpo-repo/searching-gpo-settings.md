@@ -1,11 +1,11 @@
 January 2025
-- [ ] **Not** Tested
+- [x] **Tested** in an enterprise environment
 ```powershell
 # Import the GroupPolicy module
 Import-Module GroupPolicy
 
 # Define the search string
-$searchString = "Do not allow drive redirection"
+$searchString = "Use the specified Remote Desktop license servers"
 
 # Get all GPOs in the domain
 $allGPOs = Get-GPO -All
@@ -15,8 +15,6 @@ foreach ($gpo in $allGPOs) {
     $report = Get-GPOReport -Guid $gpo.Id -ReportType Xml
     if ($report -match $searchString) {
         Write-Host "Match found in: $($gpo.DisplayName)" -ForegroundColor Green
-    } else {
-        Write-Host "No match in: $($gpo.DisplayName)"
     }
 }
 ```
