@@ -83,4 +83,38 @@ New-GPLink -Name "Disable LLMNR" -Target <e.g.>"OU=<<<Computers>>>,DC=<<<YourDom
 ```
 
 </details>
+</details>
+
+<details>
+<summary>SSLv3 Poodle Remediation</summary>
+
+> **Tip:** Run from a server that has Active Directory installed 
+
+```powershell
+# Import the Active Directory module
+Import-Module ActiveDirectory
+
+# Get all computer objects in the domain
+$computers = Get-ADComputer -Filter *
+
+# Get credentials once
+$credential = Get-Credential
+
+# Loop through each computer and disable SSLv3
+foreach ($computer in $computers) {
+    $computerName = $computer.Name
+
+    # Invoke a command on the remote computer to disable SSLv3
+    Invoke-Command -ComputerName $computerName -ScriptBlock {
+        # Disable SSLv3 in the registry
+        New-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0" -Force
+        New-Item -Path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Server" -Force
+        Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\SSL 3.0\Server" -Name "Enabled" -Value 0 -Type DWord
+    } -Credential $credential
+}
+
+Write-Host "SSLv3 has been disabled on all servers."
+```
+
+</details>
 
