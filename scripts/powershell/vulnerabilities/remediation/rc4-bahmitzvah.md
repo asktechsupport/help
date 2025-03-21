@@ -1,4 +1,23 @@
-Testing:
+Testing on one server
+```powershell
+# Disable RC4 cipher suites
+$regPath = "HKLM:\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Ciphers"
+
+# Disable RC4 128/128
+New-Item -Path "$regPath\RC4 128/128" -Force
+Set-ItemProperty -Path "$regPath\RC4 128/128" -Name "Enabled" -Value 0
+
+# Disable RC4 40/128
+New-Item -Path "$regPath\RC4 40/128" -Force
+Set-ItemProperty -Path "$regPath\RC4 40/128" -Name "Enabled" -Value 0
+
+# Disable RC4 56/128
+New-Item -Path "$regPath\RC4 56/128" -Force
+Set-ItemProperty -Path "$regPath\RC4 56/128" -Name "Enabled" -Value 0
+
+# Restart the server to apply changes
+Restart-Computer -Force
+```
 
 
 Apply to all across the domaian
