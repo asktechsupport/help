@@ -1,4 +1,3 @@
-📄[Download the guide to tune Logic Monitor.xlsx](https://github.com/user-attachments/files/20266041/LogicMonitor_Alert_Tuning_Guide.xlsx)
 
 How to
 
@@ -10,94 +9,95 @@ Setting alert fatigue tuning in **LogicMonitor** involves a few key steps depend
 
 ---
 
-### 🔁 **1. Use Dynamic Thresholds (for metrics with natural fluctuation)**
+# LogicMonitor Alert Tuning – Updated Guide
 
-* **Go to**: *Settings* → *DataSources*
-* **Find** the relevant DataSource (e.g., CPU Usage)
-* **Edit** the DataSource → *Alert Thresholds*
-* Click “Add Dynamic Threshold” → Choose “Standard Deviation” or “Historical Average”
-* Set a **sensitivity level** (e.g., 2 std deviations over 1-hour window)
+## 1. Setting or Adjusting Alert Thresholds
 
-✅ **Use Case**: CPU spikes, bandwidth, latency
+Inside a DataSource:
 
----
+- Go to the **Alert Tuning** tab or scroll to the datapoint section.
+- Click a **datapoint** (e.g., `CPUUsage`, `DiskUsage`).
+- Choose from:
+  - **Static thresholds** (set Warning, Error, Critical levels).
+  - **Dynamic thresholds** (enable thresholds based on historical data trends).
 
-### 🔕 **2. Suppress Alerts on Specific Instances (e.g., unused interfaces, static disks)**
-
-* **Go to**: *Resources* → Device → Instance
-* Click the instance (e.g., eth0 or D:\Recovery Partition)
-* **Edit instance** → uncheck *Alerting Enabled*
-* Or set an instance-level **custom threshold** or disable noisy datapoints
-
-✅ **Use Case**: Interface flaps, full system partitions, SNMP traps
+_Use for CPU, disk, memory, bandwidth, and latency alerts._
 
 ---
 
-### 🪜 **3. Add Alert Escalation Delay**
+## 2. Tuning Alerts per Device or Group
 
-* **Go to**: *Settings* → *Escalation Chains*
-* Create or edit an escalation chain
-* Add a **Delay (in minutes)** before the alert is sent
-* Example: Delay alerts by 5–10 minutes to filter out brief spikes
+- Navigate to **Resources**.
+- Select a **Device** or **Device Group**.
+- Click **Manage** → **Alert Tuning**.
+- Override thresholds at:
+  - Group level
+  - Device level
+  - Specific instance level
 
-✅ **Use Case**: Temporary high CPU, packet loss, backup alerts
-
----
-
-### 📶 **4. Tune Alert Thresholds (Globally or Per Group)**
-
-* **Global**: Settings → DataSources → \[Your DataSource] → Alert Thresholds
-* **Device Group Level**: Go to *Device Group* → *Manage Group Settings* → *Applies To* override
-* **Custom Thresholds**: Set "Alert Thresholds" per device or group
-
-✅ **Use Case**: Disk usage over 90%, memory thresholds
+_Use for suppressing noisy interfaces, recovery partitions, or app-specific disk paths._
 
 ---
 
-### 🔁 **5. Use Hysteresis (Auto-clear Conditions)**
+## 3. Suppressing or Disabling Specific Alerts
 
-* Within a DataSource's alert setting, configure:
+- In **Resources**, go to the target **Device** → **Instances**.
+- Select the instance (e.g., a NIC or disk).
+- Edit the instance:
+  - Toggle **Alerting Enabled** off, or
+  - Disable alerting on specific datapoints
 
-  * **Trigger condition**: e.g., Disk usage > 90% for 5 min
-  * **Clear condition**: e.g., Disk usage < 85% for 5 min
-* Prevents "flapping" alerts when a metric toggles around the threshold
-
-✅ **Use Case**: CPU/memory/disk bouncing near thresholds
-
----
-
-### 📊 **6. Review Alert Frequency and History**
-
-* Go to: *Reports* → *Alert Trend* or *Alert Frequency*
-* Identify:
-
-  * Repeating alerts
-  * Devices generating excessive alerts
-* Suppress or retune noisy sources
-
-✅ **Use Case**: General alert fatigue analysis
+_Use for unused ports, full system partitions, or known noisy metrics._
 
 ---
 
-### 🧩 **7. Use Dependency Mapping**
+## 4. Setting Escalation Delays
 
-* Go to: *Resources* → *Topology* or *Dependency Settings*
-* Map devices so that alerts **downstream are suppressed** if upstream is down
+- Go to **Settings** → **Escalation Chains**.
+- Create or edit a chain.
+- Set a **Delay** (e.g., 5–10 minutes before sending alerts).
+- Assign this to alerts via:
+  - **Settings** → **Alert Rules** → edit or create a rule → assign the escalation chain
 
-  * E.g., suppress VM alerts if ESXi host is down
+_Use to reduce false positives from short spikes or flaps._
 
-✅ **Use Case**: Ping loss, device unreachable
+---
+
+## 5. Configuring Hysteresis (Auto-Clear Logic)
+
+Within a DataSource:
+
+- Click on the relevant **Datapoint**.
+- Go to **Advanced Settings**.
+- Configure:
+  - Trigger condition (e.g., `> 90%`)
+  - Clear condition (e.g., `< 85%` for 5 minutes)
+
+_Use to prevent alert flapping on metrics like disk space or CPU._
 
 ---
 
-### 📁 **8. Schedule Maintenance Windows**
+## 6. Using Dependency Mapping
 
-* Go to: *Resources* → select device(s) → *Manage Scheduled Down Time*
-* Suppress alerts during backups, patch windows, reboots
+- Go to **Resources**.
+- Select a **parent device** (e.g., core switch or WAN gateway).
+- Define **dependent devices**.
+- When the parent is unreachable, suppress downstream alerts.
 
-✅ **Use Case**: Backup job duration, frequent reboots
+_Use to prevent cascading alerts during network or infrastructure issues._
 
 ---
+
+## 7. Reviewing and Auditing Alerts
+
+- Navigate to **Reports**.
+- Create a new report and select:
+  - **Alert Trend**: View alerts over time.
+  - **Top Talkers**: Identify noisiest devices or metrics.
+
+_Use for monthly or quarterly alert audits and tuning decisions._
+
+
 
 
 
