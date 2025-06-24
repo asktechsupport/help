@@ -1,23 +1,21 @@
-#Add the Defender Antivirus Feature (Add Roles and Feature wizard)
+Import-Module ActiveDirectory
+#vars
+$domain = (Get-ADDomain).DNSRoot
+$scriptPath = "\\$domain\SYSVOL\$domain\scripts\WindowsDefenderATPLocalOnboardingScript2022.cmd"
+
+# Add the Defender Antivirus Feature (Add Roles and Feature wizard)
 Install-WindowsFeature -Name Windows-Defender
-write-host "Windows Defender Antivirus features has been installed" -ForegroundColor Green
+Write-Host "Windows Defender Antivirus features has been installed" -ForegroundColor Green
 
-#Copy onboarding script to Shared location/drive – to access from server 
-copy-item -path "\\prod.int.aldermore.co.uk\SYSVOL\prod.int.aldermore.co.uk\scripts\WindowsDefenderATPLocalOnboardingScript2022.cmd" -Destination c:\temp
-write-host "copied onboarding script from NETLOGON to c:\temp" -ForegroundColor Green
+# Copy onboarding script to Shared location/drive – to access from server 
 
-#Run Onboarding Script (May take up to 90 minutes to register in portal) 
-Start-Process -FilePath "C:\temp\WindowsDefenderATPLocalOnboardingScript2022.cmd"
+# Copy to destination
+Copy-Item -Path $scriptPath -Destination "C:\temp"
 
-#Reboot the Server 
-write-host "THE SERVER WILL REBOOT IN 5 SECONDS" -ForegroundColor red
-#shutdown /r /t 5
+Write-Host "Copied onboarding script from NETLOGON to C:\temp" -ForegroundColor Green
 
-#Run get-mpcomputerstatus command to check if feature is installed/AV status is enabled
-get-mpcomputerstatus
+# Run Onboarding Script (May take up to 90 minutes to register in portal) 
+Start-Process -FilePath "cmd.exe" -ArgumentList "/c C:\temp\WindowsDefenderATPLocalOnboardingScript2022.cmd" -Verb RunAs
 
-  
-
-       
-
-      
+# Run get-mpcomputerstatus command to check if feature is installed/AV status is enabled
+Get-MpComputerStatus
