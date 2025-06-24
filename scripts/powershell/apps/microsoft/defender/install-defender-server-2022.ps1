@@ -11,7 +11,7 @@ Start-Process -FilePath "C:\temp\WindowsDefenderATPLocalOnboardingScript2022.cmd
 
 #Reboot the Server 
 write-host "THE SERVER WILL REBOOT IN 5 SECONDS" -ForegroundColor red
-shutdown /r /t 5
+#shutdown /r /t 5
 
 #Run get-mpcomputerstatus command to check if feature is installed/AV status is enabled
 get-mpcomputerstatus
