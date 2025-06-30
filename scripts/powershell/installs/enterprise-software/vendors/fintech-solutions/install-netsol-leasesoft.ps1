@@ -1,3 +1,24 @@
+function Run-PrepareBaseImageWithTiming {
+    param (
+        [string]$ScriptPath
+    )
+
+    $startTime = Get-Date
+    Write-Host "Starting PrepareBaseImage.cmd at $startTime"
+
+    # Launch the script elevated
+    $process = Start-Process -FilePath $ScriptPath -Verb RunAs -PassThru
+
+    # Wait for the process to exit
+    $process.WaitForExit()
+
+    $endTime = Get-Date
+    Write-Host "PrepareBaseImage.cmd completed at $endTime"
+
+    $duration = $endTime - $startTime
+    Write-Host "Total execution time: $($duration.ToString())"
+}
+
 # Define source and destination paths
 $source = "C:\Path\To\Source"
 $destination = "C:\Path\To\Destination"
@@ -13,16 +34,16 @@ Get-ChildItem -Path $source -File -Recurse | ForEach-Object {
     Copy-Item -Path $_.FullName -Destination $targetPath -Force
 }
 
-Get-ChildItem -Path "C:\Program Files (x86)" -Recurse -ErrorAction SilentlyContinue |
+# Search for the BIS-F PrepareBaseImage.cmd script
+$bisfCmd = Get-ChildItem -Path "C:\Program Files (x86)" -Recurse -ErrorAction SilentlyContinue |
     Where-Object {
-        $_.PSIsContainer -eq $false -and
-        $_.Name -like "*PrepareBaseImage*"
+        -not $_.PSIsContainer -and $_.Name -like "*PrepareBaseImage*.cmd"
     } |
-    Select-Object -ExpandProperty FullName
+    Select-Object -ExpandProperty FullName -First 1
 
-    
-    # Run the script as administrator
-    Start-Process powershell.exe -ArgumentList "-ExecutionPolicy Bypass -File `"$($bisfScript.FullName)`"" -Verb RunAs
+if ($bisfCmd) {
+    Write-Host "Found BIS-F script at: $bisfCmd"
+    Run-PrepareBaseImageWithTiming -ScriptPath $bisfCmd
 } else {
-    Write-Host "PrepareBaseImage.ps1 not found in BIS-F directory." -ForegroundColor Red
+    Write-Host "PrepareBaseImage.cmd not found in Program Files (x86)." -ForegroundColor Red
 }
