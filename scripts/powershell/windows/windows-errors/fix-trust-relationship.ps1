@@ -1,0 +1,1 @@
+test-computersecurechannel -repair -credential *
