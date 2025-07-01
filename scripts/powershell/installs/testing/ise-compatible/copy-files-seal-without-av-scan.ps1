@@ -92,7 +92,7 @@ function Run-PrepareBaseImageWithTiming {
         Write-Host "NEXT OPERATION STARTING: Copying deployment files..." -ForegroundColor Yellow
         
 # Define source and destination paths
-$source = "C:\Temp"
+$source = "C:\Temp\copyfilestest"
 $destination = "C:\Temp\copydestinationtest"
 
 # Ensure destination exists
