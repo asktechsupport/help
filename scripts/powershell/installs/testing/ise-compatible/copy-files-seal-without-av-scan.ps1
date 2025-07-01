@@ -106,8 +106,14 @@ Get-ChildItem -Path $source -File -Recurse | ForEach-Object {
     Copy-Item -Path $_.FullName -Destination $targetPath -Force
 }
 
+start $destination
+
+
         #OPERATION FINISHED
         Write-Host "OPERATION FINISHED: Copied deployment files successfully" -ForegroundColor Green
+
+        #VALIDATION
+        Write-Host "VALIDATION: Manually check the destination, the folder has opened for you" -ForegroundColor Cyan
         
         #NEXT OPERATION STARTING
         Write-Host "NEXT OPERATION STARTING: Sealing the image without AV scan" -ForegroundColor Yellow
