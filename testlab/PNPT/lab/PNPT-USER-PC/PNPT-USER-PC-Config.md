@@ -193,7 +193,7 @@ Add-Computer -DomainName pnpt.local
 ```powershell
 # Step 1: Create the local user
 $newUser = "PC-Local-Admin01"
-New-LocalUser -Name $newUser -Password (ConvertTo-SecureString "Password456!" -AsPlainText -Force) -FullName $newUser -Description "Description of the user"
+New-LocalUser -Name $newUser -Password (ConvertTo-SecureString "Help8585" -AsPlainText -Force) -FullName $newUser -Description "Description of the user"
 
 # Step 2: Add the user to the Administrators group
 Add-LocalGroupMember -Group "Administrators" -Member $newUser
