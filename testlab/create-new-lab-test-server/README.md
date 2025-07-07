@@ -1,6 +1,8 @@
 ### Steps
 1️⃣ Change the network adapter in vmware to $domain.local
-2️⃣ ▶Power ON
+
+2️⃣ Power **ON**
+
 3️⃣ Run script
 ```powershell
 #Disable ipv6
