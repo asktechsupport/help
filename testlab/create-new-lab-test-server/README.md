@@ -1,3 +1,8 @@
+### Steps
+1️⃣ Change the network adapter in vmware to $domain.local
+2️⃣ ▶Power ON
+3️⃣ Run script
+```powershell
 #Disable ipv6
 Get-NetAdapterBinding –ComponentID ms_tcpip6 | disable-NetAdapterBinding -ComponentID ms_tcpip6 -PassThru
 $getinterfaceindex = Get-NetIPConfiguration | select -ExpandProperty InterfaceIndex
@@ -22,3 +27,4 @@ Get-NetIPConfiguration
 #refresh dns
 
 ipconfig /registerdns
+```
