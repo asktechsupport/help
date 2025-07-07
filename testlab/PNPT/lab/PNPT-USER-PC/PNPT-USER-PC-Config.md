@@ -180,7 +180,7 @@ Join the domain
 Add-Computer -DomainName pnpt.local
 # when prompted for creds enter
 # Administrator
-# Password456!
+# Help8585
 # Restart-Computer -Force ⚠️Reboot Required⚠️
 #
 ```
