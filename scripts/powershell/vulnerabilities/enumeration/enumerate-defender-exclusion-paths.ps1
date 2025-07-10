@@ -1,6 +1,8 @@
 #Powershell version
-& "C:\Program Files\Windows Defender\MpCmdRun.exe" -Scan -ScanType 3 -File "C:\"
+Get-MpPreference | Select-Object -ExpandProperty ExclusionPath
+
 
 #cmd version
-"C:\Program Files\Windows Defender\MpCmdRun.exe" -Scan -ScanType 3 -File "C:\"
+powershell -command "Get-MpPreference | Select -ExpandProperty ExclusionPath"
+
 
