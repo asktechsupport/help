@@ -5,9 +5,9 @@ Setup with
 # Variables
 $pswaUser = "PNPT\PNPT"
 $certName = "PSWA-SelfSigned"
-$dnsName = "localhost"  # Change if needed (e.g. server FQDN)
+$hostfqdn = "[System.Net.Dns]::GetHostEntry($env:computerName).HostName"  #Gets your server FQDN
 $httpsPort = 443
-$url = "https://$dnsName/pswa"
+$url = "https://$hostfqdn/pswa"
 
 # Step 1: Install PowerShell Web Access
 Install-WindowsFeature -Name WindowsPowerShellWebAccess -IncludeManagementTools
