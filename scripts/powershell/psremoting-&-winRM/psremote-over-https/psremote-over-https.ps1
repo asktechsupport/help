@@ -5,26 +5,28 @@ if (-not ([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdenti
 }
 
 # Variables
-$dnsNames = @($env:COMPUTERNAME, "$env:COMPUTERNAME.$env:USERDNSDOMAIN")
-$certFriendlyName = "WinRM HTTPS PSRemoting"
+$hostname = $env:COMPUTERNAME
+$fqdn = "$hostname.$env:USERDNSDOMAIN"
+$dnsNames = @($hostname, $fqdn)
+$template = "WebServer"
 
-# Create SSL Certificate with NetBIOS and FQDN
-$cert = New-SelfSignedCertificate `
-    -DnsName $dnsNames `
-    -CertStoreLocation "cert:\LocalMachine\My" `
-    -FriendlyName $certFriendlyName `
-    -KeyUsage DigitalSignature, KeyEncipherment `
-    -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.1")  # Server Authentication EKU
+Write-Host "Requesting certificate from CA for: $dnsNames" -ForegroundColor Cyan
 
-$thumbprint = $cert.Thumbprint
-Write-Host "✅ Created certificate with thumbprint: $thumbprint" -ForegroundColor Green
+try {
+    $certRequest = Get-Certificate -Template $template -DnsName $dnsNames -CertStoreLocation "cert:\LocalMachine\My" -ErrorAction Stop
+    $thumbprint = $certRequest.Certificate.Thumbprint
+    Write-Host "✅ Issued certificate with thumbprint: $thumbprint" -ForegroundColor Green
+} catch {
+    Write-Host "❌ Certificate request failed. Check if the CA is reachable and the template is correct." -ForegroundColor Red
+    exit
+}
 
 # Remove existing HTTPS listeners
+Write-Host "Cleaning up existing WinRM HTTPS listeners..." -ForegroundColor Cyan
 Get-ChildItem WSMan:\localhost\Listener | Where-Object { $_.Keys -match 'Transport=HTTPS' } | Remove-Item -Force
 
 # Create new WinRM HTTPS listener
-$command = "winrm create winrm/config/Listener?Address=*+Transport=HTTPS @{Hostname=`"$hostname`"; CertificateThumbprint=`"$thumbprint`"}"
-cmd /c $command
+$listenerCommand = "winrm create winrm/config/Listener?Address=*+Transport=HTTPS @{Hostname=`"$fqdn`"; CertificateThumbprint=`"$thumbprint`"}"
+cmd /c $listenerCommand
 
-Write-Host "✅ WinRM HTTPS listener configured for $env:COMPUTERNAME." -ForegroundColor Green
-
+Write-Host "✅ WinRM HTTPS listener configured using CA-issued certificate for $fqdn" -ForegroundColor Green
