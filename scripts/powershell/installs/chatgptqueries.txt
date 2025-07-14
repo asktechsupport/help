@@ -1,0 +1,33 @@
+ask chatgpt for:
+
+I want a setup script that will
+- setup a global powershell profile to use variables from \\$env:USERDNSDOMAIN\SYSVOL\$env:USERDNSDOMAIN\scripts\global-powershell-profiles\global-variables.ps1. This needs to be created as part of the script
+- the contents of global-variables.ps1 need to be
+
+$UpdatePath = "\\$env:USERDNSDOMAIN\SYSVOL\$env:USERDNSDOMAIN\scripts\variables-software-updates"
+
+$SoftwareList = @(
+    "GoogleChromeStandaloneEnterprise64.msi",    # Chrome 64-bit enterprise MSI
+    "FirefoxInstaller.exe",                     # Standard Firefox installer EXE (rename for consistency)
+    "NotepadPlusPlus.exe",                      # Notepad++ installer EXE (rename for consistency)
+)
+
+- I also want the setup for citrix workspace in a separate file (test and create this path if needed)
+
+$UpdatePath = "\\$env:USERDNSDOMAIN\SYSVOL\$env:USERDNSDOMAIN\scripts\variables-citrix-updates"
+
+$SoftwareList = @(
+    "CitrixWorkspaceApp.exe"                    # Citrix Workspace app installer
+    "VDAWorkstationSetup.exe"                   # Citrix VDA app LTSR installer
+    "CitrixStoreFront-x64.exe"                  # Citrix StoreFront LTSR app installer
+)
+
+I also want some logic to handle copying and pasting the software from my repo to the sysvol location:
+\\$env:USERDNSDOMAIN\SYSVOL\$env:USERDNSDOMAIN\scripts\automatedInstalls
+
+and then for each server to copy the exe's only if they have the existing software installed, to:
+C:\temp\
+
+
+
+
