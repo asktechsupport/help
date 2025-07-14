@@ -42,4 +42,4 @@ if (-not (Test-Path $GppTargetPath)) {
 $GppXml | Set-Content -Path "$GppTargetPath\Files.xml" -Encoding UTF8
 Write-Host "Files.xml written to $GppTargetPath"
 
-Write-Host "✅ GPO setup complete. Link the GPO manually using New-GPLink as needed."
+Write-Host "✅ GPO setup complete. Link the GPO manually using New-GPLink as needed." -ForegroundColor Green
