@@ -1,7 +1,7 @@
 Import-Module GroupPolicy
 
 # Configuration
-$GpoName = "Global PowerShell Profile Deployment"
+$GpoName = "Global PowerShell Profile Deployment (Computer Config)"
 $SourcePath = "\\$env:USERDNSDOMAIN\SYSVOL\$env:USERDNSDOMAIN\scripts\global-powershell-profiles\profile.ps1"
 $DestinationPath = "C:\ProgramData\Microsoft\Windows\PowerShell\profile.ps1"
 
@@ -14,7 +14,7 @@ if (-not $gpo) {
     Write-Host "GPO already exists: $GpoName"
 }
 
-# Build the XML content
+# Build the XML content for Computer Configuration
 $GppXml = @"
 <?xml version="1.0" encoding="utf-8"?>
 <Files clsid="{C631DF4C-088F-48E3-A7D8-0194ACEC0B7B}">
@@ -27,10 +27,10 @@ $GppXml = @"
 </Files>
 "@
 
-# Determine GPO folder in SYSVOL
+# Path for Computer Configuration
 $Domain = $env:USERDNSDOMAIN
 $GpoGuid = $gpo.Id
-$GppTargetPath = "\\$Domain\SYSVOL\$Domain\Policies\{$GpoGuid}\User\Preferences\Files"
+$GppTargetPath = "\\$Domain\SYSVOL\$Domain\Policies\{$GpoGuid}\Machine\Preferences\Files"
 
 # Ensure the folder exists
 if (-not (Test-Path $GppTargetPath)) {
@@ -40,6 +40,6 @@ if (-not (Test-Path $GppTargetPath)) {
 
 # Write Files.xml
 $GppXml | Set-Content -Path "$GppTargetPath\Files.xml" -Encoding UTF8
-Write-Host "Files.xml written to $GppTargetPath"
+Write-Host "Files.xml written under Computer Configuration at $GppTargetPath"
 
-Write-Host "✅ GPO setup complete. Link the GPO manually using New-GPLink as needed." -ForegroundColor Green
+Write-Host "✅ GPO setup complete. Link it to your target OU as needed using New-GPLink."
