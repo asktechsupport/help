@@ -1,4 +1,4 @@
-$servers = @("pnpt-test.pnpt.local")
+$servers = @("pnpt-test.pnpt.local", "pnpt-winrm.pnpt.local")
 $installerShare = "\\$env:USERDNSDOMAIN\SYSVOL\$env:USERDNSDOMAIN\scripts\automatedInstalls\npp.8.8.2.Installer.x64.exe"
 $psexecPath = "C:\Tools\PsTools\psexec.exe"
 
