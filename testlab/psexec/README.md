@@ -9,4 +9,4 @@
 Download and install locations
 [Download PsExec](https://download.sysinternals.com/files/PSTools.zip)
 
-Install to: C:\Tools
+Extract to: C:\Tools
