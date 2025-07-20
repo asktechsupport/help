@@ -14,6 +14,7 @@ Set-NetFirewallProfile -Enabled False #disable firewall (use with caution)
 Install-WindowsFeature -Name DNS -IncludeManagementTools #Install DNS
 Install-WindowsFeature DHCP -IncludeManagementTools #Install DHCP
   netsh dhcp add securitygroups #This adds DHCP Administrators and DHCP Users
+  netsh dhcp add "Domain Admins" #This adds Domain Admins
   Restart-Service dhcpserver
 
 #Install AD Forest "domain.local"
