@@ -1,6 +1,5 @@
-- [ ] Update VMware Tools each month* - Requires a reboot
 - [ ] Turn on viewing file extensions and view hidden files and folders
-- [ ] Patch OS each month* - Requires a reboot
+- [ ] Patch OS each month* and vmware Tools* - Requires a reboot
 > [!NOTE]
 > Turn the template back on → Check for updates
 - [ ] Configure
