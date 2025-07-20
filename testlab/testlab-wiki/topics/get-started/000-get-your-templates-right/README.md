@@ -2,12 +2,7 @@
 - [ ] Turn on viewing file extensions and view hidden files and folders
 - [ ] Patch OS each month* - Requires a reboot
 > [!NOTE]
-> Turn the template back on → Check for updates → Sysprep → Generalize / Reboot
-```cmd
-cd \Windows\System32\Sysprep
-.\Sysprep.exe
-#
-```
+> Turn the template back on → Check for updates
 - [ ] Configure
   - [ ] Turn off Firewall
   - [ ] Disable ipv6
@@ -28,12 +23,22 @@ if (-not (Test-Path $toolsPath)) {
 }
 
 ```
+- [ ] Sysprep → Generalize / Reboot
+```cmd
+cd \Windows\System32\Sysprep
+.\Sysprep.exe
+#
+```
 - [ ] Sysprep → Generalize / shut down
 ```cmd
 cd \Windows\System32\Sysprep
 .\Sysprep.exe
 #
 ```
+- [ ] Enable your template for cloning in Workstation → **Advanced**
+> [!TIP]
+> 
+>  Template is ready for cloning
 
 
 
