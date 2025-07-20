@@ -1,27 +1,25 @@
-○ Update VMware Tools each month* - Requires a reboot
-
-○ Patch OS each month* - Requires a reboot
-
-○ Turn on viewing file extensions and view hidden files and folders
-
-○ Turn off firewall
+- [ ] Update VMware Tools each month* - Requires a reboot
+- [ ] Turn on viewing file extensions and view hidden files and folders
+- [ ] Patch OS each month* - Requires a reboot
+> [!NOTE]
+> Turn the template back on → Check for updates → Sysprep → Generalize / Reboot
+```cmd
+cd \Windows\System32\Sysprep
+.\Sysprep.exe
+#
+```
+- [ ] Turn off firewall and disable ipv6
+```powershell
 Set-NetFirewallProfile -Enabled False
-
-○ Turn the template back on and then
+#Disable ipv6
+Get-NetAdapterBinding –ComponentID ms_tcpip6 | disable-NetAdapterBinding -ComponentID ms_tcpip6 -PassThru
+```
+- [ ] Sysprep → Generalize / shut down
 ```cmd
 cd \Windows\System32\Sysprep
 .\Sysprep.exe
 #
 ```
-Generalize / Reboot
-Run again:
-```cmd
-cd \Windows\System32\Sysprep
-.\Sysprep.exe
-#
-```
-Generalize / shut down
 
 
-○ Turn off firewall again for the next time
-Set-NetFirewallProfile -Enabled False![image](https://github.com/user-attachments/assets/b2e2a74b-f14f-493d-adba-da174894b2fd)
+
