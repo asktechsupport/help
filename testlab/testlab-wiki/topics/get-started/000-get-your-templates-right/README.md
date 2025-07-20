@@ -8,11 +8,25 @@ cd \Windows\System32\Sysprep
 .\Sysprep.exe
 #
 ```
-- [ ] Turn off firewall and disable ipv6
+- [ ] Configure
+  - [ ] Turn off Firewall
+  - [ ] Disable ipv6
+  - [ ] Create C:\Tools  
 ```powershell
 Set-NetFirewallProfile -Enabled False
 #Disable ipv6
 Get-NetAdapterBinding –ComponentID ms_tcpip6 | disable-NetAdapterBinding -ComponentID ms_tcpip6 -PassThru
+#Create C:\Tools
+$toolsPath = "C:\Tools"
+
+if (-not (Test-Path $toolsPath)) {
+    Write-Host "Creating folder: $toolsPath"
+    New-Item -Path $toolsPath -ItemType Directory -Force | Out-Null
+    Write-Host "✅ Folder created."
+} else {
+    Write-Host "✅ Folder already exists: $toolsPath"
+}
+
 ```
 - [ ] Sysprep → Generalize / shut down
 ```cmd
