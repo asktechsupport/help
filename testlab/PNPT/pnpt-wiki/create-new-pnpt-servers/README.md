@@ -1,5 +1,5 @@
 ### Steps
-1️⃣ Change the network adapter in vmware to $domain.local
+1️⃣ Change the network adapter in vmware to pnpt.local
 
 2️⃣ Power **ON**
 
