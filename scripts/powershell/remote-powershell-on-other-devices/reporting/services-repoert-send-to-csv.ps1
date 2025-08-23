@@ -37,8 +37,9 @@ foreach ($computer in $fqdns) {
     }
 }
 
-# Define CSV file path
-$csvPath = Join-Path $path "SQL_Service_Status.csv"
+# Generate timestamp for filename
+$timestamp = Get-Date -Format "yyyyMMdd_HHmmss"
+$csvPath = Join-Path $path "SQL_Service_Status_$timestamp.csv"
 
 # Export to CSV
 $results | Export-Csv -Path $csvPath -NoTypeInformation
