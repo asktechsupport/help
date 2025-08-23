@@ -6,16 +6,16 @@ if (-not (Test-Path $path)) {
 
 # Define hostnames and domain
 $hostnames = @(
-    "HH3PIVDWHSSRS02",
-    "HH3PIVDWHSSRS01",
-    "HH3PIVDWHSSIS02",
-    "HH3PIVDWHSSIS01",
-    "HH3PIVDWHSOLP02",
-    "HH3PIVDWHSOLP01",
-    "HH3PICDWHSSQL02",
-    "HH3PICDWHSSQL01"
+    "server01",
+    "server02",
+    "server03",
+    "server04",
+    "server05",
+    "server06",
+    "server07",
+    "server08"
 )
-$domain = "aldermore.int"
+$domain = "your.domain.local"
 $fqdns = $hostnames | ForEach-Object { "$_.${domain}" }
 
 # Collect service data
@@ -45,3 +45,4 @@ $csvPath = Join-Path $path "SQL_Service_Status_$timestamp.csv"
 $results | Export-Csv -Path $csvPath -NoTypeInformation
 
 Write-Host "✅ CSV file saved to: $csvPath"
+start $csvPath
