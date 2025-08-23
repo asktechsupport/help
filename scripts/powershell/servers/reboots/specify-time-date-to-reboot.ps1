@@ -1,3 +1,4 @@
+Change the time and date  in line 9
 $TaskName = "ScheduledReboot"
 $TaskDescription = "Reboots the server at 15:00 on 24/08/2025"
 
@@ -5,7 +6,7 @@ $TaskDescription = "Reboots the server at 15:00 on 24/08/2025"
 $Action = New-ScheduledTaskAction -Execute "shutdown.exe" -Argument "/r /t 0"
 
 # Define the one-time trigger
-$TriggerTime = Get-Date "24/08/2025 15:00"
+$TriggerTime = Get-Date "24/08/2025 15:00" #🕧provide time on this line
 $Trigger = New-ScheduledTaskTrigger -Once -At $TriggerTime
 
 # Define the principal (run as SYSTEM with highest privileges)
