@@ -1,24 +1,28 @@
-# Define hostnames
+# Define anonymised hostnames
 $hostnames = @(
-    "Server01",
-    "Server02",
-    "Server03",
-    "Server04",
-    "Server05",
-    "Server06",
-    "Server07",
-    "Server08"
+    "ServerA",
+    "ServerB",
+    "ServerC",
+    "ServerD",
+    "ServerE",
+    "ServerF",
+    "ServerG",
+    "ServerH"
 )
 
-# Define domain
-$domain = "your.domain.local"
+# Define anonymised domain
+$domain = "example.domain"
 
 # Build FQDNs from hostnames
 $fqdns = $hostnames | ForEach-Object { "$_.${domain}" }
 
-# Use FQDNs in your service check
+# Check services and color output
 foreach ($computer in $fqdns) {
-    Get-WmiObject -Class Win32_Service -ComputerName $computer |
-        Where-Object { $_.Description -like "*SQL*" } |
-        Select-Object @{Name="ComputerName";Expression={$computer}}, Name, State
+    $services = Get-WmiObject -Class Win32_Service -ComputerName $computer |
+        Where-Object { $_.Description -like "*SQL*" }
+
+    foreach ($service in $services) {
+        $statusColor = if ($service.State -eq "Running") { "Green" } else { "Red" }
+        Write-Host "$($computer) - $($service.Name) - $($service.State)" -ForegroundColor $statusColor
+    }
 }
