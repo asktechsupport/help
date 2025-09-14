@@ -179,6 +179,7 @@ foreach($svc in $citrixServices){
 
 # Add a couple of known folders to broaden search (no hard-coded filenames)
 $likelyRoots = @(
+  'C:\Citrix',
   'C:\Program Files\Citrix',
   'C:\Program Files (x86)\Citrix',
   'C:\Program Files\Citrix\Broker\Service',
