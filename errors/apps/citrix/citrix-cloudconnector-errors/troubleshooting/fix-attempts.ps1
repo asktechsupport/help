@@ -272,3 +272,6 @@ if($fail -or -not $testedCrl){
   exit 0
 }
 # endregion
+
+.\Fix-CTX223828.ps1 *>&1 | Tee-Object -FilePath "C:\Temp\ctx223828-run.log"
+
