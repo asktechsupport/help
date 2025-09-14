@@ -68,7 +68,7 @@ function Import-CertIfMissing([System.Security.Cryptography.X509Certificates.X50
       $store.Add($Cert)
       return $true
     } else {
-      Write-Info "Cert already present in LocalMachine\$StoreName: $($Cert.Subject)"
+      Write-Info "Cert already present in LocalMachine\$StoreName: $({$Cert.Subject})"
       return $false
     }
   } finally { $store.Close() }
