@@ -91,6 +91,7 @@ Unregister-ScheduledTask -TaskName "RDS-Resume-Setup" -Confirm:$false
 # Mark completion and open RDWeb
 Stop-Transcript
 "RDS setup completed at $(Get-Date)" | Out-File "$env:SystemDrive\RDS-Phase2-Complete.txt" -Encoding UTF8 -Force
+$FQDN = [System.Net.Dns]::GetHostEntry($env:COMPUTERNAME).HostName
 Start-Process "https://$FQDN/RDWeb"
 '@
 
