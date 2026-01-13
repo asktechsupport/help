@@ -711,7 +711,7 @@ Click <a href="password.aspx" target="_blank">here</a> to reset your password.
 ```
 <?xml version="1.0"?>
 <rdwastr:strings xmlns:rdwastr="urn:microsoft.com:rdwastrings">
-  <string id="PageTitle">Remote Desktop Services</string>
+  <string id="PageTitle">Your Remote Apps</string>
   <string id="NoScriptWarning">
     <p id="NoScript1">RD Web Access requires JScript. This Web browser either does not support JScript, or scripts are being blocked.</p>
     <br/>
