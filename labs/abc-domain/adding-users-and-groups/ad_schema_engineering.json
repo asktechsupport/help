@@ -1,0 +1,17 @@
+{
+    "groups" : [
+      {
+        "name": "Engineering"
+      }: 
+    ],
+    "users": [
+      {
+          "name": "John Hammond"
+          "password": literallyanything99!
+          "groups":[
+              "Engineering"
+          ]
+
+      }
+    ]
+}
