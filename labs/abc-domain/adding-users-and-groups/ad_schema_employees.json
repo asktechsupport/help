@@ -1,0 +1,23 @@
+{
+    "groups" : [
+      {
+        "name": "Employees"
+      }: 
+    ],
+    "users": [
+      {
+          "name": "Alice Lice"
+          "password": literallyanything99!
+          "groups":[
+              "Employees"
+          ]
+  },
+  {
+          "name": "Bob Ob"
+          "password": literallyanythingABC!
+          "groups":[
+              "Employees"
+          ]
+  }
+    ]
+}
