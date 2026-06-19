@@ -5,7 +5,9 @@
 
 2️⃣ Power **ON**
 
-3️⃣ Run script
+3️⃣ **Confirm the Network adapter is connected + connected at power on**
+
+4️⃣ Run script
 ```powershell
 $adapter = "Ethernet0"
 $gateway = "10.0.0.1"
