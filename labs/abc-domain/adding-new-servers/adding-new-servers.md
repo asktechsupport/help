@@ -1,5 +1,7 @@
 ### Steps
-1️⃣ Change the network adapter in vmware to pnpt.local
+1️⃣ Change the network adapter in vmware to abc.local
+<img width="367" height="58" alt="image" src="https://github.com/user-attachments/assets/8950eda5-7f57-4441-8d27-19eee7fdb0cd" />
+
 
 2️⃣ Power **ON**
 
@@ -16,7 +18,7 @@ New-NetIPAddress -IPAddress $ip -PrefixLength 24 -DefaultGateway "10.0.0.1" -Int
 Set-DnsClientServerAddress -InterfaceIndex $getinterfaceindex -ServerAddresses ("10.0.0.1")
 
 #Set Suffixes - credit https://eddiejackson.net/lab/2022/03/08/powershell-add-dns-suffix-to-ethernet-connections/
-Set-DnsClientGlobalSetting -SuffixSearchList @("pnpt.local")
+Set-DnsClientGlobalSetting -SuffixSearchList @("abc.local")
 
 #Rename and join domain - credit https://stackoverflow.com/a/13492388
 # get the credential 
