@@ -7,15 +7,49 @@
 
 3️⃣ Run script
 ```powershell
-#Disable ipv6
-Get-NetAdapterBinding –ComponentID ms_tcpip6 | disable-NetAdapterBinding -ComponentID ms_tcpip6 -PassThru
-$getinterfaceindex = Get-NetIPConfiguration | select -ExpandProperty InterfaceIndex
+$adapter = "Ethernet0"
+$gateway = "10.0.0.1"
+$dns = "10.0.0.1"
 
-Set-NetIPInterface -InterfaceAlias Ethernet0 #set to match the default interface alias value
-Get-NetIPConfiguration
 $ip = Read-Host "Enter the IP address"
-New-NetIPAddress -IPAddress $ip -PrefixLength 24 -DefaultGateway "10.0.0.1" -InterfaceIndex $getinterfaceindex 
-Set-DnsClientServerAddress -InterfaceIndex $getinterfaceindex -ServerAddresses ("10.0.0.1")
+
+$ifIndex = (Get-NetAdapter -Name $adapter).ifIndex
+
+# Disable DHCP in both stores
+Set-NetIPInterface -InterfaceIndex $ifIndex -AddressFamily IPv4 -Dhcp Disabled -PolicyStore ActiveStore
+Set-NetIPInterface -InterfaceIndex $ifIndex -AddressFamily IPv4 -Dhcp Disabled -PolicyStore PersistentStore
+
+Start-Sleep -Seconds 3
+
+# Confirm DHCP is disabled
+Get-NetIPInterface -InterfaceIndex $ifIndex -AddressFamily IPv4 |
+    Format-Table InterfaceAlias,InterfaceIndex,Dhcp,PolicyStore
+
+# Remove existing default route
+Get-NetRoute -InterfaceIndex $ifIndex -DestinationPrefix "0.0.0.0/0" -ErrorAction SilentlyContinue |
+    Remove-NetRoute -Confirm:$false -ErrorAction SilentlyContinue
+
+# Remove existing IPv4 addresses
+Get-NetIPAddress -InterfaceIndex $ifIndex -AddressFamily IPv4 -ErrorAction SilentlyContinue |
+    Where-Object { $_.IPAddress -notlike "169.254*" } |
+    Remove-NetIPAddress -Confirm:$false -ErrorAction SilentlyContinue
+
+Start-Sleep -Seconds 3
+
+# Add new static IP explicitly to ActiveStore
+New-NetIPAddress `
+    -InterfaceIndex $ifIndex `
+    -IPAddress $ip `
+    -PrefixLength 24 `
+    -DefaultGateway $gateway `
+    -PolicyStore ActiveStore
+
+# Add DNS
+Set-DnsClientServerAddress `
+    -InterfaceIndex $ifIndex `
+    -ServerAddresses $dns
+
+Write-Host "Done. You may need to reboot for persistence." -ForegroundColor Green
 
 #Set Suffixes - credit https://eddiejackson.net/lab/2022/03/08/powershell-add-dns-suffix-to-ethernet-connections/
 Set-DnsClientGlobalSetting -SuffixSearchList @("abc.local")
