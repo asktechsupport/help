@@ -18,7 +18,7 @@ New-NetIPAddress -IPAddress $ip -PrefixLength 24 -DefaultGateway "10.0.0.1" -Int
 Set-DnsClientServerAddress -InterfaceIndex $getinterfaceindex -ServerAddresses ("10.0.0.1")
 
 #Set Suffixes - credit https://eddiejackson.net/lab/2022/03/08/powershell-add-dns-suffix-to-ethernet-connections/
-Set-DnsClientGlobalSetting -SuffixSearchList @("pnpt.local")
+Set-DnsClientGlobalSetting -SuffixSearchList @("abc.local")
 
 #Rename and join domain - credit https://stackoverflow.com/a/13492388
 # get the credential 
